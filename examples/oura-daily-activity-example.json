@@ -1,0 +1,23 @@
+{
+  "data": [
+    {
+      "id": "a012b345-6789-4cde-9abc-d0123456789e",
+      "day": "2026-05-24",
+      "score": 78,
+      "active_calories": 612,
+      "total_calories": 2840,
+      "steps": 9421,
+      "equivalent_walking_distance": 7150,
+      "high_activity_time": 1140,
+      "medium_activity_time": 3300,
+      "low_activity_time": 17820,
+      "non_wear_time": 0,
+      "resting_time": 32400,
+      "sedentary_time": 28860,
+      "target_calories": 550,
+      "target_meters": 9000,
+      "timestamp": "2026-05-24T23:59:59+00:00"
+    }
+  ],
+  "next_token": null
+}

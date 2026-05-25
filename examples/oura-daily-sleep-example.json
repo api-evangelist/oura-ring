@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": "f96a8e64-1234-4abc-9eef-1234567890ab",
+      "day": "2026-05-24",
+      "score": 87,
+      "contributors": {
+        "deep_sleep": 92,
+        "efficiency": 95,
+        "latency": 88,
+        "rem_sleep": 79,
+        "restfulness": 84,
+        "timing": 90,
+        "total_sleep": 86
+      },
+      "timestamp": "2026-05-24T07:42:12+00:00"
+    }
+  ],
+  "next_token": null
+}

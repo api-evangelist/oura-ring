@@ -1,0 +1,1759 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oura Sandbox API — Sample Data
+  description: 'Oura Sandbox API — Sample Data. 35 operations. Lead operation: Sandbox - Multiple Tag Documents. Self-contained Naftiko capability covering one Oura business surface.'
+  tags:
+  - Oura
+  - Sandbox
+  - Testing
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OURA_ACCESS_TOKEN: OURA_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: sandbox
+    baseUri: https://api.ouraring.com
+    description: Oura Sandbox API — Sample Data business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-sandbox-usercollection-tag
+      path: /v2/sandbox/usercollection/tag
+      operations:
+      - name: sandbox-multiple-tag-documents-v2-sandbox-usercollection-tag-get
+        method: GET
+        description: Sandbox - Multiple Tag Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-enhanced-tag
+      path: /v2/sandbox/usercollection/enhanced_tag
+      operations:
+      - name: sandbox-multiple-enhanced-tag-documents-v2-sandbox-usercollection-enhanced-tag-get
+        method: GET
+        description: Sandbox - Multiple Enhanced Tag Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-workout
+      path: /v2/sandbox/usercollection/workout
+      operations:
+      - name: sandbox-multiple-workout-documents-v2-sandbox-usercollection-workout-get
+        method: GET
+        description: Sandbox - Multiple Workout Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-session
+      path: /v2/sandbox/usercollection/session
+      operations:
+      - name: sandbox-multiple-session-documents-v2-sandbox-usercollection-session-get
+        method: GET
+        description: Sandbox - Multiple Session Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-activity
+      path: /v2/sandbox/usercollection/daily_activity
+      operations:
+      - name: sandbox-multiple-daily-activity-documents-v2-sandbox-usercollection-daily-activity-get
+        method: GET
+        description: Sandbox - Multiple Daily Activity Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-sleep
+      path: /v2/sandbox/usercollection/daily_sleep
+      operations:
+      - name: sandbox-multiple-daily-sleep-documents-v2-sandbox-usercollection-daily-sleep-get
+        method: GET
+        description: Sandbox - Multiple Daily Sleep Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-spo2
+      path: /v2/sandbox/usercollection/daily_spo2
+      operations:
+      - name: sandbox-multiple-daily-spo2-documents-v2-sandbox-usercollection-daily-spo2-get
+        method: GET
+        description: Sandbox - Multiple Daily Spo2 Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-readiness
+      path: /v2/sandbox/usercollection/daily_readiness
+      operations:
+      - name: sandbox-multiple-daily-readiness-documents-v2-sandbox-usercollection-daily-readiness-get
+        method: GET
+        description: Sandbox - Multiple Daily Readiness Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-sleep
+      path: /v2/sandbox/usercollection/sleep
+      operations:
+      - name: sandbox-multiple-sleep-documents-v2-sandbox-usercollection-sleep-get
+        method: GET
+        description: Sandbox - Multiple Sleep Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-sleep-time
+      path: /v2/sandbox/usercollection/sleep_time
+      operations:
+      - name: sandbox-multiple-sleep-time-documents-v2-sandbox-usercollection-sleep-time-get
+        method: GET
+        description: Sandbox - Multiple Sleep Time Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-rest-mode-period
+      path: /v2/sandbox/usercollection/rest_mode_period
+      operations:
+      - name: sandbox-multiple-rest-mode-period-documents-v2-sandbox-usercollection-rest-mode-period-get
+        method: GET
+        description: Sandbox - Multiple Rest Mode Period Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-ring-configuration
+      path: /v2/sandbox/usercollection/ring_configuration
+      operations:
+      - name: sandbox-multiple-ring-configuration-documents-v2-sandbox-usercollection-ring-configuration-get
+        method: GET
+        description: Sandbox - Multiple Ring Configuration Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-stress
+      path: /v2/sandbox/usercollection/daily_stress
+      operations:
+      - name: sandbox-multiple-daily-stress-documents-v2-sandbox-usercollection-daily-stress-get
+        method: GET
+        description: Sandbox - Multiple Daily Stress Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-resilience
+      path: /v2/sandbox/usercollection/daily_resilience
+      operations:
+      - name: sandbox-multiple-daily-resilience-documents-v2-sandbox-usercollection-daily-resilience-get
+        method: GET
+        description: Sandbox - Multiple Daily Resilience Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-daily-cardiovascular-age
+      path: /v2/sandbox/usercollection/daily_cardiovascular_age
+      operations:
+      - name: sandbox-multiple-daily-cardiovascular-age-documents-v2-sandbox-usercollection-daily-cardiovascular-age-get
+        method: GET
+        description: Sandbox - Multiple Daily Cardiovascular Age Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-vo2-max
+      path: /v2/sandbox/usercollection/vO2_max
+      operations:
+      - name: sandbox-multiple-vo2-max-documents-v2-sandbox-usercollection-vo2-max-get
+        method: GET
+        description: Sandbox - Multiple Vo2 Max Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-tag-document-id
+      path: /v2/sandbox/usercollection/tag/{document_id}
+      operations:
+      - name: sandbox-single-tag-document-v2-sandbox-usercollection-tag-document-id-get
+        method: GET
+        description: Sandbox - Single Tag Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-enhanced-tag-document-id
+      path: /v2/sandbox/usercollection/enhanced_tag/{document_id}
+      operations:
+      - name: sandbox-single-enhanced-tag-document-v2-sandbox-usercollection-enhanced-tag-document-id-get
+        method: GET
+        description: Sandbox - Single Enhanced Tag Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-workout-document-id
+      path: /v2/sandbox/usercollection/workout/{document_id}
+      operations:
+      - name: sandbox-single-workout-document-v2-sandbox-usercollection-workout-document-id-get
+        method: GET
+        description: Sandbox - Single Workout Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-session-document-id
+      path: /v2/sandbox/usercollection/session/{document_id}
+      operations:
+      - name: sandbox-single-session-document-v2-sandbox-usercollection-session-document-id-get
+        method: GET
+        description: Sandbox - Single Session Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-activity-document-id
+      path: /v2/sandbox/usercollection/daily_activity/{document_id}
+      operations:
+      - name: sandbox-single-daily-activity-document-v2-sandbox-usercollection-daily-activity-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Activity Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-sleep-document-id
+      path: /v2/sandbox/usercollection/daily_sleep/{document_id}
+      operations:
+      - name: sandbox-single-daily-sleep-document-v2-sandbox-usercollection-daily-sleep-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Sleep Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-spo2-document-id
+      path: /v2/sandbox/usercollection/daily_spo2/{document_id}
+      operations:
+      - name: sandbox-single-daily-spo2-document-v2-sandbox-usercollection-daily-spo2-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Spo2 Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-readiness-document-id
+      path: /v2/sandbox/usercollection/daily_readiness/{document_id}
+      operations:
+      - name: sandbox-single-daily-readiness-document-v2-sandbox-usercollection-daily-readiness-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Readiness Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-sleep-document-id
+      path: /v2/sandbox/usercollection/sleep/{document_id}
+      operations:
+      - name: sandbox-single-sleep-document-v2-sandbox-usercollection-sleep-document-id-get
+        method: GET
+        description: Sandbox - Single Sleep Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-sleep-time-document-id
+      path: /v2/sandbox/usercollection/sleep_time/{document_id}
+      operations:
+      - name: sandbox-single-sleep-time-document-v2-sandbox-usercollection-sleep-time-document-id-get
+        method: GET
+        description: Sandbox - Single Sleep Time Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-rest-mode-period-document-id
+      path: /v2/sandbox/usercollection/rest_mode_period/{document_id}
+      operations:
+      - name: sandbox-single-rest-mode-period-document-v2-sandbox-usercollection-rest-mode-period-document-id-get
+        method: GET
+        description: Sandbox - Single Rest Mode Period Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-ring-configuration-document-id
+      path: /v2/sandbox/usercollection/ring_configuration/{document_id}
+      operations:
+      - name: sandbox-single-ring-configuration-document-v2-sandbox-usercollection-ring-configuration-document-id-get
+        method: GET
+        description: Sandbox - Single Ring Configuration Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-stress-document-id
+      path: /v2/sandbox/usercollection/daily_stress/{document_id}
+      operations:
+      - name: sandbox-single-daily-stress-document-v2-sandbox-usercollection-daily-stress-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Stress Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-resilience-document-id
+      path: /v2/sandbox/usercollection/daily_resilience/{document_id}
+      operations:
+      - name: sandbox-single-daily-resilience-document-v2-sandbox-usercollection-daily-resilience-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Resilience Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-daily-cardiovascular-age-document-id
+      path: /v2/sandbox/usercollection/daily_cardiovascular_age/{document_id}
+      operations:
+      - name: sandbox-single-daily-cardiovascular-age-document-v2-sandbox-usercollection-daily-cardiovascular-age-document-id-get
+        method: GET
+        description: Sandbox - Single Daily Cardiovascular Age Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-vo2-max-document-id
+      path: /v2/sandbox/usercollection/vO2_max/{document_id}
+      operations:
+      - name: sandbox-single-vo2-max-document-v2-sandbox-usercollection-vo2-max-document-id-get
+        method: GET
+        description: Sandbox - Single Vo2 Max Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_id
+          in: path
+          type: string
+          description: 'document_id (path)'
+          required: true
+    - name: v2-sandbox-usercollection-heartrate
+      path: /v2/sandbox/usercollection/heartrate
+      operations:
+      - name: sandbox-multiple-heartrate-documents-v2-sandbox-usercollection-heartrate-get
+        method: GET
+        description: Sandbox - Multiple Heartrate Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_datetime
+          in: query
+          type: string
+          description: 'start_datetime (query)'
+          required: false
+        - name: end_datetime
+          in: query
+          type: string
+          description: 'end_datetime (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-ring-battery-level
+      path: /v2/sandbox/usercollection/ring_battery_level
+      operations:
+      - name: sandbox-multiple-ring-battery-level-documents-v2-sandbox-usercollection-ring-battery-level-get
+        method: GET
+        description: Sandbox - Multiple Ring Battery Level Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_datetime
+          in: query
+          type: string
+          description: 'start_datetime (query)'
+          required: false
+        - name: end_datetime
+          in: query
+          type: string
+          description: 'end_datetime (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    - name: v2-sandbox-usercollection-interbeat-interval
+      path: /v2/sandbox/usercollection/interbeat_interval
+      operations:
+      - name: sandbox-multiple-interbeat-interval-documents-v2-sandbox-usercollection-interbeat-interval-get
+        method: GET
+        description: Sandbox - Multiple Interbeat Interval Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_datetime
+          in: query
+          type: string
+          description: 'start_datetime (query)'
+          required: false
+        - name: end_datetime
+          in: query
+          type: string
+          description: 'end_datetime (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+    authentication:
+      type: bearer
+      value: '{{env.OURA_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sandbox-rest
+    port: 8080
+    description: REST adapter for Oura Sandbox API — Sample Data. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/sandbox/usercollection/tag
+      name: v2-sandbox-usercollection-tag
+      description: REST surface for v2-sandbox-usercollection-tag.
+      operations:
+      - method: GET
+        name: sandbox-multiple-tag-documents-v2-sandbox-usercollection-tag-get
+        description: Sandbox - Multiple Tag Documents
+        call: sandbox.sandbox-multiple-tag-documents-v2-sandbox-usercollection-tag-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/enhanced-tag
+      name: v2-sandbox-usercollection-enhanced-tag
+      description: REST surface for v2-sandbox-usercollection-enhanced-tag.
+      operations:
+      - method: GET
+        name: sandbox-multiple-enhanced-tag-documents-v2-sandbox-usercollection-enhanced-tag-get
+        description: Sandbox - Multiple Enhanced Tag Documents
+        call: sandbox.sandbox-multiple-enhanced-tag-documents-v2-sandbox-usercollection-enhanced-tag-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/workout
+      name: v2-sandbox-usercollection-workout
+      description: REST surface for v2-sandbox-usercollection-workout.
+      operations:
+      - method: GET
+        name: sandbox-multiple-workout-documents-v2-sandbox-usercollection-workout-get
+        description: Sandbox - Multiple Workout Documents
+        call: sandbox.sandbox-multiple-workout-documents-v2-sandbox-usercollection-workout-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/session
+      name: v2-sandbox-usercollection-session
+      description: REST surface for v2-sandbox-usercollection-session.
+      operations:
+      - method: GET
+        name: sandbox-multiple-session-documents-v2-sandbox-usercollection-session-get
+        description: Sandbox - Multiple Session Documents
+        call: sandbox.sandbox-multiple-session-documents-v2-sandbox-usercollection-session-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-activity
+      name: v2-sandbox-usercollection-daily-activity
+      description: REST surface for v2-sandbox-usercollection-daily-activity.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-activity-documents-v2-sandbox-usercollection-daily-activity-get
+        description: Sandbox - Multiple Daily Activity Documents
+        call: sandbox.sandbox-multiple-daily-activity-documents-v2-sandbox-usercollection-daily-activity-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-sleep
+      name: v2-sandbox-usercollection-daily-sleep
+      description: REST surface for v2-sandbox-usercollection-daily-sleep.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-sleep-documents-v2-sandbox-usercollection-daily-sleep-get
+        description: Sandbox - Multiple Daily Sleep Documents
+        call: sandbox.sandbox-multiple-daily-sleep-documents-v2-sandbox-usercollection-daily-sleep-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-spo2
+      name: v2-sandbox-usercollection-daily-spo2
+      description: REST surface for v2-sandbox-usercollection-daily-spo2.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-spo2-documents-v2-sandbox-usercollection-daily-spo2-get
+        description: Sandbox - Multiple Daily Spo2 Documents
+        call: sandbox.sandbox-multiple-daily-spo2-documents-v2-sandbox-usercollection-daily-spo2-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-readiness
+      name: v2-sandbox-usercollection-daily-readiness
+      description: REST surface for v2-sandbox-usercollection-daily-readiness.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-readiness-documents-v2-sandbox-usercollection-daily-readiness-get
+        description: Sandbox - Multiple Daily Readiness Documents
+        call: sandbox.sandbox-multiple-daily-readiness-documents-v2-sandbox-usercollection-daily-readiness-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/sleep
+      name: v2-sandbox-usercollection-sleep
+      description: REST surface for v2-sandbox-usercollection-sleep.
+      operations:
+      - method: GET
+        name: sandbox-multiple-sleep-documents-v2-sandbox-usercollection-sleep-get
+        description: Sandbox - Multiple Sleep Documents
+        call: sandbox.sandbox-multiple-sleep-documents-v2-sandbox-usercollection-sleep-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/sleep-time
+      name: v2-sandbox-usercollection-sleep-time
+      description: REST surface for v2-sandbox-usercollection-sleep-time.
+      operations:
+      - method: GET
+        name: sandbox-multiple-sleep-time-documents-v2-sandbox-usercollection-sleep-time-get
+        description: Sandbox - Multiple Sleep Time Documents
+        call: sandbox.sandbox-multiple-sleep-time-documents-v2-sandbox-usercollection-sleep-time-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/rest-mode-period
+      name: v2-sandbox-usercollection-rest-mode-period
+      description: REST surface for v2-sandbox-usercollection-rest-mode-period.
+      operations:
+      - method: GET
+        name: sandbox-multiple-rest-mode-period-documents-v2-sandbox-usercollection-rest-mode-period-get
+        description: Sandbox - Multiple Rest Mode Period Documents
+        call: sandbox.sandbox-multiple-rest-mode-period-documents-v2-sandbox-usercollection-rest-mode-period-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/ring-configuration
+      name: v2-sandbox-usercollection-ring-configuration
+      description: REST surface for v2-sandbox-usercollection-ring-configuration.
+      operations:
+      - method: GET
+        name: sandbox-multiple-ring-configuration-documents-v2-sandbox-usercollection-ring-configuration-get
+        description: Sandbox - Multiple Ring Configuration Documents
+        call: sandbox.sandbox-multiple-ring-configuration-documents-v2-sandbox-usercollection-ring-configuration-get
+        with:
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-stress
+      name: v2-sandbox-usercollection-daily-stress
+      description: REST surface for v2-sandbox-usercollection-daily-stress.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-stress-documents-v2-sandbox-usercollection-daily-stress-get
+        description: Sandbox - Multiple Daily Stress Documents
+        call: sandbox.sandbox-multiple-daily-stress-documents-v2-sandbox-usercollection-daily-stress-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-resilience
+      name: v2-sandbox-usercollection-daily-resilience
+      description: REST surface for v2-sandbox-usercollection-daily-resilience.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-resilience-documents-v2-sandbox-usercollection-daily-resilience-get
+        description: Sandbox - Multiple Daily Resilience Documents
+        call: sandbox.sandbox-multiple-daily-resilience-documents-v2-sandbox-usercollection-daily-resilience-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-cardiovascular-age
+      name: v2-sandbox-usercollection-daily-cardiovascular-age
+      description: REST surface for v2-sandbox-usercollection-daily-cardiovascular-age.
+      operations:
+      - method: GET
+        name: sandbox-multiple-daily-cardiovascular-age-documents-v2-sandbox-usercollection-daily-cardiovascular-age-get
+        description: Sandbox - Multiple Daily Cardiovascular Age Documents
+        call: sandbox.sandbox-multiple-daily-cardiovascular-age-documents-v2-sandbox-usercollection-daily-cardiovascular-age-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/vO2-max
+      name: v2-sandbox-usercollection-vo2-max
+      description: REST surface for v2-sandbox-usercollection-vo2-max.
+      operations:
+      - method: GET
+        name: sandbox-multiple-vo2-max-documents-v2-sandbox-usercollection-vo2-max-get
+        description: Sandbox - Multiple Vo2 Max Documents
+        call: sandbox.sandbox-multiple-vo2-max-documents-v2-sandbox-usercollection-vo2-max-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/tag/{document-id}
+      name: v2-sandbox-usercollection-tag-document-id
+      description: REST surface for v2-sandbox-usercollection-tag-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-tag-document-v2-sandbox-usercollection-tag-document-id-get
+        description: Sandbox - Single Tag Document
+        call: sandbox.sandbox-single-tag-document-v2-sandbox-usercollection-tag-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/enhanced-tag/{document-id}
+      name: v2-sandbox-usercollection-enhanced-tag-document-id
+      description: REST surface for v2-sandbox-usercollection-enhanced-tag-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-enhanced-tag-document-v2-sandbox-usercollection-enhanced-tag-document-id-get
+        description: Sandbox - Single Enhanced Tag Document
+        call: sandbox.sandbox-single-enhanced-tag-document-v2-sandbox-usercollection-enhanced-tag-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/workout/{document-id}
+      name: v2-sandbox-usercollection-workout-document-id
+      description: REST surface for v2-sandbox-usercollection-workout-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-workout-document-v2-sandbox-usercollection-workout-document-id-get
+        description: Sandbox - Single Workout Document
+        call: sandbox.sandbox-single-workout-document-v2-sandbox-usercollection-workout-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/session/{document-id}
+      name: v2-sandbox-usercollection-session-document-id
+      description: REST surface for v2-sandbox-usercollection-session-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-session-document-v2-sandbox-usercollection-session-document-id-get
+        description: Sandbox - Single Session Document
+        call: sandbox.sandbox-single-session-document-v2-sandbox-usercollection-session-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-activity/{document-id}
+      name: v2-sandbox-usercollection-daily-activity-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-activity-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-activity-document-v2-sandbox-usercollection-daily-activity-document-id-get
+        description: Sandbox - Single Daily Activity Document
+        call: sandbox.sandbox-single-daily-activity-document-v2-sandbox-usercollection-daily-activity-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-sleep/{document-id}
+      name: v2-sandbox-usercollection-daily-sleep-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-sleep-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-sleep-document-v2-sandbox-usercollection-daily-sleep-document-id-get
+        description: Sandbox - Single Daily Sleep Document
+        call: sandbox.sandbox-single-daily-sleep-document-v2-sandbox-usercollection-daily-sleep-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-spo2/{document-id}
+      name: v2-sandbox-usercollection-daily-spo2-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-spo2-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-spo2-document-v2-sandbox-usercollection-daily-spo2-document-id-get
+        description: Sandbox - Single Daily Spo2 Document
+        call: sandbox.sandbox-single-daily-spo2-document-v2-sandbox-usercollection-daily-spo2-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-readiness/{document-id}
+      name: v2-sandbox-usercollection-daily-readiness-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-readiness-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-readiness-document-v2-sandbox-usercollection-daily-readiness-document-id-get
+        description: Sandbox - Single Daily Readiness Document
+        call: sandbox.sandbox-single-daily-readiness-document-v2-sandbox-usercollection-daily-readiness-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/sleep/{document-id}
+      name: v2-sandbox-usercollection-sleep-document-id
+      description: REST surface for v2-sandbox-usercollection-sleep-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-sleep-document-v2-sandbox-usercollection-sleep-document-id-get
+        description: Sandbox - Single Sleep Document
+        call: sandbox.sandbox-single-sleep-document-v2-sandbox-usercollection-sleep-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/sleep-time/{document-id}
+      name: v2-sandbox-usercollection-sleep-time-document-id
+      description: REST surface for v2-sandbox-usercollection-sleep-time-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-sleep-time-document-v2-sandbox-usercollection-sleep-time-document-id-get
+        description: Sandbox - Single Sleep Time Document
+        call: sandbox.sandbox-single-sleep-time-document-v2-sandbox-usercollection-sleep-time-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/rest-mode-period/{document-id}
+      name: v2-sandbox-usercollection-rest-mode-period-document-id
+      description: REST surface for v2-sandbox-usercollection-rest-mode-period-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-rest-mode-period-document-v2-sandbox-usercollection-rest-mode-period-document-id-get
+        description: Sandbox - Single Rest Mode Period Document
+        call: sandbox.sandbox-single-rest-mode-period-document-v2-sandbox-usercollection-rest-mode-period-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/ring-configuration/{document-id}
+      name: v2-sandbox-usercollection-ring-configuration-document-id
+      description: REST surface for v2-sandbox-usercollection-ring-configuration-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-ring-configuration-document-v2-sandbox-usercollection-ring-configuration-document-id-get
+        description: Sandbox - Single Ring Configuration Document
+        call: sandbox.sandbox-single-ring-configuration-document-v2-sandbox-usercollection-ring-configuration-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-stress/{document-id}
+      name: v2-sandbox-usercollection-daily-stress-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-stress-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-stress-document-v2-sandbox-usercollection-daily-stress-document-id-get
+        description: Sandbox - Single Daily Stress Document
+        call: sandbox.sandbox-single-daily-stress-document-v2-sandbox-usercollection-daily-stress-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-resilience/{document-id}
+      name: v2-sandbox-usercollection-daily-resilience-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-resilience-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-resilience-document-v2-sandbox-usercollection-daily-resilience-document-id-get
+        description: Sandbox - Single Daily Resilience Document
+        call: sandbox.sandbox-single-daily-resilience-document-v2-sandbox-usercollection-daily-resilience-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/daily-cardiovascular-age/{document-id}
+      name: v2-sandbox-usercollection-daily-cardiovascular-age-document-id
+      description: REST surface for v2-sandbox-usercollection-daily-cardiovascular-age-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-daily-cardiovascular-age-document-v2-sandbox-usercollection-daily-cardiovascular-age-document-id-get
+        description: Sandbox - Single Daily Cardiovascular Age Document
+        call: sandbox.sandbox-single-daily-cardiovascular-age-document-v2-sandbox-usercollection-daily-cardiovascular-age-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/vO2-max/{document-id}
+      name: v2-sandbox-usercollection-vo2-max-document-id
+      description: REST surface for v2-sandbox-usercollection-vo2-max-document-id.
+      operations:
+      - method: GET
+        name: sandbox-single-vo2-max-document-v2-sandbox-usercollection-vo2-max-document-id-get
+        description: Sandbox - Single Vo2 Max Document
+        call: sandbox.sandbox-single-vo2-max-document-v2-sandbox-usercollection-vo2-max-document-id-get
+        with:
+          document_id: rest.document_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/heartrate
+      name: v2-sandbox-usercollection-heartrate
+      description: REST surface for v2-sandbox-usercollection-heartrate.
+      operations:
+      - method: GET
+        name: sandbox-multiple-heartrate-documents-v2-sandbox-usercollection-heartrate-get
+        description: Sandbox - Multiple Heartrate Documents
+        call: sandbox.sandbox-multiple-heartrate-documents-v2-sandbox-usercollection-heartrate-get
+        with:
+          start_datetime: rest.start_datetime
+          end_datetime: rest.end_datetime
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/ring-battery-level
+      name: v2-sandbox-usercollection-ring-battery-level
+      description: REST surface for v2-sandbox-usercollection-ring-battery-level.
+      operations:
+      - method: GET
+        name: sandbox-multiple-ring-battery-level-documents-v2-sandbox-usercollection-ring-battery-level-get
+        description: Sandbox - Multiple Ring Battery Level Documents
+        call: sandbox.sandbox-multiple-ring-battery-level-documents-v2-sandbox-usercollection-ring-battery-level-get
+        with:
+          start_datetime: rest.start_datetime
+          end_datetime: rest.end_datetime
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/sandbox/usercollection/interbeat-interval
+      name: v2-sandbox-usercollection-interbeat-interval
+      description: REST surface for v2-sandbox-usercollection-interbeat-interval.
+      operations:
+      - method: GET
+        name: sandbox-multiple-interbeat-interval-documents-v2-sandbox-usercollection-interbeat-interval-get
+        description: Sandbox - Multiple Interbeat Interval Documents
+        call: sandbox.sandbox-multiple-interbeat-interval-documents-v2-sandbox-usercollection-interbeat-interval-get
+        with:
+          start_datetime: rest.start_datetime
+          end_datetime: rest.end_datetime
+          next_token: rest.next_token
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sandbox-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oura Sandbox API — Sample Data. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: oura-sandbox-multiple-tag-documents
+      description: Sandbox - Multiple Tag Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-tag-documents-v2-sandbox-usercollection-tag-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-enhanced-tag-documents
+      description: Sandbox - Multiple Enhanced Tag Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-enhanced-tag-documents-v2-sandbox-usercollection-enhanced-tag-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-workout-documents
+      description: Sandbox - Multiple Workout Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-workout-documents-v2-sandbox-usercollection-workout-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-session-documents
+      description: Sandbox - Multiple Session Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-session-documents-v2-sandbox-usercollection-session-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-activity-documents
+      description: Sandbox - Multiple Daily Activity Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-activity-documents-v2-sandbox-usercollection-daily-activity-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-sleep-documents
+      description: Sandbox - Multiple Daily Sleep Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-sleep-documents-v2-sandbox-usercollection-daily-sleep-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-spo2-documents
+      description: Sandbox - Multiple Daily Spo2 Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-spo2-documents-v2-sandbox-usercollection-daily-spo2-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-readiness-documents
+      description: Sandbox - Multiple Daily Readiness Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-readiness-documents-v2-sandbox-usercollection-daily-readiness-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-sleep-documents
+      description: Sandbox - Multiple Sleep Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-sleep-documents-v2-sandbox-usercollection-sleep-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-sleep-time-documents
+      description: Sandbox - Multiple Sleep Time Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-sleep-time-documents-v2-sandbox-usercollection-sleep-time-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-rest-mode-period-documents
+      description: Sandbox - Multiple Rest Mode Period Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-rest-mode-period-documents-v2-sandbox-usercollection-rest-mode-period-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-ring-configuration-documents
+      description: Sandbox - Multiple Ring Configuration Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-ring-configuration-documents-v2-sandbox-usercollection-ring-configuration-get
+      with:
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-stress-documents
+      description: Sandbox - Multiple Daily Stress Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-stress-documents-v2-sandbox-usercollection-daily-stress-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-resilience-documents
+      description: Sandbox - Multiple Daily Resilience Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-resilience-documents-v2-sandbox-usercollection-daily-resilience-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-daily-cardiovascular-age-documents
+      description: Sandbox - Multiple Daily Cardiovascular Age Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-daily-cardiovascular-age-documents-v2-sandbox-usercollection-daily-cardiovascular-age-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-vo2-max-documents
+      description: Sandbox - Multiple Vo2 Max Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-vo2-max-documents-v2-sandbox-usercollection-vo2-max-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-tag-document
+      description: Sandbox - Single Tag Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-tag-document-v2-sandbox-usercollection-tag-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-enhanced-tag-document
+      description: Sandbox - Single Enhanced Tag Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-enhanced-tag-document-v2-sandbox-usercollection-enhanced-tag-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-workout-document
+      description: Sandbox - Single Workout Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-workout-document-v2-sandbox-usercollection-workout-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-session-document
+      description: Sandbox - Single Session Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-session-document-v2-sandbox-usercollection-session-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-activity-document
+      description: Sandbox - Single Daily Activity Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-activity-document-v2-sandbox-usercollection-daily-activity-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-sleep-document
+      description: Sandbox - Single Daily Sleep Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-sleep-document-v2-sandbox-usercollection-daily-sleep-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-spo2-document
+      description: Sandbox - Single Daily Spo2 Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-spo2-document-v2-sandbox-usercollection-daily-spo2-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-readiness-document
+      description: Sandbox - Single Daily Readiness Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-readiness-document-v2-sandbox-usercollection-daily-readiness-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-sleep-document
+      description: Sandbox - Single Sleep Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-sleep-document-v2-sandbox-usercollection-sleep-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-sleep-time-document
+      description: Sandbox - Single Sleep Time Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-sleep-time-document-v2-sandbox-usercollection-sleep-time-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-rest-mode-period-document
+      description: Sandbox - Single Rest Mode Period Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-rest-mode-period-document-v2-sandbox-usercollection-rest-mode-period-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-ring-configuration-document
+      description: Sandbox - Single Ring Configuration Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-ring-configuration-document-v2-sandbox-usercollection-ring-configuration-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-stress-document
+      description: Sandbox - Single Daily Stress Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-stress-document-v2-sandbox-usercollection-daily-stress-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-resilience-document
+      description: Sandbox - Single Daily Resilience Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-resilience-document-v2-sandbox-usercollection-daily-resilience-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-daily-cardiovascular-age-document
+      description: Sandbox - Single Daily Cardiovascular Age Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-daily-cardiovascular-age-document-v2-sandbox-usercollection-daily-cardiovascular-age-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-single-vo2-max-document
+      description: Sandbox - Single Vo2 Max Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-single-vo2-max-document-v2-sandbox-usercollection-vo2-max-document-id-get
+      with:
+        document_id: tools.document_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-heartrate-documents
+      description: Sandbox - Multiple Heartrate Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-heartrate-documents-v2-sandbox-usercollection-heartrate-get
+      with:
+        start_datetime: tools.start_datetime
+        end_datetime: tools.end_datetime
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-ring-battery-level-documents
+      description: Sandbox - Multiple Ring Battery Level Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-ring-battery-level-documents-v2-sandbox-usercollection-ring-battery-level-get
+      with:
+        start_datetime: tools.start_datetime
+        end_datetime: tools.end_datetime
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-sandbox-multiple-interbeat-interval-documents
+      description: Sandbox - Multiple Interbeat Interval Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sandbox.sandbox-multiple-interbeat-interval-documents-v2-sandbox-usercollection-interbeat-interval-get
+      with:
+        start_datetime: tools.start_datetime
+        end_datetime: tools.end_datetime
+        next_token: tools.next_token
+      outputParameters:
+      - type: object
+        mapping: $.

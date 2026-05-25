@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/oura-ring/json-schema/oura-daily-activity-schema.json",
+  "title": "Oura Daily Activity",
+  "description": "Per-day scored activity summary returned by /v2/usercollection/daily_activity.",
+  "type": "object",
+  "required": ["id", "day", "score", "timestamp"],
+  "properties": {
+    "id": { "type": "string" },
+    "day": { "type": "string", "format": "date" },
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "active_calories": { "type": "integer", "minimum": 0 },
+    "total_calories": { "type": "integer", "minimum": 0 },
+    "steps": { "type": "integer", "minimum": 0 },
+    "equivalent_walking_distance": { "type": "integer", "minimum": 0, "description": "Equivalent walking distance in meters." },
+    "high_activity_time": { "type": "integer", "minimum": 0, "description": "Seconds of high-intensity activity." },
+    "medium_activity_time": { "type": "integer", "minimum": 0 },
+    "low_activity_time": { "type": "integer", "minimum": 0 },
+    "non_wear_time": { "type": "integer", "minimum": 0 },
+    "resting_time": { "type": "integer", "minimum": 0 },
+    "sedentary_time": { "type": "integer", "minimum": 0 },
+    "target_calories": { "type": "integer", "minimum": 0 },
+    "target_meters": { "type": "integer", "minimum": 0 },
+    "timestamp": { "type": "string", "format": "date-time" }
+  }
+}

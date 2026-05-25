@@ -1,0 +1,97 @@
+specification: API Commons Vocabulary
+specificationVersion: '0.1'
+provider: Oura
+providerId: oura-ring
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Domain vocabulary for the Oura Ring and Oura Developer Cloud — biometric measurements, scored daily
+  summaries, event types, hardware, and subscription concepts that appear in the API surface and marketing site.
+sources:
+  - https://ouraring.com/en
+  - https://cloud.ouraring.com/v2/docs
+operational:
+  - term: Oura Ring
+    definition: Titanium wearable smart ring containing PPG, body-temperature, SpO2, and accelerometer sensors.
+    aliases: [ring, ring_configuration]
+  - term: Oura App
+    definition: Companion mobile application that presents scored insights and historical trends to the wearer.
+  - term: Oura Membership
+    definition: Required consumer subscription unlocking full insights in the Oura App.
+  - term: Oura Developer Cloud
+    definition: Public REST API at api.ouraring.com that exposes the authenticated user's biometric and score data
+      with OAuth 2.0 or a Personal Access Token.
+  - term: Personal Access Token
+    definition: Long-lived bearer token bound to a single user account for personal-use API calls.
+  - term: OAuth 2.0 Application
+    definition: Registered third-party integration that requests user-delegated access to scopes including
+      personal, daily, heartrate, workout, tag, session, spo2, and email.
+  - term: Webhook Subscription
+    definition: Developer-registered callback that receives notifications when documents of a given data_type
+      are created, updated, or deleted.
+capability:
+  - term: Daily Activity Score
+    definition: 0-100 score combining movement, calories burned, training frequency, and inactivity for the day.
+  - term: Daily Sleep Score
+    definition: 0-100 score combining sleep stages, latency, efficiency, timing, and restlessness.
+  - term: Daily Readiness Score
+    definition: 0-100 score combining HRV balance, sleep balance, recovery index, and body temperature deviation.
+  - term: Daily Resilience
+    definition: Long-term stress capacity classification reflecting recovery patterns over multiple weeks.
+  - term: Daily Stress
+    definition: Minute-level classification of the day into stressed, recovered, relaxed, and restored states.
+  - term: SpO2
+    definition: Blood oxygen saturation percentage measured during sleep.
+  - term: HRV
+    definition: Heart rate variability — millisecond-level variation between consecutive heart beats.
+  - term: Interbeat Interval (IBI)
+    definition: Raw time between consecutive heartbeats used to derive HRV.
+  - term: Cardiovascular Age
+    definition: Estimated cardiovascular age based on resting HR, HRV, and other cardiac signals.
+  - term: VO2 Max
+    definition: Estimated maximum aerobic capacity in ml/kg/min.
+  - term: Workout
+    definition: Auto-detected or manually logged exercise session with intensity and label.
+  - term: Session
+    definition: Guided activity (meditation, breathwork, reset) tracked via the Oura App.
+  - term: Tag
+    definition: Free-text user annotation attached to a day or time range.
+  - term: Enhanced Tag
+    definition: Structured user annotation with a typed category (ailment, lifestyle, nutrition, etc.) plus comment.
+  - term: Rest Mode Period
+    definition: User-flagged period (e.g., illness, injury) during which scoring is suspended.
+  - term: Sleep Time
+    definition: System-recommended bedtime window personalized to the user's chronotype.
+data_types:
+  - daily_activity
+  - daily_sleep
+  - daily_readiness
+  - daily_resilience
+  - daily_stress
+  - daily_spo2
+  - daily_cardiovascular_age
+  - vO2_max
+  - sleep
+  - sleep_time
+  - rest_mode_period
+  - workout
+  - session
+  - tag
+  - enhanced_tag
+  - heartrate
+  - interbeat_interval
+  - personal_info
+  - ring_configuration
+  - ring_battery_level
+event_types:
+  - create
+  - update
+  - delete
+oauth_scopes:
+  - email
+  - personal
+  - daily
+  - heartrate
+  - workout
+  - tag
+  - session
+  - spo2

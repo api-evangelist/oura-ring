@@ -1,0 +1,35 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Oura
+providerId: oura-ring
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Wearables
+  - Health
+  - Rate Limiting
+description: Documented rate limits for the Oura Developer Cloud v2 API. Limits are enforced per access token
+  (per user-application pair) and apply uniformly across all /v2/usercollection/* and /v2/webhook/* endpoints.
+sources:
+  - https://cloud.ouraring.com/v2/docs
+  - https://cloud.ouraring.com/docs
+headers:
+  retryAfter: retry-after
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+algorithm: fixed-window
+notes:
+  - Rate limits are applied per OAuth 2.0 access token (one user-app pair); refresh tokens do not share quota.
+  - Personal Access Tokens count against the same per-token bucket.
+  - Heavy time-series endpoints (heartrate, interbeat_interval) should be paginated via next_token rather than
+    polled at high frequency; use webhook subscriptions instead where possible.
+  - The sandbox surface (/v2/sandbox/usercollection/*) is intended for testing and shares the same per-token
+    quota as production.
+limits:
+  - scope: per access token
+    window: 5 minutes
+    requests: 5000
+    description: Per OAuth 2.0 / Personal Access Token request quota across all v2 endpoints.

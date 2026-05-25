@@ -1,0 +1,226 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oura Sleep API — Sleep, Sleep Time, Rest Mode
+  description: 'Oura Sleep API — Sleep, Sleep Time, Rest Mode. 3 operations. Lead operation: Multiple Sleep Documents. Self-contained Naftiko capability covering one Oura business surface.'
+  tags:
+  - Oura
+  - Sleep
+  - Rest Mode
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OURA_ACCESS_TOKEN: OURA_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: sleep
+    baseUri: https://api.ouraring.com
+    description: Oura Sleep API — Sleep, Sleep Time, Rest Mode business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-usercollection-sleep
+      path: /v2/usercollection/sleep
+      operations:
+      - name: multiple-sleep-documents-v2-usercollection-sleep-get
+        method: GET
+        description: Multiple Sleep Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+        - name: fields
+          in: query
+          type: string
+          description: 'Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.'
+          required: false
+    - name: v2-usercollection-sleep-time
+      path: /v2/usercollection/sleep_time
+      operations:
+      - name: multiple-sleep-time-documents-v2-usercollection-sleep-time-get
+        method: GET
+        description: Multiple Sleep Time Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+        - name: fields
+          in: query
+          type: string
+          description: 'Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.'
+          required: false
+    - name: v2-usercollection-rest-mode-period
+      path: /v2/usercollection/rest_mode_period
+      operations:
+      - name: multiple-rest-mode-period-documents-v2-usercollection-rest-mode-period-get
+        method: GET
+        description: Multiple Rest Mode Period Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: 'start_date (query)'
+          required: false
+        - name: end_date
+          in: query
+          type: string
+          description: 'end_date (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+        - name: fields
+          in: query
+          type: string
+          description: 'Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.'
+          required: false
+    authentication:
+      type: bearer
+      value: '{{env.OURA_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: sleep-rest
+    port: 8080
+    description: REST adapter for Oura Sleep API — Sleep, Sleep Time, Rest Mode. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/usercollection/sleep
+      name: v2-usercollection-sleep
+      description: REST surface for v2-usercollection-sleep.
+      operations:
+      - method: GET
+        name: multiple-sleep-documents-v2-usercollection-sleep-get
+        description: Multiple Sleep Documents
+        call: sleep.multiple-sleep-documents-v2-usercollection-sleep-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/usercollection/sleep-time
+      name: v2-usercollection-sleep-time
+      description: REST surface for v2-usercollection-sleep-time.
+      operations:
+      - method: GET
+        name: multiple-sleep-time-documents-v2-usercollection-sleep-time-get
+        description: Multiple Sleep Time Documents
+        call: sleep.multiple-sleep-time-documents-v2-usercollection-sleep-time-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/usercollection/rest-mode-period
+      name: v2-usercollection-rest-mode-period
+      description: REST surface for v2-usercollection-rest-mode-period.
+      operations:
+      - method: GET
+        name: multiple-rest-mode-period-documents-v2-usercollection-rest-mode-period-get
+        description: Multiple Rest Mode Period Documents
+        call: sleep.multiple-rest-mode-period-documents-v2-usercollection-rest-mode-period-get
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          next_token: rest.next_token
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sleep-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oura Sleep API — Sleep, Sleep Time, Rest Mode. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: oura-multiple-sleep-documents
+      description: Multiple Sleep Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sleep.multiple-sleep-documents-v2-usercollection-sleep-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-multiple-sleep-time-documents
+      description: Multiple Sleep Time Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sleep.multiple-sleep-time-documents-v2-usercollection-sleep-time-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-multiple-rest-mode-period-documents
+      description: Multiple Rest Mode Period Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sleep.multiple-rest-mode-period-documents-v2-usercollection-rest-mode-period-get
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        next_token: tools.next_token
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.

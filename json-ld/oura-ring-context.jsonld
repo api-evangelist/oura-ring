@@ -1,0 +1,194 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "oura": "https://api.ouraring.com/v2/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "PersonalInfo": {
+      "@id": "oura:PersonalInfo",
+      "@context": {
+        "id": { "@id": "oura:PersonalInfo/id", "@type": "xsd:string" },
+        "age": { "@id": "schema:age", "@type": "xsd:integer" },
+        "weight": { "@id": "schema:weight", "@type": "xsd:decimal" },
+        "height": { "@id": "schema:height", "@type": "xsd:decimal" },
+        "biological_sex": { "@id": "oura:PersonalInfo/biologicalSex", "@type": "xsd:string" },
+        "email": { "@id": "schema:email", "@type": "xsd:string" }
+      }
+    },
+
+    "DailyActivity": {
+      "@id": "oura:DailyActivity",
+      "@context": {
+        "id": { "@id": "oura:DailyActivity/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:DailyActivity/day", "@type": "xsd:date" },
+        "score": { "@id": "oura:DailyActivity/score", "@type": "xsd:integer" },
+        "active_calories": { "@id": "oura:DailyActivity/activeCalories", "@type": "xsd:integer" },
+        "total_calories": { "@id": "oura:DailyActivity/totalCalories", "@type": "xsd:integer" },
+        "steps": { "@id": "oura:DailyActivity/steps", "@type": "xsd:integer" },
+        "equivalent_walking_distance": { "@id": "oura:DailyActivity/equivalentWalkingDistance", "@type": "xsd:integer" },
+        "high_activity_time": { "@id": "oura:DailyActivity/highActivityTime", "@type": "xsd:integer" },
+        "medium_activity_time": { "@id": "oura:DailyActivity/mediumActivityTime", "@type": "xsd:integer" },
+        "low_activity_time": { "@id": "oura:DailyActivity/lowActivityTime", "@type": "xsd:integer" },
+        "non_wear_time": { "@id": "oura:DailyActivity/nonWearTime", "@type": "xsd:integer" },
+        "resting_time": { "@id": "oura:DailyActivity/restingTime", "@type": "xsd:integer" },
+        "sedentary_time": { "@id": "oura:DailyActivity/sedentaryTime", "@type": "xsd:integer" },
+        "target_calories": { "@id": "oura:DailyActivity/targetCalories", "@type": "xsd:integer" },
+        "timestamp": { "@id": "dcterms:created", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "DailySleep": {
+      "@id": "oura:DailySleep",
+      "@context": {
+        "id": { "@id": "oura:DailySleep/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:DailySleep/day", "@type": "xsd:date" },
+        "score": { "@id": "oura:DailySleep/score", "@type": "xsd:integer" },
+        "timestamp": { "@id": "dcterms:created", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "DailyReadiness": {
+      "@id": "oura:DailyReadiness",
+      "@context": {
+        "id": { "@id": "oura:DailyReadiness/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:DailyReadiness/day", "@type": "xsd:date" },
+        "score": { "@id": "oura:DailyReadiness/score", "@type": "xsd:integer" },
+        "temperature_deviation": { "@id": "oura:DailyReadiness/temperatureDeviation", "@type": "xsd:decimal" },
+        "temperature_trend_deviation": { "@id": "oura:DailyReadiness/temperatureTrendDeviation", "@type": "xsd:decimal" },
+        "timestamp": { "@id": "dcterms:created", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "DailyStress": {
+      "@id": "oura:DailyStress",
+      "@context": {
+        "id": { "@id": "oura:DailyStress/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:DailyStress/day", "@type": "xsd:date" },
+        "stress_high": { "@id": "oura:DailyStress/stressHigh", "@type": "xsd:integer" },
+        "recovery_high": { "@id": "oura:DailyStress/recoveryHigh", "@type": "xsd:integer" },
+        "day_summary": { "@id": "oura:DailyStress/daySummary", "@type": "xsd:string" }
+      }
+    },
+
+    "DailyResilience": {
+      "@id": "oura:DailyResilience",
+      "@context": {
+        "id": { "@id": "oura:DailyResilience/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:DailyResilience/day", "@type": "xsd:date" },
+        "level": { "@id": "oura:DailyResilience/level", "@type": "xsd:string" }
+      }
+    },
+
+    "Sleep": {
+      "@id": "oura:Sleep",
+      "@context": {
+        "id": { "@id": "oura:Sleep/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:Sleep/day", "@type": "xsd:date" },
+        "bedtime_start": { "@id": "oura:Sleep/bedtimeStart", "@type": "xsd:dateTime" },
+        "bedtime_end": { "@id": "oura:Sleep/bedtimeEnd", "@type": "xsd:dateTime" },
+        "type": { "@id": "oura:Sleep/type", "@type": "xsd:string" },
+        "average_breath": { "@id": "oura:Sleep/averageBreath", "@type": "xsd:decimal" },
+        "average_heart_rate": { "@id": "oura:Sleep/averageHeartRate", "@type": "xsd:decimal" },
+        "average_hrv": { "@id": "oura:Sleep/averageHrv", "@type": "xsd:decimal" },
+        "deep_sleep_duration": { "@id": "oura:Sleep/deepSleepDuration", "@type": "xsd:integer" },
+        "light_sleep_duration": { "@id": "oura:Sleep/lightSleepDuration", "@type": "xsd:integer" },
+        "rem_sleep_duration": { "@id": "oura:Sleep/remSleepDuration", "@type": "xsd:integer" },
+        "awake_time": { "@id": "oura:Sleep/awakeTime", "@type": "xsd:integer" },
+        "efficiency": { "@id": "oura:Sleep/efficiency", "@type": "xsd:integer" },
+        "latency": { "@id": "oura:Sleep/latency", "@type": "xsd:integer" },
+        "lowest_heart_rate": { "@id": "oura:Sleep/lowestHeartRate", "@type": "xsd:decimal" },
+        "restless_periods": { "@id": "oura:Sleep/restlessPeriods", "@type": "xsd:integer" },
+        "time_in_bed": { "@id": "oura:Sleep/timeInBed", "@type": "xsd:integer" },
+        "total_sleep_duration": { "@id": "oura:Sleep/totalSleepDuration", "@type": "xsd:integer" }
+      }
+    },
+
+    "Workout": {
+      "@id": "oura:Workout",
+      "@context": {
+        "id": { "@id": "oura:Workout/id", "@type": "xsd:string" },
+        "activity": { "@id": "oura:Workout/activity", "@type": "xsd:string" },
+        "calories": { "@id": "oura:Workout/calories", "@type": "xsd:decimal" },
+        "day": { "@id": "oura:Workout/day", "@type": "xsd:date" },
+        "distance": { "@id": "oura:Workout/distance", "@type": "xsd:decimal" },
+        "end_datetime": { "@id": "oura:Workout/endDatetime", "@type": "xsd:dateTime" },
+        "start_datetime": { "@id": "oura:Workout/startDatetime", "@type": "xsd:dateTime" },
+        "intensity": { "@id": "oura:Workout/intensity", "@type": "xsd:string" },
+        "label": { "@id": "schema:name", "@type": "xsd:string" },
+        "source": { "@id": "oura:Workout/source", "@type": "xsd:string" }
+      }
+    },
+
+    "Session": {
+      "@id": "oura:Session",
+      "@context": {
+        "id": { "@id": "oura:Session/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:Session/day", "@type": "xsd:date" },
+        "type": { "@id": "oura:Session/type", "@type": "xsd:string" },
+        "start_datetime": { "@id": "oura:Session/startDatetime", "@type": "xsd:dateTime" },
+        "end_datetime": { "@id": "oura:Session/endDatetime", "@type": "xsd:dateTime" },
+        "mood": { "@id": "oura:Session/mood", "@type": "xsd:string" }
+      }
+    },
+
+    "HeartRate": {
+      "@id": "oura:HeartRate",
+      "@context": {
+        "bpm": { "@id": "oura:HeartRate/bpm", "@type": "xsd:integer" },
+        "source": { "@id": "oura:HeartRate/source", "@type": "xsd:string" },
+        "timestamp": { "@id": "dcterms:created", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Tag": {
+      "@id": "oura:Tag",
+      "@context": {
+        "id": { "@id": "oura:Tag/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:Tag/day", "@type": "xsd:date" },
+        "text": { "@id": "oura:Tag/text", "@type": "xsd:string" },
+        "timestamp": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "tags": { "@id": "oura:Tag/tags", "@container": "@list" }
+      }
+    },
+
+    "EnhancedTag": {
+      "@id": "oura:EnhancedTag",
+      "@context": {
+        "id": { "@id": "oura:EnhancedTag/id", "@type": "xsd:string" },
+        "day": { "@id": "oura:EnhancedTag/day", "@type": "xsd:date" },
+        "tag_type_code": { "@id": "oura:EnhancedTag/tagTypeCode", "@type": "xsd:string" },
+        "comment": { "@id": "oura:EnhancedTag/comment", "@type": "xsd:string" },
+        "start_time": { "@id": "oura:EnhancedTag/startTime", "@type": "xsd:dateTime" },
+        "end_time": { "@id": "oura:EnhancedTag/endTime", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "RingConfiguration": {
+      "@id": "oura:RingConfiguration",
+      "@context": {
+        "id": { "@id": "oura:RingConfiguration/id", "@type": "xsd:string" },
+        "color": { "@id": "oura:RingConfiguration/color", "@type": "xsd:string" },
+        "design": { "@id": "oura:RingConfiguration/design", "@type": "xsd:string" },
+        "firmware_version": { "@id": "oura:RingConfiguration/firmwareVersion", "@type": "xsd:string" },
+        "hardware_type": { "@id": "oura:RingConfiguration/hardwareType", "@type": "xsd:string" },
+        "set_up_at": { "@id": "oura:RingConfiguration/setUpAt", "@type": "xsd:dateTime" },
+        "size": { "@id": "oura:RingConfiguration/size", "@type": "xsd:integer" }
+      }
+    },
+
+    "WebhookSubscription": {
+      "@id": "oura:WebhookSubscription",
+      "@context": {
+        "id": { "@id": "oura:WebhookSubscription/id", "@type": "xsd:string" },
+        "callback_url": { "@id": "oura:WebhookSubscription/callbackUrl", "@type": "xsd:anyURI" },
+        "verification_token": { "@id": "oura:WebhookSubscription/verificationToken", "@type": "xsd:string" },
+        "event_type": { "@id": "oura:WebhookSubscription/eventType", "@type": "xsd:string" },
+        "data_type": { "@id": "oura:WebhookSubscription/dataType", "@type": "xsd:string" },
+        "expiration_time": { "@id": "oura:WebhookSubscription/expirationTime", "@type": "xsd:dateTime" }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/oura-ring/json-schema/oura-daily-sleep-schema.json",
+  "title": "Oura Daily Sleep",
+  "description": "Per-day scored sleep summary returned by /v2/usercollection/daily_sleep.",
+  "type": "object",
+  "required": ["id", "day", "score", "timestamp"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable document identifier."
+    },
+    "day": {
+      "type": "string",
+      "format": "date",
+      "description": "Calendar day the score applies to (user's local timezone)."
+    },
+    "score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "0-100 sleep score."
+    },
+    "contributors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deep_sleep": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "efficiency": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "latency": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "rem_sleep": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "restfulness": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "timing": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "total_sleep": { "type": "integer", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the score document was generated."
+    }
+  }
+}

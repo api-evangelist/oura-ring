@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/oura-ring/json-schema/oura-webhook-subscription-schema.json",
+  "title": "Oura Webhook Subscription",
+  "description": "A webhook subscription registered via /v2/webhook/subscription. Posts events to callback_url on create / update / delete for a specific data_type.",
+  "type": "object",
+  "required": ["callback_url", "verification_token", "event_type", "data_type"],
+  "properties": {
+    "id": { "type": "string" },
+    "callback_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Developer-controlled HTTPS endpoint that receives event notifications."
+    },
+    "verification_token": {
+      "type": "string",
+      "description": "Secret used by Oura when verifying the subscription handshake."
+    },
+    "event_type": {
+      "type": "string",
+      "enum": ["create", "update", "delete"]
+    },
+    "data_type": {
+      "type": "string",
+      "enum": [
+        "tag",
+        "enhanced_tag",
+        "workout",
+        "session",
+        "sleep",
+        "daily_sleep",
+        "daily_readiness",
+        "daily_activity",
+        "daily_spo2",
+        "sleep_time",
+        "rest_mode_period",
+        "ring_configuration",
+        "daily_stress",
+        "daily_resilience",
+        "daily_cardiovascular_age",
+        "vO2_max",
+        "heartrate"
+      ]
+    },
+    "expiration_time": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

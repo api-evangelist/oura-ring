@@ -1,0 +1,265 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oura Webhooks API — Webhook Subscriptions
+  description: 'Oura Webhooks API — Webhook Subscriptions. 6 operations. Lead operation: List Webhook Subscriptions. Self-contained Naftiko capability covering one Oura business surface.'
+  tags:
+  - Oura
+  - Webhooks
+  - Subscriptions
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OURA_ACCESS_TOKEN: OURA_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: webhooks
+    baseUri: https://api.ouraring.com
+    description: Oura Webhooks API — Webhook Subscriptions business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-webhook-subscription
+      path: /v2/webhook/subscription
+      operations:
+      - name: list-webhook-subscriptions-v2-webhook-subscription-get
+        method: GET
+        description: List Webhook Subscriptions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: create-webhook-subscription-v2-webhook-subscription-post
+        method: POST
+        description: Create Webhook Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: 'Request body (JSON).'
+          required: true
+    - name: v2-webhook-subscription-id
+      path: /v2/webhook/subscription/{id}
+      operations:
+      - name: get-webhook-subscription-v2-webhook-subscription-id-get
+        method: GET
+        description: Get Webhook Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: 'id (path)'
+          required: true
+      - name: update-webhook-subscription-v2-webhook-subscription-id-put
+        method: PUT
+        description: Update Webhook Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: 'id (path)'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: 'Request body (JSON).'
+          required: true
+      - name: delete-webhook-subscription-v2-webhook-subscription-id-delete
+        method: DELETE
+        description: Delete Webhook Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: 'id (path)'
+          required: true
+    - name: v2-webhook-subscription-renew-id
+      path: /v2/webhook/subscription/renew/{id}
+      operations:
+      - name: renew-webhook-subscription-v2-webhook-subscription-renew-id-put
+        method: PUT
+        description: Renew Webhook Subscription
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: 'id (path)'
+          required: true
+    authentication:
+      type: bearer
+      value: '{{env.OURA_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: webhooks-rest
+    port: 8080
+    description: REST adapter for Oura Webhooks API — Webhook Subscriptions. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/webhook/subscription
+      name: v2-webhook-subscription
+      description: REST surface for v2-webhook-subscription.
+      operations:
+      - method: GET
+        name: list-webhook-subscriptions-v2-webhook-subscription-get
+        description: List Webhook Subscriptions
+        call: webhooks.list-webhook-subscriptions-v2-webhook-subscription-get
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create-webhook-subscription-v2-webhook-subscription-post
+        description: Create Webhook Subscription
+        call: webhooks.create-webhook-subscription-v2-webhook-subscription-post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/webhook/subscription/{id}
+      name: v2-webhook-subscription-id
+      description: REST surface for v2-webhook-subscription-id.
+      operations:
+      - method: GET
+        name: get-webhook-subscription-v2-webhook-subscription-id-get
+        description: Get Webhook Subscription
+        call: webhooks.get-webhook-subscription-v2-webhook-subscription-id-get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: update-webhook-subscription-v2-webhook-subscription-id-put
+        description: Update Webhook Subscription
+        call: webhooks.update-webhook-subscription-v2-webhook-subscription-id-put
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete-webhook-subscription-v2-webhook-subscription-id-delete
+        description: Delete Webhook Subscription
+        call: webhooks.delete-webhook-subscription-v2-webhook-subscription-id-delete
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/webhook/subscription/renew/{id}
+      name: v2-webhook-subscription-renew-id
+      description: REST surface for v2-webhook-subscription-renew-id.
+      operations:
+      - method: PUT
+        name: renew-webhook-subscription-v2-webhook-subscription-renew-id-put
+        description: Renew Webhook Subscription
+        call: webhooks.renew-webhook-subscription-v2-webhook-subscription-renew-id-put
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: webhooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oura Webhooks API — Webhook Subscriptions. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: oura-list-webhook-subscriptions
+      description: List Webhook Subscriptions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: webhooks.list-webhook-subscriptions-v2-webhook-subscription-get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-create-webhook-subscription
+      description: Create Webhook Subscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: webhooks.create-webhook-subscription-v2-webhook-subscription-post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-get-webhook-subscription
+      description: Get Webhook Subscription
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: webhooks.get-webhook-subscription-v2-webhook-subscription-id-get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-update-webhook-subscription
+      description: Update Webhook Subscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: webhooks.update-webhook-subscription-v2-webhook-subscription-id-put
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-delete-webhook-subscription
+      description: Delete Webhook Subscription
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: webhooks.delete-webhook-subscription-v2-webhook-subscription-id-delete
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-renew-webhook-subscription
+      description: Renew Webhook Subscription
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: webhooks.renew-webhook-subscription-v2-webhook-subscription-renew-id-put
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

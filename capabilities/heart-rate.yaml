@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Oura Heart Rate API — Heart Rate and IBI
+  description: 'Oura Heart Rate API — Heart Rate and IBI. 2 operations. Lead operation: Multiple Heartrate Documents. Self-contained Naftiko capability covering one Oura business surface.'
+  tags:
+  - Oura
+  - Heart Rate
+  - HRV
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    OURA_ACCESS_TOKEN: OURA_ACCESS_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: heart-rate
+    baseUri: https://api.ouraring.com
+    description: Oura Heart Rate API — Heart Rate and IBI business capability. Self-contained, no shared references.
+    resources:
+    - name: v2-usercollection-heartrate
+      path: /v2/usercollection/heartrate
+      operations:
+      - name: multiple-heartrate-documents-v2-usercollection-heartrate-get
+        method: GET
+        description: Multiple Heartrate Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_datetime
+          in: query
+          type: string
+          description: 'start_datetime (query)'
+          required: false
+        - name: end_datetime
+          in: query
+          type: string
+          description: 'end_datetime (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+        - name: latest
+          in: query
+          type: string
+          description: 'latest (query)'
+          required: false
+        - name: fields
+          in: query
+          type: string
+          description: 'Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.'
+          required: false
+    - name: v2-usercollection-interbeat-interval
+      path: /v2/usercollection/interbeat_interval
+      operations:
+      - name: multiple-interbeat-interval-documents-v2-usercollection-interbeat-interval-get
+        method: GET
+        description: Multiple Interbeat Interval Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_datetime
+          in: query
+          type: string
+          description: 'start_datetime (query)'
+          required: false
+        - name: end_datetime
+          in: query
+          type: string
+          description: 'end_datetime (query)'
+          required: false
+        - name: next_token
+          in: query
+          type: string
+          description: 'next_token (query)'
+          required: false
+        - name: latest
+          in: query
+          type: string
+          description: 'latest (query)'
+          required: false
+        - name: fields
+          in: query
+          type: string
+          description: 'Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.'
+          required: false
+    authentication:
+      type: bearer
+      value: '{{env.OURA_ACCESS_TOKEN}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: heart-rate-rest
+    port: 8080
+    description: REST adapter for Oura Heart Rate API — Heart Rate and IBI. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/v2/usercollection/heartrate
+      name: v2-usercollection-heartrate
+      description: REST surface for v2-usercollection-heartrate.
+      operations:
+      - method: GET
+        name: multiple-heartrate-documents-v2-usercollection-heartrate-get
+        description: Multiple Heartrate Documents
+        call: heart-rate.multiple-heartrate-documents-v2-usercollection-heartrate-get
+        with:
+          start_datetime: rest.start_datetime
+          end_datetime: rest.end_datetime
+          next_token: rest.next_token
+          latest: rest.latest
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v2/usercollection/interbeat-interval
+      name: v2-usercollection-interbeat-interval
+      description: REST surface for v2-usercollection-interbeat-interval.
+      operations:
+      - method: GET
+        name: multiple-interbeat-interval-documents-v2-usercollection-interbeat-interval-get
+        description: Multiple Interbeat Interval Documents
+        call: heart-rate.multiple-interbeat-interval-documents-v2-usercollection-interbeat-interval-get
+        with:
+          start_datetime: rest.start_datetime
+          end_datetime: rest.end_datetime
+          next_token: rest.next_token
+          latest: rest.latest
+          fields: rest.fields
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: heart-rate-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Oura Heart Rate API — Heart Rate and IBI. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: oura-multiple-heartrate-documents
+      description: Multiple Heartrate Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: heart-rate.multiple-heartrate-documents-v2-usercollection-heartrate-get
+      with:
+        start_datetime: tools.start_datetime
+        end_datetime: tools.end_datetime
+        next_token: tools.next_token
+        latest: tools.latest
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: oura-multiple-interbeat-interval-documents
+      description: Multiple Interbeat Interval Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: heart-rate.multiple-interbeat-interval-documents-v2-usercollection-interbeat-interval-get
+      with:
+        start_datetime: tools.start_datetime
+        end_datetime: tools.end_datetime
+        next_token: tools.next_token
+        latest: tools.latest
+        fields: tools.fields
+      outputParameters:
+      - type: object
+        mapping: $.

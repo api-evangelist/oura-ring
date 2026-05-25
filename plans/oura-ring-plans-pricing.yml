@@ -1,0 +1,124 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Oura
+providerId: oura-ring
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Wearables
+  - Health
+  - Quantified Self
+  - Smart Ring
+description: 'Reconciled commercial offering for the Oura platform — hardware (Oura Ring 4), Oura Membership
+  consumer subscription, Oura for Teams, and the free Oura Developer Cloud API tier. Source: ouraring.com.'
+sources:
+  - https://ouraring.com/en
+  - https://ouraring.com/product/rings/oura-ring-4
+  - https://cloud.ouraring.com/v2/docs
+plans:
+  - id: oura-ring-4
+    name: Oura Ring 4
+    type: one-time
+    description: Titanium smart ring with PPG, body-temp, SpO2, accelerometer sensors. Required hardware for the
+      Oura platform; FSA/HSA eligible in the US; Affirm financing available.
+    entries:
+      - label: Oura Ring 4 (Silver / Black / Brushed Silver / Stealth / Gold / Rose Gold)
+        name: ring-hardware
+        type: one-time
+        metric: device
+        limit: -1
+        timeFrame: usage
+        geo: US
+        unit: 1
+        price: '349.00'
+        userMultiplied: false
+  - id: oura-ring-4-ceramic
+    name: Oura Ring 4 Ceramic
+    type: one-time
+    description: Ceramic edition of the Oura Ring 4 in additional colorways.
+    entries:
+      - label: Oura Ring 4 Ceramic
+        name: ring-hardware-ceramic
+        type: one-time
+        metric: device
+        limit: -1
+        timeFrame: usage
+        geo: US
+        unit: 1
+        price: '499.00'
+        userMultiplied: false
+  - id: oura-membership-monthly
+    name: Oura Membership (Monthly)
+    type: subscription
+    description: Required consumer subscription unlocking full daily Sleep, Activity, Readiness, Stress, Resilience,
+      Cycle Insights, and other scored insights in the Oura App. First month is included with the ring purchase.
+    entries:
+      - label: Membership
+        name: membership-monthly
+        type: subscription
+        metric: user
+        limit: 1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: '5.99'
+        userMultiplied: false
+  - id: oura-membership-annual
+    name: Oura Membership (Annual)
+    type: subscription
+    description: Annual prepay of the consumer Oura Membership at a discount over monthly billing.
+    entries:
+      - label: Membership
+        name: membership-annual
+        type: subscription
+        metric: user
+        limit: 1
+        timeFrame: year
+        geo: US
+        unit: 1
+        price: '69.99'
+        userMultiplied: false
+  - id: oura-for-teams
+    name: Oura for Teams
+    type: call
+    description: B2B program providing subsidized rings, group membership, and an admin dashboard for organizations,
+      research cohorts, and sports teams. Pricing on request.
+    entries:
+      - label: Team seats
+        name: teams-seats
+        type: contract
+        metric: user
+        limit: -1
+        timeFrame: month
+        geo: US
+        unit: 1
+        price: Call
+        userMultiplied: true
+  - id: oura-developer-cloud-free
+    name: Oura Developer Cloud (Free)
+    type: free
+    description: Free OAuth 2.0 + Personal Access Token API tier exposing the authenticated user's biometric and
+      score documents over the v2 REST API plus webhook subscriptions.
+    entries:
+      - label: API requests
+        name: api-requests
+        type: metered
+        metric: request
+        limit: 5000
+        timeFrame: 5min
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Webhook subscriptions
+        name: webhook-subscriptions
+        type: metered
+        metric: subscription
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false

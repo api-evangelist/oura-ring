@@ -1,0 +1,87 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Oura
+providerId: oura-ring
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Wearables
+  - Health
+description: FOCUS-aligned FinOps definition for Oura. Commercial billing is consumer-grade (one-time hardware
+  plus a recurring membership) rather than usage-metered, so meters focus on subscription state and per-user
+  costs. The Developer Cloud API is free and does not contribute to direct charges.
+sources:
+  - https://ouraring.com/en
+  - https://ouraring.com/product/rings/oura-ring-4
+  - https://cloud.ouraring.com/v2/docs
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Oura
+serviceCategory: Health and Wellness
+billingModel:
+  pricingCategory: Subscription + One-Time
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Purchase
+    - Usage
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: user
+  secondaryUnits:
+    - device
+    - month
+    - year
+focusColumns:
+  ServiceName: Oura Membership
+  ServiceCategory: Health and Wellness
+  ProviderName: Oura
+  PublisherName: Oura
+  InvoiceIssuerName: Oura Health Oy
+  PricingCategory: Subscription
+  PricingUnit: month
+  BillingCurrency: USD
+meters:
+  - name: ring_purchase
+    unit: device
+    aggregation: count
+    dimensions:
+      - sku
+      - color
+      - geo
+  - name: membership_seat
+    unit: user
+    aggregation: count
+    dimensions:
+      - billing_period
+      - geo
+      - plan
+  - name: membership_period
+    unit: month
+    aggregation: sum
+    dimensions:
+      - plan
+      - geo
+  - name: api_requests
+    unit: request
+    aggregation: count
+    dimensions:
+      - access_token_id
+      - endpoint
+notes:
+  - The Oura Developer Cloud API has no metered cost component for third-party developers (free tier with 5,000
+    requests per 5 minutes per access token).
+  - Oura for Teams contracts are quoted per-seat; bring negotiated rates into the membership_seat meter under a
+    "teams" plan dimension.
+  - FSA/HSA reimbursement for ring purchases in the US is treated as a payer-side adjustment, not a provider
+    discount.

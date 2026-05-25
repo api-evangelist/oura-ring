@@ -1,0 +1,58 @@
+extends:
+  - [spectral:oas, all]
+documentationUrl: https://cloud.ouraring.com/v2/docs
+description: Spectral ruleset capturing Oura Developer Cloud v2 conventions. Enforces consistent path prefixes,
+  bearer-token security, and OpenAPI 3.1 compliance across the production usercollection, sandbox, and webhook
+  surfaces.
+rules:
+  oura-paths-must-start-with-v2:
+    description: All Oura paths must start with /v2/.
+    message: "Path '{{value}}' should start with /v2/."
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/v2/"
+  oura-info-title-must-be-oura-api:
+    description: info.title should be 'Oura API'.
+    severity: warn
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Oura API"
+  oura-openapi-version-3_1:
+    description: Oura uses OpenAPI 3.1.
+    severity: warn
+    given: $.openapi
+    then:
+      function: pattern
+      functionOptions:
+        match: "^3\\.1"
+  oura-operation-needs-summary:
+    description: Every operation must have a summary.
+    severity: warn
+    given: $.paths.*[get,post,put,delete,patch]
+    then:
+      field: summary
+      function: truthy
+  oura-operation-needs-operationid:
+    description: Every operation must have an operationId.
+    severity: error
+    given: $.paths.*[get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+  oura-bearer-or-oauth2-security:
+    description: Security schemes should include HTTPBearer and/or OAuth2.
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      function: truthy
+  oura-sandbox-mirror-usercollection:
+    description: Every /v2/sandbox/usercollection/* path should mirror a /v2/usercollection/* path.
+    severity: info
+    given: $.paths[?(@property.match(/^\/v2\/sandbox\/usercollection\//))]~
+    then:
+      function: truthy
