@@ -1,0 +1,796 @@
+# Oura Ring GraphQL Schema
+# Derived from Oura REST API v2 — https://cloud.ouraring.com/v2/docs
+# Covers personal info, sleep, activity, readiness, heart rate, HRV,
+# temperature, workouts, sessions, tags, ring hardware, webhooks, and auth.
+
+scalar DateTime
+scalar Date
+scalar JSON
+
+# ─── Pagination ─────────────────────────────────────────────────────────────
+
+type PageInfo {
+  nextToken: String
+  previousToken: String
+}
+
+# ─── Personal Info ──────────────────────────────────────────────────────────
+
+type PersonalInfo {
+  id: ID!
+  details: PersonalInfoDetails!
+  email: String
+}
+
+type PersonalInfoDetails {
+  age: Age
+  weight: Weight
+  height: Height
+  biologicalSex: BiologicalSex
+  email: String
+}
+
+type Age {
+  value: Int!
+  unit: String
+}
+
+type Weight {
+  value: Float!
+  unit: String
+}
+
+type Height {
+  value: Float!
+  unit: String
+}
+
+enum BiologicalSex {
+  MALE
+  FEMALE
+  NOT_SPECIFIED
+}
+
+# ─── Ring Hardware ──────────────────────────────────────────────────────────
+
+type Ring {
+  id: ID!
+  details: RingDetails!
+}
+
+type RingDetails {
+  color: RingColor
+  design: RingDesign
+  firmwareVersion: String
+  hardwareType: String
+  setId: String
+  size: RingSize
+}
+
+enum RingColor {
+  SILVER
+  BLACK
+  GOLD
+  ROSE_GOLD
+  BRUSHED_SILVER
+  BRUSHED_BLACK
+  BRUSHED_GOLD
+  STEALTH
+  SANDSTONE
+  MATTE_BLACK
+  MATTE_SILVER
+}
+
+enum RingDesign {
+  HERITAGE
+  HORIZON
+  BALANCE
+  BALANCE_DIAMOND
+}
+
+type RingSize {
+  value: Int!
+  unit: String
+}
+
+type RingBatteryLevel {
+  id: ID!
+  timestamp: DateTime!
+  batteryPercentage: Int!
+  isCharging: Boolean
+}
+
+# ─── Sleep ──────────────────────────────────────────────────────────────────
+
+type Sleep {
+  id: ID!
+  day: Date!
+  details: SleepDetails!
+  score: SleepScore
+  contributors: SleepContributors
+  stages: [SleepStage!]
+  breath: SleepBreath
+  hrv: SleepHrv
+  heartRate: SleepHR
+  temperature: SleepTemperature
+}
+
+type SleepDetails {
+  type: String
+  bedtimeStart: DateTime!
+  bedtimeEnd: DateTime!
+  totalSleepDuration: Int
+  awakeTime: SleepAwake
+  lightSleepDuration: SleepLight
+  remSleepDuration: SleepRem
+  deepSleepDuration: SleepDeep
+  latency: SleepLatency
+  efficiency: SleepEfficiency
+  midpointTime: SleepMidpoint
+  lowestHeartRate: Int
+  averageHeartRate: Float
+  averageHrv: Float
+  averageBreathingRate: Float
+  movementIndex: Float
+  restlessPeriods: Int
+}
+
+type SleepScore {
+  value: Int!
+  timestamp: DateTime
+}
+
+type SleepContributors {
+  deepSleep: Int
+  efficiency: Int
+  latency: Int
+  remSleep: Int
+  restfulness: Int
+  timing: Int
+  totalSleep: Int
+}
+
+type SleepStage {
+  stage: String!
+  start: DateTime!
+  end: DateTime!
+  duration: Int!
+}
+
+type SleepBreath {
+  average: Float
+  max: Float
+  min: Float
+  breathingDisturbanceIndex: Float
+  items: [Float!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type SleepHrv {
+  average: Float
+  items: [HrvSample!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type SleepHR {
+  average: Float
+  min: Int
+  max: Int
+  items: [Int!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type SleepTemperature {
+  delta: Float
+  trend: String
+}
+
+type SleepLatency {
+  minutes: Int
+  score: Int
+}
+
+type SleepEfficiency {
+  percentage: Float
+  score: Int
+}
+
+type SleepMidpoint {
+  time: DateTime
+  deviationInSeconds: Int
+}
+
+type SleepRem {
+  seconds: Int
+  percentage: Float
+}
+
+type SleepDeep {
+  seconds: Int
+  percentage: Float
+}
+
+type SleepLight {
+  seconds: Int
+  percentage: Float
+}
+
+type SleepAwake {
+  seconds: Int
+  percentage: Float
+}
+
+# ─── Daily Sleep Summary ────────────────────────────────────────────────────
+
+type DailySleep {
+  id: ID!
+  day: Date!
+  score: SleepScore
+  contributors: SleepContributors
+  timestamp: DateTime
+}
+
+# ─── Activity ───────────────────────────────────────────────────────────────
+
+type Activity {
+  id: ID!
+  day: Date!
+  details: ActivityDetails!
+  score: ActivityScore
+  contributors: ActivityContributors
+  steps: Steps
+  calories: Calories
+  met: Met
+  class: ActivityClass
+}
+
+type ActivityDetails {
+  activeCalories: Int
+  averageMet: Float
+  equivalentWalkingDistance: Int
+  highActivityInterval: Int
+  highActivityTime: Int
+  inactiveTime: Int
+  lowActivityInterval: Int
+  lowActivityTime: Int
+  mediumActivityInterval: Int
+  mediumActivityTime: Int
+  nonWearTime: Int
+  restTime: Int
+  sedentaryTime: Int
+  totalCalories: Int
+  totalMovementTime: Int
+  timestamp: DateTime
+}
+
+type ActivityScore {
+  value: Int!
+  timestamp: DateTime
+}
+
+type ActivityContributors {
+  meetDailyTargets: Int
+  moveEveryHour: Int
+  recoveryTime: Int
+  stayActive: Int
+  trainingFrequency: Int
+  trainingVolume: Int
+}
+
+type Steps {
+  total: Int
+  items: [Int!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type Calories {
+  active: Int
+  total: Int
+  items: [Float!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type Met {
+  average: Float
+  details: MetDetails
+  items: [Float!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type MetDetails {
+  highActivityMet: Float
+  lowActivityMet: Float
+  mediumActivityMet: Float
+  restMet: Float
+}
+
+type DailyActivity {
+  id: ID!
+  day: Date!
+  score: ActivityScore
+  contributors: ActivityContributors
+  activeCalories: Int
+  averageMet: Float
+  steps: Int
+  timestamp: DateTime
+}
+
+type ActivityClass {
+  items: [String!]
+  interval: Int
+  timestamp: DateTime
+}
+
+# ─── Sessions ───────────────────────────────────────────────────────────────
+
+type Session {
+  id: ID!
+  day: Date!
+  details: SessionDetails!
+  heartRate: HeartRateDetails
+  hrv: HrvDetails
+  mood: String
+  type: String
+}
+
+type SessionDetails {
+  startDatetime: DateTime!
+  endDatetime: DateTime!
+  type: String!
+  sourceType: String
+  intensity: WorkoutIntensity
+}
+
+# ─── Workouts ───────────────────────────────────────────────────────────────
+
+type Workout {
+  id: ID!
+  day: Date!
+  details: WorkoutDetails!
+  heartRate: HeartRateDetails
+}
+
+type WorkoutDetails {
+  activity: WorkoutType!
+  calories: Float
+  distance: Float
+  startDatetime: DateTime!
+  endDatetime: DateTime!
+  label: String
+  source: String
+  intensity: WorkoutIntensity
+}
+
+enum WorkoutType {
+  WALKING
+  RUNNING
+  CYCLING
+  SWIMMING
+  STRENGTH_TRAINING
+  YOGA
+  HIIT
+  DANCING
+  HIKING
+  SKIING
+  TENNIS
+  GOLF
+  OTHER
+}
+
+enum WorkoutIntensity {
+  EASY
+  MODERATE
+  HARD
+  MAX
+  REST
+}
+
+# ─── Heart Rate ─────────────────────────────────────────────────────────────
+
+type HeartRate {
+  id: ID!
+  timestamp: DateTime!
+  bpm: Int!
+  source: String
+}
+
+type HeartRateDetails {
+  average: Float
+  min: Int
+  max: Int
+  items: [Int!]
+  interval: Int
+  timestamp: DateTime
+}
+
+type HrvSample {
+  timestamp: DateTime!
+  rmssd: Float!
+}
+
+type HrvDetails {
+  average: Float
+  items: [HrvSample!]
+  interval: Int
+  timestamp: DateTime
+  balanceScore: Int
+}
+
+type InterbeatInterval {
+  id: ID!
+  timestamp: DateTime!
+  items: [Float!]
+  interval: Int
+}
+
+# ─── Readiness ──────────────────────────────────────────────────────────────
+
+type Readiness {
+  id: ID!
+  day: Date!
+  details: ReadinessDetails!
+  score: ReadinessScore
+  contributors: ReadinessContributors
+  temperature: TemperatureDetails
+}
+
+type ReadinessDetails {
+  temperatureDeviation: Float
+  temperatureTrendDeviation: Float
+  previousNightScore: Int
+  previousDayActivity: Int
+  recoveryIndex: Int
+}
+
+type ReadinessScore {
+  value: Int!
+  timestamp: DateTime
+}
+
+type ReadinessContributors {
+  activityBalance: Int
+  bodyTemperature: Int
+  hrvBalance: Int
+  previousDayActivity: Int
+  previousNight: Int
+  recoveryIndex: Int
+  restingHeartRate: Int
+  sleepBalance: Int
+}
+
+# ─── Temperature ────────────────────────────────────────────────────────────
+
+type Temperature {
+  id: ID!
+  day: Date!
+  details: TemperatureDetails!
+  skinTemperature: SkinTemperature
+}
+
+type TemperatureDetails {
+  deviation: Float
+  trend: String
+  temperatureNight: Float
+  temperatureDay: Float
+  timestamp: DateTime
+}
+
+type SkinTemperature {
+  minimum: Float
+  maximum: Float
+  average: Float
+  items: [Float!]
+  interval: Int
+  timestamp: DateTime
+}
+
+# ─── Stress & Resilience ────────────────────────────────────────────────────
+
+type DailyStress {
+  id: ID!
+  day: Date!
+  stressHigh: Int
+  recoveryHigh: Int
+  dayStressSummary: String
+  items: [StressSample!]
+}
+
+type StressSample {
+  timestamp: DateTime!
+  stressLevel: String
+}
+
+type DailyResilience {
+  id: ID!
+  day: Date!
+  level: String
+  contributors: ResilienceContributors
+}
+
+type ResilienceContributors {
+  daytimeRecovery: Int
+  sleepRecovery: Int
+  stressBalance: Int
+}
+
+# ─── SpO2 ───────────────────────────────────────────────────────────────────
+
+type DailySpo2 {
+  id: ID!
+  day: Date!
+  spo2Percentage: Spo2Percentage
+  breathingDisturbanceIndex: Float
+}
+
+type Spo2Percentage {
+  average: Float
+}
+
+# ─── Cardiovascular & VO2 Max ───────────────────────────────────────────────
+
+type CardiovascularAge {
+  id: ID!
+  day: Date!
+  vascularAge: Int
+}
+
+type Vo2Max {
+  id: ID!
+  day: Date!
+  vo2Max: Float
+}
+
+# ─── Tags ───────────────────────────────────────────────────────────────────
+
+type Tag {
+  id: ID!
+  day: Date!
+  details: TagDetails!
+}
+
+type TagDetails {
+  tagTypeCodes: [String!]
+  text: String
+  comment: String
+  timestamp: DateTime
+}
+
+type EnhancedTag {
+  id: ID!
+  day: Date!
+  tagTypeCode: String!
+  text: String
+  comment: String
+  startTime: DateTime
+  endTime: DateTime
+  customName: String
+  source: String
+}
+
+# ─── Rest Mode & Sleep Time ─────────────────────────────────────────────────
+
+type RestModePeriod {
+  id: ID!
+  startDay: Date!
+  endDay: Date
+  episodes: [RestModeEpisode!]
+  timestamp: DateTime
+}
+
+type RestModeEpisode {
+  tags: [String!]
+  timestamp: DateTime!
+}
+
+type SleepTime {
+  id: ID!
+  day: Date!
+  optimalBedtimeStart: Int
+  optimalBedtimeEnd: Int
+  status: String
+  recommendation: String
+}
+
+# ─── Auth ───────────────────────────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  name: String
+  scopes: [String!]
+  createdAt: DateTime
+  lastUsedAt: DateTime
+}
+
+type Token {
+  accessToken: String!
+  tokenType: String!
+  scope: String
+  expiresIn: Int
+}
+
+# ─── Webhooks ───────────────────────────────────────────────────────────────
+
+type Webhook {
+  id: ID!
+  callbackUrl: String!
+  dataType: String!
+  eventType: String!
+  expirationTime: DateTime
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type WebhookEvent {
+  webhookId: ID!
+  dataType: String!
+  eventType: String!
+  objectId: ID!
+  userId: ID
+  occurredAt: DateTime!
+  signature: String
+}
+
+# ─── Connection wrappers ────────────────────────────────────────────────────
+
+type SleepConnection {
+  data: [Sleep!]!
+  pageInfo: PageInfo
+}
+
+type DailySleepConnection {
+  data: [DailySleep!]!
+  pageInfo: PageInfo
+}
+
+type ActivityConnection {
+  data: [DailyActivity!]!
+  pageInfo: PageInfo
+}
+
+type WorkoutConnection {
+  data: [Workout!]!
+  pageInfo: PageInfo
+}
+
+type SessionConnection {
+  data: [Session!]!
+  pageInfo: PageInfo
+}
+
+type HeartRateConnection {
+  data: [HeartRate!]!
+  pageInfo: PageInfo
+}
+
+type TagConnection {
+  data: [Tag!]!
+  pageInfo: PageInfo
+}
+
+type EnhancedTagConnection {
+  data: [EnhancedTag!]!
+  pageInfo: PageInfo
+}
+
+type WebhookConnection {
+  data: [Webhook!]!
+  pageInfo: PageInfo
+}
+
+# ─── Inputs ─────────────────────────────────────────────────────────────────
+
+input DateRangeInput {
+  startDate: Date
+  endDate: Date
+  nextToken: String
+}
+
+input DateTimeRangeInput {
+  startDatetime: DateTime
+  endDatetime: DateTime
+  nextToken: String
+}
+
+input WebhookCreateInput {
+  callbackUrl: String!
+  dataType: String!
+  eventType: String!
+}
+
+input WebhookUpdateInput {
+  callbackUrl: String
+  dataType: String
+  eventType: String
+}
+
+# ─── Root Query ─────────────────────────────────────────────────────────────
+
+type Query {
+  # Personal info
+  personalInfo: PersonalInfo
+
+  # Ring hardware
+  ringConfigurations(range: DateRangeInput): [Ring!]
+  ringBatteryLevels(range: DateTimeRangeInput): [RingBatteryLevel!]
+
+  # Sleep
+  sleep(range: DateRangeInput): SleepConnection
+  sleepById(id: ID!): Sleep
+  dailySleep(range: DateRangeInput): DailySleepConnection
+  dailySleepById(id: ID!): DailySleep
+  sleepTime(range: DateRangeInput): [SleepTime!]
+
+  # Activity
+  dailyActivity(range: DateRangeInput): ActivityConnection
+  dailyActivityById(id: ID!): DailyActivity
+
+  # Workouts & sessions
+  workouts(range: DateRangeInput): WorkoutConnection
+  workoutById(id: ID!): Workout
+  sessions(range: DateRangeInput): SessionConnection
+  sessionById(id: ID!): Session
+
+  # Heart rate & HRV
+  heartRate(range: DateTimeRangeInput): HeartRateConnection
+  interbeatInterval(range: DateTimeRangeInput): [InterbeatInterval!]
+
+  # Readiness
+  dailyReadiness(range: DateRangeInput): [Readiness!]
+  dailyReadinessById(id: ID!): Readiness
+
+  # Stress & resilience
+  dailyStress(range: DateRangeInput): [DailyStress!]
+  dailyStressById(id: ID!): DailyStress
+  dailyResilience(range: DateRangeInput): [DailyResilience!]
+  dailyResilienceById(id: ID!): DailyResilience
+
+  # SpO2, cardiovascular, VO2
+  dailySpo2(range: DateRangeInput): [DailySpo2!]
+  dailySpo2ById(id: ID!): DailySpo2
+  cardiovascularAge(range: DateRangeInput): [CardiovascularAge!]
+  vo2Max(range: DateRangeInput): [Vo2Max!]
+
+  # Temperature
+  dailyTemperature(range: DateRangeInput): [Temperature!]
+  dailyTemperatureById(id: ID!): Temperature
+
+  # Tags
+  tags(range: DateRangeInput): TagConnection
+  tagById(id: ID!): Tag
+  enhancedTags(range: DateRangeInput): EnhancedTagConnection
+  enhancedTagById(id: ID!): EnhancedTag
+
+  # Rest mode
+  restModePeriods(range: DateRangeInput): [RestModePeriod!]
+  restModePeriodById(id: ID!): RestModePeriod
+
+  # Webhooks
+  webhooks: WebhookConnection
+  webhookById(id: ID!): Webhook
+
+  # Auth
+  apiKeys: [APIKey!]
+}
+
+# ─── Root Mutation ──────────────────────────────────────────────────────────
+
+type Mutation {
+  # Tags
+  createTag(day: Date!, tagTypeCodes: [String!], text: String, comment: String): Tag
+  deleteTag(id: ID!): Boolean
+  createEnhancedTag(day: Date!, tagTypeCode: String!, text: String, comment: String, startTime: DateTime, endTime: DateTime): EnhancedTag
+  updateEnhancedTag(id: ID!, text: String, comment: String): EnhancedTag
+  deleteEnhancedTag(id: ID!): Boolean
+
+  # Webhooks
+  createWebhook(input: WebhookCreateInput!): Webhook
+  updateWebhook(id: ID!, input: WebhookUpdateInput!): Webhook
+  renewWebhook(id: ID!): Webhook
+  deleteWebhook(id: ID!): Boolean
+}

@@ -14,11 +14,12 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/personal-info.yaml
-  description: Retrieve the authenticated user's Oura profile including age, weight, height, biological sex, and email
-    via /v2/usercollection/personal_info. Returned with the personal scope and represents the static profile
-    metadata associated with the Oura account.
+  - url: graphql/oura-ring-graphql.md
+    type: GraphQL
+  description: Retrieve the authenticated user's Oura profile including age, weight,
+    height, biological sex, and email via /v2/usercollection/personal_info. Returned
+    with the personal scope and represents the static profile metadata associated
+    with the Oura account.
 - aid: oura-ring:oura-daily-summaries-api
   name: Oura Daily Summaries API
   tags:
@@ -39,11 +40,10 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/daily-summaries.yaml
-  description: Per-day scored summaries derived from Oura Ring sensor data — daily_activity, daily_sleep,
-    daily_readiness, daily_resilience, daily_stress, daily_spo2, daily_cardiovascular_age, and vO2_max. Each
-    document collection supports list with start_date/end_date and individual document retrieval by document_id.
+  description: Per-day scored summaries derived from Oura Ring sensor data — daily_activity,
+    daily_sleep, daily_readiness, daily_resilience, daily_stress, daily_spo2, daily_cardiovascular_age,
+    and vO2_max. Each document collection supports list with start_date/end_date and
+    individual document retrieval by document_id.
 - aid: oura-ring:oura-sleep-api
   name: Oura Sleep API
   tags:
@@ -58,11 +58,10 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/sleep.yaml
-  description: Detailed sleep period documents from the ring including HRV, respiratory rate, sleep stages, and
-    movement plus recommended sleep_time windows and user-defined rest_mode_period blocks. Endpoints under
-    /v2/usercollection/sleep, /v2/usercollection/sleep_time, and /v2/usercollection/rest_mode_period.
+  description: Detailed sleep period documents from the ring including HRV, respiratory
+    rate, sleep stages, and movement plus recommended sleep_time windows and user-defined
+    rest_mode_period blocks. Endpoints under /v2/usercollection/sleep, /v2/usercollection/sleep_time,
+    and /v2/usercollection/rest_mode_period.
 - aid: oura-ring:oura-activity-api
   name: Oura Activity API
   tags:
@@ -78,11 +77,10 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/activity.yaml
-  description: Workout, session (meditation/breathwork/reset), and movement data captured by the Oura Ring.
-    /v2/usercollection/workout returns auto-detected and manually logged workouts; /v2/usercollection/session
-    returns guided sessions with intensity and labels.
+  description: Workout, session (meditation/breathwork/reset), and movement data captured
+    by the Oura Ring. /v2/usercollection/workout returns auto-detected and manually
+    logged workouts; /v2/usercollection/session returns guided sessions with intensity
+    and labels.
 - aid: oura-ring:oura-heart-rate-api
   name: Oura Heart Rate API
   tags:
@@ -98,11 +96,10 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/heart-rate.yaml
-  description: Continuous heart-rate samples and interbeat interval (RR) data captured by the Oura Ring.
-    /v2/usercollection/heartrate returns datetime-bounded BPM samples; /v2/usercollection/interbeat_interval
-    returns the underlying IBI time series used for HRV calculation.
+  description: Continuous heart-rate samples and interbeat interval (RR) data captured
+    by the Oura Ring. /v2/usercollection/heartrate returns datetime-bounded BPM samples;
+    /v2/usercollection/interbeat_interval returns the underlying IBI time series used
+    for HRV calculation.
 - aid: oura-ring:oura-tags-api
   name: Oura Tags API
   tags:
@@ -117,11 +114,10 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/tags.yaml
-  description: User-authored annotations attached to specific days or events — legacy /v2/usercollection/tag and
-    structured /v2/usercollection/enhanced_tag. Tags carry custom text, comments, and (for enhanced tags) typed
-    categories like ailment, lifestyle, or nutrition.
+  description: User-authored annotations attached to specific days or events — legacy
+    /v2/usercollection/tag and structured /v2/usercollection/enhanced_tag. Tags carry
+    custom text, comments, and (for enhanced tags) typed categories like ailment,
+    lifestyle, or nutrition.
 - aid: oura-ring:oura-ring-api
   name: Oura Ring Configuration API
   tags:
@@ -136,11 +132,9 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/ring-configuration.yaml
-  description: Metadata about the Oura Ring hardware itself — color, design, firmware version, hardware type, set
-    id, and ring battery level samples — via /v2/usercollection/ring_configuration and
-    /v2/usercollection/ring_battery_level.
+  description: Metadata about the Oura Ring hardware itself — color, design, firmware
+    version, hardware type, set id, and ring battery level samples — via /v2/usercollection/ring_configuration
+    and /v2/usercollection/ring_battery_level.
 - aid: oura-ring:oura-webhooks-api
   name: Oura Webhooks API
   tags:
@@ -154,12 +148,10 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/webhooks.yaml
-  description: Create, list, renew, update, and delete event subscriptions over /v2/webhook/subscription. Each
-    subscription targets a data_type (sleep, activity, readiness, tag, workout, session, daily_*, heartrate, etc.)
-    and an event_type (create, update, delete) and posts events to a developer-controlled callback URL with HMAC
-    verification.
+  description: Create, list, renew, update, and delete event subscriptions over /v2/webhook/subscription.
+    Each subscription targets a data_type (sleep, activity, readiness, tag, workout,
+    session, daily_*, heartrate, etc.) and an event_type (create, update, delete)
+    and posts events to a developer-controlled callback URL with HMAC verification.
 - aid: oura-ring:oura-sandbox-api
   name: Oura Sandbox API
   tags:
@@ -173,11 +165,9 @@ apis:
     type: Documentation
   - url: openapi/oura-api-openapi.yml
     type: OpenAPI
-  - type: NaftikoCapability
-    url: capabilities/sandbox.yaml
-  description: Mirror of the production usercollection endpoints under /v2/sandbox/usercollection/* that returns
-    deterministic sample data without requiring a connected ring or real user consent. Used for integration
-    testing, demos, and CI.
+  description: Mirror of the production usercollection endpoints under /v2/sandbox/usercollection/*
+    that returns deterministic sample data without requiring a connected ring or real
+    user consent. Used for integration testing, demos, and CI.
 name: Oura
 tags:
 - Activity
@@ -269,12 +259,16 @@ common:
   type: FinOps
 - type: Features
   data:
-  - Oura Ring 4 — titanium smart ring with continuous biometric sensing (PPG, body temperature, accelerometer,
-    SpO2)
-  - 50+ tracked health metrics across sleep, activity, readiness, stress, resilience, heart, and women's health
-  - Daily Sleep score with sleep stages, latency, efficiency, HRV, respiratory rate, and lowest resting heart rate
-  - Daily Activity score with movement, inactivity, training frequency, and equivalent walking distance
-  - Daily Readiness score combining HRV balance, sleep balance, recovery index, and body temperature deviation
+  - Oura Ring 4 — titanium smart ring with continuous biometric sensing (PPG, body
+    temperature, accelerometer, SpO2)
+  - 50+ tracked health metrics across sleep, activity, readiness, stress, resilience,
+    heart, and women's health
+  - Daily Sleep score with sleep stages, latency, efficiency, HRV, respiratory rate,
+    and lowest resting heart rate
+  - Daily Activity score with movement, inactivity, training frequency, and equivalent
+    walking distance
+  - Daily Readiness score combining HRV balance, sleep balance, recovery index, and
+    body temperature deviation
   - Daily Resilience score capturing long-term stress load and recovery capacity
   - Daily Stress with high/recovered/relaxed/restored minute-level classification
   - SpO2 nighttime monitoring with average and breathing-disturbance index
@@ -282,15 +276,20 @@ common:
   - Cycle Insights and Period Prediction (women's health)
   - Symptom Radar early-illness detection based on temperature and respiratory deviation
   - Workouts (auto-detected and manual) and Sessions (meditation, breathwork, reset)
-  - Tags and Enhanced Tags (typed user annotations — ailment, lifestyle, nutrition, etc.)
+  - Tags and Enhanced Tags (typed user annotations — ailment, lifestyle, nutrition,
+    etc.)
   - Rest Mode for recovery from illness or injury
   - Sleep Time recommendation window personalized to the user
   - REST API v2 with OAuth 2.0 (8 scopes) and Personal Access Tokens
-  - Webhook subscriptions for sleep, activity, readiness, tag, workout, session, daily_*, heartrate (create/update/delete)
-  - Sandbox endpoint family (/v2/sandbox/usercollection/*) returning deterministic sample data for testing
+  - Webhook subscriptions for sleep, activity, readiness, tag, workout, session, daily_*,
+    heartrate (create/update/delete)
+  - Sandbox endpoint family (/v2/sandbox/usercollection/*) returning deterministic
+    sample data for testing
   - 5,000 requests / 5 minutes per access token rate limit
-  - Oura Membership ($5.99/month or $69.99/year) unlocks full insights in the Oura App
-  - Apple Health, Google Health Connect, Strava, Natural Cycles, and other native integrations
+  - Oura Membership ($5.99/month or $69.99/year) unlocks full insights in the Oura
+    App
+  - Apple Health, Google Health Connect, Strava, Natural Cycles, and other native
+    integrations
   - FSA/HSA eligibility on ring purchases in the US
   - Oura for Teams and Oura Health (enterprise wellness)
   - HIPAA-aligned data handling and SOC 2 controls
@@ -303,13 +302,15 @@ common:
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-25'
 position: Consuming
-description: Oura is a health-technology company that makes the Oura Ring — a titanium smart ring packed with PPG,
-  body-temperature, SpO2, and motion sensors — and the Oura App and Oura Cloud platform that turn raw biometrics
-  into daily Sleep, Activity, Readiness, Stress, and Resilience scores. The Oura Developer Cloud exposes a v2
-  REST API and webhook subscriptions over OAuth 2.0 and Personal Access Tokens, letting third-party applications
-  read 50+ health metrics, raw heart-rate and interbeat-interval time series, sleep stages, workouts, sessions,
-  user-authored tags, and ring telemetry. A parallel /v2/sandbox/usercollection/* surface provides deterministic
-  sample data for integration testing.
+description: Oura is a health-technology company that makes the Oura Ring — a titanium
+  smart ring packed with PPG, body-temperature, SpO2, and motion sensors — and the
+  Oura App and Oura Cloud platform that turn raw biometrics into daily Sleep, Activity,
+  Readiness, Stress, and Resilience scores. The Oura Developer Cloud exposes a v2
+  REST API and webhook subscriptions over OAuth 2.0 and Personal Access Tokens, letting
+  third-party applications read 50+ health metrics, raw heart-rate and interbeat-interval
+  time series, sleep stages, workouts, sessions, user-authored tags, and ring telemetry.
+  A parallel /v2/sandbox/usercollection/* surface provides deterministic sample data
+  for integration testing.
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
