@@ -2,13 +2,20 @@
   "repo": "oura-ring",
   "feeds": [
     {
+      "source": "https://ouraring.com/blog/feed/",
+      "feed_url": "https://ouraring.com/blog/feed/",
+      "title": "",
+      "saved": 5,
+      "method": "feed"
+    },
+    {
       "source": "https://ouraring.com/blog",
       "feed_url": "https://ouraring.com/blog/feed/",
       "title": "",
-      "saved": 12,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 12,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 17,
+  "fetched": "2026-06-14T20:42:17Z"
 }

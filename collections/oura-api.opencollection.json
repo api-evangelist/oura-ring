@@ -1,0 +1,2048 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oura API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Personal Info Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Single Personal Info Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/personal_info"
+          },
+          "docs": "Single Personal Info Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tag Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Tag Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/tag",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "N/A. This route does not support field selection yet, all fields will be returned."
+              }
+            ]
+          },
+          "docs": "Multiple Tag Documents"
+        },
+        {
+          "info": {
+            "name": "Single Tag Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/tag/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Tag Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sandbox Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sandbox - Multiple Tag Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/tag",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Tag Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Enhanced Tag Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/enhanced_tag",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Enhanced Tag Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Workout Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/workout",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Workout Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Session Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/session",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Session Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Activity Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_activity",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Activity Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Sleep Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_sleep",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Sleep Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Spo2 Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_spo2",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Spo2 Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Readiness Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_readiness",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Readiness Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Sleep Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/sleep",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Sleep Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Sleep Time Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/sleep_time",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Sleep Time Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Rest Mode Period Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/rest_mode_period",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Rest Mode Period Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Ring Configuration Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/ring_configuration",
+            "params": [
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Ring Configuration Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Stress Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_stress",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Stress Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Resilience Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_resilience",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Resilience Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Daily Cardiovascular Age Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_cardiovascular_age",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Daily Cardiovascular Age Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Vo2 Max Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/vO2_max",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Vo2 Max Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Tag Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/tag/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Tag Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Enhanced Tag Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/enhanced_tag/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Enhanced Tag Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Workout Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/workout/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Workout Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Session Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/session/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Session Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Activity Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_activity/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Activity Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Sleep Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_sleep/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Sleep Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Spo2 Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_spo2/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Spo2 Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Readiness Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_readiness/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Readiness Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Sleep Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/sleep/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Sleep Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Sleep Time Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/sleep_time/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Sleep Time Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Rest Mode Period Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/rest_mode_period/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Rest Mode Period Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Ring Configuration Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/ring_configuration/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Ring Configuration Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Stress Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_stress/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Stress Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Resilience Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_resilience/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Resilience Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Daily Cardiovascular Age Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/daily_cardiovascular_age/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Daily Cardiovascular Age Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Single Vo2 Max Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/vO2_max/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Sandbox - Single Vo2 Max Document"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Heartrate Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/heartrate",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Heartrate Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Ring Battery Level Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/ring_battery_level",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Ring Battery Level Documents"
+        },
+        {
+          "info": {
+            "name": "Sandbox - Multiple Interbeat Interval Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/sandbox/usercollection/interbeat_interval",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Sandbox - Multiple Interbeat Interval Documents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Enhanced Tag Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Enhanced Tag Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/enhanced_tag",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "N/A. This route does not support field selection yet, all fields will be returned."
+              }
+            ]
+          },
+          "docs": "Multiple Enhanced Tag Documents"
+        },
+        {
+          "info": {
+            "name": "Single Enhanced Tag Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Enhanced Tag Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workout Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Workout Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/workout",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Workout Documents"
+        },
+        {
+          "info": {
+            "name": "Single Workout Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Workout Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Session Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Session Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/session",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Session Documents"
+        },
+        {
+          "info": {
+            "name": "Single Session Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/session/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Session Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Activity Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Activity Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_activity",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Activity Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Activity Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Activity Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Sleep Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Sleep Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_sleep",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Sleep Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Sleep Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_sleep/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Sleep Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Spo2 Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Spo2 Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_spo2",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Spo2 Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Spo2 Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Spo2 Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Readiness Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Readiness Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_readiness",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Readiness Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Readiness Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Readiness Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sleep Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Sleep Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/sleep",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Sleep Documents"
+        },
+        {
+          "info": {
+            "name": "Single Sleep Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/sleep/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Sleep Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sleep Time Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Sleep Time Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/sleep_time",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Sleep Time Documents"
+        },
+        {
+          "info": {
+            "name": "Single Sleep Time Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Sleep Time Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rest Mode Period Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Rest Mode Period Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/rest_mode_period",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Rest Mode Period Documents"
+        },
+        {
+          "info": {
+            "name": "Single Rest Mode Period Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Rest Mode Period Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ring Configuration Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Ring Configuration Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/ring_configuration",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Multiple Ring Configuration Documents"
+        },
+        {
+          "info": {
+            "name": "Single Ring Configuration Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Ring Configuration Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Stress Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Stress Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_stress",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Stress Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Stress Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_stress/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Stress Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Resilience Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Resilience Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_resilience",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "N/A. This route does not support field selection yet, all fields will be returned."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Resilience Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Resilience Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Resilience Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Daily Cardiovascular Age Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Cardiovascular Age Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Cardiovascular Age Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Cardiovascular Age Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Cardiovascular Age Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "VO2 Max Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Vo2 Max Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/vO2_max",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Vo2 Max Documents"
+        },
+        {
+          "info": {
+            "name": "Single Vo2 Max Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/vO2_max/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Vo2 Max Document"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhook Subscription Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Webhook Subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/webhook/subscription"
+          },
+          "docs": "List Webhook Subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v2/webhook/subscription",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Get Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/webhook/subscription/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Update Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/webhook/subscription/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Delete Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v2/webhook/subscription/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Webhook Subscription"
+        },
+        {
+          "info": {
+            "name": "Renew Webhook Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v2/webhook/subscription/renew/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Renew Webhook Subscription"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Heart Rate Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Heartrate Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/heartrate",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Heartrate Documents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ring Battery Level Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Ring Battery Level Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/ring_battery_level",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Ring Battery Level Documents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Interbeat Interval Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Interbeat Interval Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/interbeat_interval",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Interbeat Interval Documents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
