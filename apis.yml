@@ -202,7 +202,7 @@ common:
   type: GettingStarted
 - url: https://cloud.ouraring.com/oauth/applications
   name: My Applications
-  type: SignUp
+  type: Signup
 - url: https://cloud.ouraring.com/personal-access-tokens
   name: Personal Access Tokens
   type: Authentication

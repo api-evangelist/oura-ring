@@ -5,7 +5,7 @@
       "source": "https://ouraring.com/blog/feed/",
       "feed_url": "https://ouraring.com/blog/feed/",
       "title": "",
-      "saved": 5,
+      "saved": 3,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 17,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 22,
+  "fetched": "2026-06-27T12:03:07Z"
 }
