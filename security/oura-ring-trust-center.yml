@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://ouraring.com/security
+url: https://ouraring.com/security
+certifications:
+- SOC 2
+- HIPAA
+evidence:
+- source: https://ouraring.com/security
+  keywords:
+  - soc 2
+  - hipaa
