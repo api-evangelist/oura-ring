@@ -190,6 +190,8 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: AgenticAccess
+  url: agentic-access/oura-ring-agentic-access.yml
 - type: TrustCenter
   url: security/oura-ring-trust-center.yml
 - type: VulnerabilityDisclosure

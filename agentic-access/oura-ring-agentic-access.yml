@@ -1,0 +1,1604 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/oura-api-openapi.json, openapi/oura-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 154
+  by_action_class:
+    connected: 146
+    acting: 8
+  by_consequence:
+    read: 146
+    write: 8
+  human_in_the_loop_required: 0
+operations:
+- path: /v2/usercollection/personal_info
+  method: get
+  operationId: Single_Personal_Info_Document_v2_usercollection_personal_info_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/tag
+  method: get
+  operationId: Multiple_tag_Documents_v2_usercollection_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/tag
+  method: get
+  operationId: Sandbox___Multiple_tag_Documents_v2_sandbox_usercollection_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/enhanced_tag
+  method: get
+  operationId: Multiple_enhanced_tag_Documents_v2_usercollection_enhanced_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/enhanced_tag
+  method: get
+  operationId: Sandbox___Multiple_enhanced_tag_Documents_v2_sandbox_usercollection_enhanced_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/workout
+  method: get
+  operationId: Multiple_workout_Documents_v2_usercollection_workout_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/workout
+  method: get
+  operationId: Sandbox___Multiple_workout_Documents_v2_sandbox_usercollection_workout_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/session
+  method: get
+  operationId: Multiple_session_Documents_v2_usercollection_session_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/session
+  method: get
+  operationId: Sandbox___Multiple_session_Documents_v2_sandbox_usercollection_session_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_activity
+  method: get
+  operationId: Multiple_daily_activity_Documents_v2_usercollection_daily_activity_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_activity
+  method: get
+  operationId: Sandbox___Multiple_daily_activity_Documents_v2_sandbox_usercollection_daily_activity_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_sleep
+  method: get
+  operationId: Multiple_daily_sleep_Documents_v2_usercollection_daily_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_sleep
+  method: get
+  operationId: Sandbox___Multiple_daily_sleep_Documents_v2_sandbox_usercollection_daily_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_spo2
+  method: get
+  operationId: Multiple_daily_spo2_Documents_v2_usercollection_daily_spo2_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_spo2
+  method: get
+  operationId: Sandbox___Multiple_daily_spo2_Documents_v2_sandbox_usercollection_daily_spo2_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_readiness
+  method: get
+  operationId: Multiple_daily_readiness_Documents_v2_usercollection_daily_readiness_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_readiness
+  method: get
+  operationId: Sandbox___Multiple_daily_readiness_Documents_v2_sandbox_usercollection_daily_readiness_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep
+  method: get
+  operationId: Multiple_sleep_Documents_v2_usercollection_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep
+  method: get
+  operationId: Sandbox___Multiple_sleep_Documents_v2_sandbox_usercollection_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep_time
+  method: get
+  operationId: Multiple_sleep_time_Documents_v2_usercollection_sleep_time_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep_time
+  method: get
+  operationId: Sandbox___Multiple_sleep_time_Documents_v2_sandbox_usercollection_sleep_time_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/rest_mode_period
+  method: get
+  operationId: Multiple_rest_mode_period_Documents_v2_usercollection_rest_mode_period_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/rest_mode_period
+  method: get
+  operationId: Sandbox___Multiple_rest_mode_period_Documents_v2_sandbox_usercollection_rest_mode_period_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/ring_configuration
+  method: get
+  operationId: Multiple_ring_configuration_Documents_v2_usercollection_ring_configuration_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/ring_configuration
+  method: get
+  operationId: Sandbox___Multiple_ring_configuration_Documents_v2_sandbox_usercollection_ring_configuration_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_stress
+  method: get
+  operationId: Multiple_daily_stress_Documents_v2_usercollection_daily_stress_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_stress
+  method: get
+  operationId: Sandbox___Multiple_daily_stress_Documents_v2_sandbox_usercollection_daily_stress_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_resilience
+  method: get
+  operationId: Multiple_daily_resilience_Documents_v2_usercollection_daily_resilience_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_resilience
+  method: get
+  operationId: Sandbox___Multiple_daily_resilience_Documents_v2_sandbox_usercollection_daily_resilience_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_cardiovascular_age
+  method: get
+  operationId: Multiple_daily_cardiovascular_age_Documents_v2_usercollection_daily_cardiovascular_age_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_cardiovascular_age
+  method: get
+  operationId: Sandbox___Multiple_daily_cardiovascular_age_Documents_v2_sandbox_usercollection_daily_cardiovascular_age_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/vO2_max
+  method: get
+  operationId: Multiple_vO2_max_Documents_v2_usercollection_vO2_max_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/vO2_max
+  method: get
+  operationId: Sandbox___Multiple_vO2_max_Documents_v2_sandbox_usercollection_vO2_max_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/tag/{document_id}
+  method: get
+  operationId: Single_tag_Document_v2_usercollection_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/tag/{document_id}
+  method: get
+  operationId: Sandbox___Single_tag_Document_v2_sandbox_usercollection_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/enhanced_tag/{document_id}
+  method: get
+  operationId: Single_enhanced_tag_Document_v2_usercollection_enhanced_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/enhanced_tag/{document_id}
+  method: get
+  operationId: Sandbox___Single_enhanced_tag_Document_v2_sandbox_usercollection_enhanced_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/workout/{document_id}
+  method: get
+  operationId: Single_workout_Document_v2_usercollection_workout__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/workout/{document_id}
+  method: get
+  operationId: Sandbox___Single_workout_Document_v2_sandbox_usercollection_workout__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/session/{document_id}
+  method: get
+  operationId: Single_session_Document_v2_usercollection_session__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/session/{document_id}
+  method: get
+  operationId: Sandbox___Single_session_Document_v2_sandbox_usercollection_session__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_activity/{document_id}
+  method: get
+  operationId: Single_daily_activity_Document_v2_usercollection_daily_activity__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_activity/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_activity_Document_v2_sandbox_usercollection_daily_activity__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_sleep/{document_id}
+  method: get
+  operationId: Single_daily_sleep_Document_v2_usercollection_daily_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_sleep/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_sleep_Document_v2_sandbox_usercollection_daily_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_spo2/{document_id}
+  method: get
+  operationId: Single_daily_spo2_Document_v2_usercollection_daily_spo2__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_spo2/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_spo2_Document_v2_sandbox_usercollection_daily_spo2__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_readiness/{document_id}
+  method: get
+  operationId: Single_daily_readiness_Document_v2_usercollection_daily_readiness__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_readiness/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_readiness_Document_v2_sandbox_usercollection_daily_readiness__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep/{document_id}
+  method: get
+  operationId: Single_sleep_Document_v2_usercollection_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep/{document_id}
+  method: get
+  operationId: Sandbox___Single_sleep_Document_v2_sandbox_usercollection_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep_time/{document_id}
+  method: get
+  operationId: Single_sleep_time_Document_v2_usercollection_sleep_time__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep_time/{document_id}
+  method: get
+  operationId: Sandbox___Single_sleep_time_Document_v2_sandbox_usercollection_sleep_time__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/rest_mode_period/{document_id}
+  method: get
+  operationId: Single_rest_mode_period_Document_v2_usercollection_rest_mode_period__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/rest_mode_period/{document_id}
+  method: get
+  operationId: Sandbox___Single_rest_mode_period_Document_v2_sandbox_usercollection_rest_mode_period__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/ring_configuration/{document_id}
+  method: get
+  operationId: Single_ring_configuration_Document_v2_usercollection_ring_configuration__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/ring_configuration/{document_id}
+  method: get
+  operationId: Sandbox___Single_ring_configuration_Document_v2_sandbox_usercollection_ring_configuration__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_stress/{document_id}
+  method: get
+  operationId: Single_daily_stress_Document_v2_usercollection_daily_stress__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_stress/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_stress_Document_v2_sandbox_usercollection_daily_stress__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_resilience/{document_id}
+  method: get
+  operationId: Single_daily_resilience_Document_v2_usercollection_daily_resilience__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_resilience/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_resilience_Document_v2_sandbox_usercollection_daily_resilience__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_cardiovascular_age/{document_id}
+  method: get
+  operationId: Single_daily_cardiovascular_age_Document_v2_usercollection_daily_cardiovascular_age__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_cardiovascular_age/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_cardiovascular_age_Document_v2_sandbox_usercollection_daily_cardiovascular_age__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/vO2_max/{document_id}
+  method: get
+  operationId: Single_vO2_max_Document_v2_usercollection_vO2_max__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/vO2_max/{document_id}
+  method: get
+  operationId: Sandbox___Single_vO2_max_Document_v2_sandbox_usercollection_vO2_max__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/webhook/subscription
+  method: get
+  operationId: list_webhook_subscriptions_v2_webhook_subscription_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/webhook/subscription
+  method: post
+  operationId: create_webhook_subscription_v2_webhook_subscription_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/webhook/subscription/{id}
+  method: get
+  operationId: get_webhook_subscription_v2_webhook_subscription__id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/webhook/subscription/{id}
+  method: put
+  operationId: update_webhook_subscription_v2_webhook_subscription__id__put
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/webhook/subscription/{id}
+  method: delete
+  operationId: delete_webhook_subscription_v2_webhook_subscription__id__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/webhook/subscription/renew/{id}
+  method: put
+  operationId: renew_webhook_subscription_v2_webhook_subscription_renew__id__put
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/usercollection/heartrate
+  method: get
+  operationId: Multiple_heartrate_Documents_v2_usercollection_heartrate_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/heartrate
+  method: get
+  operationId: Sandbox___Multiple_heartrate_Documents_v2_sandbox_usercollection_heartrate_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/ring_battery_level
+  method: get
+  operationId: Multiple_ring_battery_level_Documents_v2_usercollection_ring_battery_level_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/ring_battery_level
+  method: get
+  operationId: Sandbox___Multiple_ring_battery_level_Documents_v2_sandbox_usercollection_ring_battery_level_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/interbeat_interval
+  method: get
+  operationId: Multiple_interbeat_interval_Documents_v2_usercollection_interbeat_interval_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/interbeat_interval
+  method: get
+  operationId: Sandbox___Multiple_interbeat_interval_Documents_v2_sandbox_usercollection_interbeat_interval_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/personal_info
+  method: get
+  operationId: Single_Personal_Info_Document_v2_usercollection_personal_info_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/tag
+  method: get
+  operationId: Multiple_tag_Documents_v2_usercollection_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/tag
+  method: get
+  operationId: Sandbox___Multiple_tag_Documents_v2_sandbox_usercollection_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/enhanced_tag
+  method: get
+  operationId: Multiple_enhanced_tag_Documents_v2_usercollection_enhanced_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/enhanced_tag
+  method: get
+  operationId: Sandbox___Multiple_enhanced_tag_Documents_v2_sandbox_usercollection_enhanced_tag_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/workout
+  method: get
+  operationId: Multiple_workout_Documents_v2_usercollection_workout_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/workout
+  method: get
+  operationId: Sandbox___Multiple_workout_Documents_v2_sandbox_usercollection_workout_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/session
+  method: get
+  operationId: Multiple_session_Documents_v2_usercollection_session_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/session
+  method: get
+  operationId: Sandbox___Multiple_session_Documents_v2_sandbox_usercollection_session_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_activity
+  method: get
+  operationId: Multiple_daily_activity_Documents_v2_usercollection_daily_activity_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_activity
+  method: get
+  operationId: Sandbox___Multiple_daily_activity_Documents_v2_sandbox_usercollection_daily_activity_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_sleep
+  method: get
+  operationId: Multiple_daily_sleep_Documents_v2_usercollection_daily_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_sleep
+  method: get
+  operationId: Sandbox___Multiple_daily_sleep_Documents_v2_sandbox_usercollection_daily_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_spo2
+  method: get
+  operationId: Multiple_daily_spo2_Documents_v2_usercollection_daily_spo2_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_spo2
+  method: get
+  operationId: Sandbox___Multiple_daily_spo2_Documents_v2_sandbox_usercollection_daily_spo2_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_readiness
+  method: get
+  operationId: Multiple_daily_readiness_Documents_v2_usercollection_daily_readiness_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_readiness
+  method: get
+  operationId: Sandbox___Multiple_daily_readiness_Documents_v2_sandbox_usercollection_daily_readiness_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep
+  method: get
+  operationId: Multiple_sleep_Documents_v2_usercollection_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep
+  method: get
+  operationId: Sandbox___Multiple_sleep_Documents_v2_sandbox_usercollection_sleep_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep_time
+  method: get
+  operationId: Multiple_sleep_time_Documents_v2_usercollection_sleep_time_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep_time
+  method: get
+  operationId: Sandbox___Multiple_sleep_time_Documents_v2_sandbox_usercollection_sleep_time_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/rest_mode_period
+  method: get
+  operationId: Multiple_rest_mode_period_Documents_v2_usercollection_rest_mode_period_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/rest_mode_period
+  method: get
+  operationId: Sandbox___Multiple_rest_mode_period_Documents_v2_sandbox_usercollection_rest_mode_period_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/ring_configuration
+  method: get
+  operationId: Multiple_ring_configuration_Documents_v2_usercollection_ring_configuration_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/ring_configuration
+  method: get
+  operationId: Sandbox___Multiple_ring_configuration_Documents_v2_sandbox_usercollection_ring_configuration_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_stress
+  method: get
+  operationId: Multiple_daily_stress_Documents_v2_usercollection_daily_stress_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_stress
+  method: get
+  operationId: Sandbox___Multiple_daily_stress_Documents_v2_sandbox_usercollection_daily_stress_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_resilience
+  method: get
+  operationId: Multiple_daily_resilience_Documents_v2_usercollection_daily_resilience_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_resilience
+  method: get
+  operationId: Sandbox___Multiple_daily_resilience_Documents_v2_sandbox_usercollection_daily_resilience_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_cardiovascular_age
+  method: get
+  operationId: Multiple_daily_cardiovascular_age_Documents_v2_usercollection_daily_cardiovascular_age_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_cardiovascular_age
+  method: get
+  operationId: Sandbox___Multiple_daily_cardiovascular_age_Documents_v2_sandbox_usercollection_daily_cardiovascular_age_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/vO2_max
+  method: get
+  operationId: Multiple_vO2_max_Documents_v2_usercollection_vO2_max_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/vO2_max
+  method: get
+  operationId: Sandbox___Multiple_vO2_max_Documents_v2_sandbox_usercollection_vO2_max_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/tag/{document_id}
+  method: get
+  operationId: Single_tag_Document_v2_usercollection_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/tag/{document_id}
+  method: get
+  operationId: Sandbox___Single_tag_Document_v2_sandbox_usercollection_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/enhanced_tag/{document_id}
+  method: get
+  operationId: Single_enhanced_tag_Document_v2_usercollection_enhanced_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/enhanced_tag/{document_id}
+  method: get
+  operationId: Sandbox___Single_enhanced_tag_Document_v2_sandbox_usercollection_enhanced_tag__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/workout/{document_id}
+  method: get
+  operationId: Single_workout_Document_v2_usercollection_workout__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/workout/{document_id}
+  method: get
+  operationId: Sandbox___Single_workout_Document_v2_sandbox_usercollection_workout__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/session/{document_id}
+  method: get
+  operationId: Single_session_Document_v2_usercollection_session__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/session/{document_id}
+  method: get
+  operationId: Sandbox___Single_session_Document_v2_sandbox_usercollection_session__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_activity/{document_id}
+  method: get
+  operationId: Single_daily_activity_Document_v2_usercollection_daily_activity__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_activity/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_activity_Document_v2_sandbox_usercollection_daily_activity__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_sleep/{document_id}
+  method: get
+  operationId: Single_daily_sleep_Document_v2_usercollection_daily_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_sleep/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_sleep_Document_v2_sandbox_usercollection_daily_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_spo2/{document_id}
+  method: get
+  operationId: Single_daily_spo2_Document_v2_usercollection_daily_spo2__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_spo2/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_spo2_Document_v2_sandbox_usercollection_daily_spo2__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_readiness/{document_id}
+  method: get
+  operationId: Single_daily_readiness_Document_v2_usercollection_daily_readiness__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_readiness/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_readiness_Document_v2_sandbox_usercollection_daily_readiness__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep/{document_id}
+  method: get
+  operationId: Single_sleep_Document_v2_usercollection_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep/{document_id}
+  method: get
+  operationId: Sandbox___Single_sleep_Document_v2_sandbox_usercollection_sleep__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/sleep_time/{document_id}
+  method: get
+  operationId: Single_sleep_time_Document_v2_usercollection_sleep_time__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/sleep_time/{document_id}
+  method: get
+  operationId: Sandbox___Single_sleep_time_Document_v2_sandbox_usercollection_sleep_time__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/rest_mode_period/{document_id}
+  method: get
+  operationId: Single_rest_mode_period_Document_v2_usercollection_rest_mode_period__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/rest_mode_period/{document_id}
+  method: get
+  operationId: Sandbox___Single_rest_mode_period_Document_v2_sandbox_usercollection_rest_mode_period__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/ring_configuration/{document_id}
+  method: get
+  operationId: Single_ring_configuration_Document_v2_usercollection_ring_configuration__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/ring_configuration/{document_id}
+  method: get
+  operationId: Sandbox___Single_ring_configuration_Document_v2_sandbox_usercollection_ring_configuration__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_stress/{document_id}
+  method: get
+  operationId: Single_daily_stress_Document_v2_usercollection_daily_stress__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_stress/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_stress_Document_v2_sandbox_usercollection_daily_stress__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_resilience/{document_id}
+  method: get
+  operationId: Single_daily_resilience_Document_v2_usercollection_daily_resilience__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_resilience/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_resilience_Document_v2_sandbox_usercollection_daily_resilience__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/daily_cardiovascular_age/{document_id}
+  method: get
+  operationId: Single_daily_cardiovascular_age_Document_v2_usercollection_daily_cardiovascular_age__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/daily_cardiovascular_age/{document_id}
+  method: get
+  operationId: Sandbox___Single_daily_cardiovascular_age_Document_v2_sandbox_usercollection_daily_cardiovascular_age__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/vO2_max/{document_id}
+  method: get
+  operationId: Single_vO2_max_Document_v2_usercollection_vO2_max__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/vO2_max/{document_id}
+  method: get
+  operationId: Sandbox___Single_vO2_max_Document_v2_sandbox_usercollection_vO2_max__document_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/webhook/subscription
+  method: get
+  operationId: list_webhook_subscriptions_v2_webhook_subscription_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/webhook/subscription
+  method: post
+  operationId: create_webhook_subscription_v2_webhook_subscription_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/webhook/subscription/{id}
+  method: get
+  operationId: get_webhook_subscription_v2_webhook_subscription__id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/webhook/subscription/{id}
+  method: put
+  operationId: update_webhook_subscription_v2_webhook_subscription__id__put
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/webhook/subscription/{id}
+  method: delete
+  operationId: delete_webhook_subscription_v2_webhook_subscription__id__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/webhook/subscription/renew/{id}
+  method: put
+  operationId: renew_webhook_subscription_v2_webhook_subscription_renew__id__put
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v2/usercollection/heartrate
+  method: get
+  operationId: Multiple_heartrate_Documents_v2_usercollection_heartrate_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/heartrate
+  method: get
+  operationId: Sandbox___Multiple_heartrate_Documents_v2_sandbox_usercollection_heartrate_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/ring_battery_level
+  method: get
+  operationId: Multiple_ring_battery_level_Documents_v2_usercollection_ring_battery_level_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/ring_battery_level
+  method: get
+  operationId: Sandbox___Multiple_ring_battery_level_Documents_v2_sandbox_usercollection_ring_battery_level_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/usercollection/interbeat_interval
+  method: get
+  operationId: Multiple_interbeat_interval_Documents_v2_usercollection_interbeat_interval_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v2/sandbox/usercollection/interbeat_interval
+  method: get
+  operationId: Sandbox___Multiple_interbeat_interval_Documents_v2_sandbox_usercollection_interbeat_interval_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
