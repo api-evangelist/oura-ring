@@ -1,0 +1,274 @@
+openapi: 3.1.0
+info:
+  title: Oura Daily Activity Routes VO2 Max Routes API
+  version: '2.0'
+tags:
+- name: VO2 Max Routes
+paths:
+  /v2/usercollection/vO2_max:
+    get:
+      tags:
+      - VO2 Max Routes
+      summary: Multiple Vo2 Max Documents
+      operationId: Multiple_vO2_max_Documents_v2_usercollection_vO2_max_get
+      parameters:
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: next_token
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      - name: fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+          title: Fields
+        description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/MultiDocumentResponse_PublicVO2Max_'
+                - $ref: '#/components/schemas/MultiDocumentResponseDict'
+                title: Response Multiple Vo2 Max Documents V2 Usercollection Vo2 Max Get
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/vO2_max?start_date=2021-11-01&end_date=2021-12-01&fields=day,score'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/vO2_max' \nparams={ \n    'start_date': '2021-11-01', \n    'end_date': '2021-12-01',\n    'fields': 'day,score' \n}\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/vO2_max?start_date=2021-11-01&end_date=2021-12-01&fields=day,score', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/vO2_max?start_date=2021-11-01&end_date=2021-12-01&fields=day,score\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+  /v2/usercollection/vO2_max/{document_id}:
+    get:
+      tags:
+      - VO2 Max Routes
+      summary: Single Vo2 Max Document
+      operationId: Single_vO2_max_Document_v2_usercollection_vO2_max__document_id__get
+      parameters:
+      - name: document_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Document Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicVO2Max'
+        '404':
+          description: Not Found
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/vO2_max/2-5daccc095220cc5493a4e9c2b681ca941e'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/vO2_max/2-5daccc095220cc5493a4e9c2b681ca941e\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/vO2_max/2-5daccc095220cc5493a4e9c2b681ca941e', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/vO2_max/2-5daccc095220cc5493a4e9c2b681ca941e\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+components:
+  schemas:
+    ISODate:
+      type: string
+    UtcDateTime:
+      type: string
+    LocalizedDateTime:
+      type: string
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    PublicVO2Max:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the estimate belongs to.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the estimate was created.
+        vo2_max:
+          type: integer
+          title: ''
+          description: VO2 max value.
+      type: object
+      required:
+      - id
+      - meta
+      - day
+      - timestamp
+      - vo2_max
+      title: PublicVO2Max
+      description: VO2Max estimate.
+      x-cloud-only: true
+      x-collection: publicvo2max
+      x-owner: health-squad
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MultiDocumentResponse_PublicVO2Max_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicVO2Max'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicVO2Max]
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict

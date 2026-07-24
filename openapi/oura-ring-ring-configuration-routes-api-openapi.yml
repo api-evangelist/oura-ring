@@ -1,0 +1,309 @@
+openapi: 3.1.0
+info:
+  title: Oura Daily Activity Routes Ring Configuration Routes API
+  version: '2.0'
+tags:
+- name: Ring Configuration Routes
+paths:
+  /v2/usercollection/ring_configuration:
+    get:
+      tags:
+      - Ring Configuration Routes
+      summary: Multiple Ring Configuration Documents
+      operationId: Multiple_ring_configuration_Documents_v2_usercollection_ring_configuration_get
+      parameters:
+      - name: fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+          title: Fields
+        description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+      - name: next_token
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/MultiDocumentResponse_PublicRingConfiguration_'
+                - $ref: '#/components/schemas/MultiDocumentResponseDict'
+                title: Response Multiple Ring Configuration Documents V2 Usercollection Ring Configuration Get
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/ring_configuration?fields=day,score'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/ring_configuration' \nparams = {'fields': 'day,score'}\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/ring_configuration?fields=day,score', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/ring_configuration?fields=day,score\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+  /v2/usercollection/ring_configuration/{document_id}:
+    get:
+      tags:
+      - Ring Configuration Routes
+      summary: Single Ring Configuration Document
+      operationId: Single_ring_configuration_Document_v2_usercollection_ring_configuration__document_id__get
+      parameters:
+      - name: document_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Document Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicRingConfiguration'
+        '404':
+          description: Not Found
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/ring_configuration/2-5daccc095220cc5493a4e9c2b681ca941e'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/ring_configuration/2-5daccc095220cc5493a4e9c2b681ca941e\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/ring_configuration/2-5daccc095220cc5493a4e9c2b681ca941e', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/ring_configuration/2-5daccc095220cc5493a4e9c2b681ca941e\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+components:
+  schemas:
+    UtcDateTime:
+      type: string
+    MultiDocumentResponse_PublicRingConfiguration_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicRingConfiguration'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicRingConfiguration]
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PublicRingHardwareType:
+      type: string
+      enum:
+      - gen1
+      - gen2
+      - gen2m
+      - gen3
+      - gen4
+      title: PublicRingHardwareType
+      description: Possible ring hardware types.
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    PublicRingConfiguration:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        color:
+          anyOf:
+          - $ref: '#/components/schemas/PublicRingColor'
+          - type: 'null'
+          title: ''
+          description: Color of the ring.
+        design:
+          anyOf:
+          - $ref: '#/components/schemas/PublicRingDesign'
+          - type: 'null'
+          title: ''
+          description: Design of the ring.
+        firmware_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: ''
+          description: Firmware version of the ring.
+        hardware_type:
+          anyOf:
+          - $ref: '#/components/schemas/PublicRingHardwareType'
+          - type: 'null'
+          title: ''
+          description: Hardware type of the ring.
+        set_up_at:
+          anyOf:
+          - $ref: '#/components/schemas/UtcDateTime'
+          - type: 'null'
+          title: ''
+          description: UTC timestamp indicating when the ring was set up.
+        size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: US size of the ring.
+      type: object
+      required:
+      - id
+      - meta
+      title: PublicRingConfiguration
+      description: Ring configuration.
+      x-cloud-only: true
+      x-collection: publicringconfiguration
+      x-owner: app-platform
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    PublicRingDesign:
+      type: string
+      enum:
+      - heritage
+      - balance
+      - balance_diamond
+      - horizon
+      - ceramic
+      title: PublicRingDesign
+      description: Possible ring designs.
+    PublicRingColor:
+      type: string
+      enum:
+      - brushed_silver
+      - glossy_black
+      - glossy_gold
+      - glossy_white
+      - gucci
+      - matt_gold
+      - rose
+      - silver
+      - stealth_black
+      - titanium
+      - titanium_and_gold
+      - cloud
+      - petal
+      - midnight
+      - tide
+      title: PublicRingColor
+      description: Possible ring colors.

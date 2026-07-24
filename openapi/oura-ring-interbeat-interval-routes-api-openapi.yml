@@ -1,0 +1,204 @@
+openapi: 3.1.0
+info:
+  title: Oura Daily Activity Routes Interbeat Interval Routes API
+  version: '2.0'
+tags:
+- name: Interbeat Interval Routes
+paths:
+  /v2/usercollection/interbeat_interval:
+    get:
+      tags:
+      - Interbeat Interval Routes
+      summary: Multiple Interbeat Interval Documents
+      operationId: Multiple_interbeat_interval_Documents_v2_usercollection_interbeat_interval_get
+      parameters:
+      - name: start_datetime
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Start Datetime
+      - name: end_datetime
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: End Datetime
+      - name: next_token
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      - name: latest
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Latest
+      - name: fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+          title: Fields
+        description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/TimeSeriesResponse_PublicInterbeatIntervalRow_'
+                - $ref: '#/components/schemas/TimeSeriesResponseDict'
+                title: Response Multiple Interbeat Interval Documents V2 Usercollection Interbeat Interval Get
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: "# The '+' symbol in the timezone must be escaped to `%2B` if included. \ncurl --location --request GET 'https://api.ouraring.com/v2/usercollection/interbeat_interval?start_datetime=2021-11-01T00:00:00-08:00&end_datetime=2021-12-01T00:00:00-08:00&fields=timestamp,bpm' \\ \n--header 'Authorization: Bearer <token>'"
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/interbeat_interval' \nparams={ \n    'start_datetime': '2021-11-01T00:00:00-08:00', \n    'end_datetime': '2021-12-01T00:00:00-08:00',\n    'fields': 'timestamp,bpm' \n} \nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/interbeat_interval?start_datetime=2021-11-01T00:00:00-08:00&end_datetime=2021-12-01T00:00:00-08:00&fields=timestamp,bpm', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/interbeat_interval?start_datetime=2021-11-01T00:00:00-08:00&end_datetime=2021-12-01T00:00:00-08:00&fields=timestamp,bpm\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+components:
+  schemas:
+    TimeSeriesResponse_PublicInterbeatIntervalRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
+    UtcDateTime:
+      type: string
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PublicInterbeatIntervalRow:
+      properties:
+        timestamp:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp of the discrete sample.
+        timestamp_unix:
+          type: integer
+          title: ''
+          description: Timestamp of the discrete sample as unix time in milliseconds.
+        ibi:
+          type: integer
+          title: ''
+          description: Time between two consecutive beats of the heart, in milliseconds. Maximum value limited to 2000ms.
+        validity:
+          type: integer
+          title: ''
+          description: 'Validation classification: 1=Good,2=Bad,3=Corrected,-1/-2=Gap, 0=Raw(Uncorrected). The validity indicates
+
+            whether the data in this row is trustworthy. Gap: indicates that there was no available ppg signal in the
+
+            past seconds, which makes it impossible to compute the IBI for this row. Corrected: In rare cases the ring
+
+            algorithm produces artifacts that can be corrected during post-processing. An example is the ring algo
+
+            generating two IBI events when there should be a single one. If the IBI value was fixed in post-processing,
+
+            it will have this validity classification. If the IBI value was not fixed, it will have the Raw classification.'
+      type: object
+      required:
+      - timestamp
+      - timestamp_unix
+      - ibi
+      - validity
+      title: PublicInterbeatIntervalRow
+      description: Discrete interbeat interval
+      x-cloud-only: true
+      x-collection: publicinterbeatinterval
+      x-owner: app-platform
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict

@@ -1,0 +1,351 @@
+openapi: 3.1.0
+info:
+  title: Oura Daily Activity Routes Daily Readiness Routes API
+  version: '2.0'
+tags:
+- name: Daily Readiness Routes
+paths:
+  /v2/usercollection/daily_readiness:
+    get:
+      tags:
+      - Daily Readiness Routes
+      summary: Multiple Daily Readiness Documents
+      operationId: Multiple_daily_readiness_Documents_v2_usercollection_daily_readiness_get
+      parameters:
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+            format: date
+          - type: 'null'
+          title: Start Date
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Date
+      - name: next_token
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      - name: fields
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+          title: Fields
+        description: Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                - $ref: '#/components/schemas/MultiDocumentResponse_PublicDailyReadiness_'
+                - $ref: '#/components/schemas/MultiDocumentResponseDict'
+                title: Response Multiple Daily Readiness Documents V2 Usercollection Daily Readiness Get
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=2021-11-01&end_date=2021-12-01&fields=day,score'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/daily_readiness' \nparams={ \n    'start_date': '2021-11-01', \n    'end_date': '2021-12-01',\n    'fields': 'day,score' \n}\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=2021-11-01&end_date=2021-12-01&fields=day,score', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/daily_readiness?start_date=2021-11-01&end_date=2021-12-01&fields=day,score\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+  /v2/usercollection/daily_readiness/{document_id}:
+    get:
+      tags:
+      - Daily Readiness Routes
+      summary: Single Daily Readiness Document
+      operationId: Single_daily_readiness_Document_v2_usercollection_daily_readiness__document_id__get
+      parameters:
+      - name: document_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Document Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicDailyReadiness'
+        '404':
+          description: Not Found
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/daily_readiness/2-5daccc095220cc5493a4e9c2b681ca941e'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/daily_readiness/2-5daccc095220cc5493a4e9c2b681ca941e\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/daily_readiness/2-5daccc095220cc5493a4e9c2b681ca941e', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/daily_readiness/2-5daccc095220cc5493a4e9c2b681ca941e\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+components:
+  schemas:
+    PublicReadinessContributors:
+      properties:
+        activity_balance:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of cumulative activity balance in range [1, 100].
+        body_temperature:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of body temperature in range [1, 100].
+        hrv_balance:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of heart rate variability balance in range [1, 100].
+        previous_day_activity:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous day's activity in range [1, 100].
+        previous_night:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous night's sleep in range [1, 100].
+        recovery_index:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of recovery index in range [1, 100].
+        resting_heart_rate:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of resting heart rate in range [1, 100].
+        sleep_balance:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep balance in range [1, 100].
+        sleep_regularity:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep regularity in range [1, 100].
+      type: object
+      title: PublicReadinessContributors
+      description: Object defining readiness score contributors.
+    ISODate:
+      type: string
+    LocalizedDateTime:
+      type: string
+    UtcDateTime:
+      type: string
+    PublicDailyReadiness:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        contributors:
+          $ref: '#/components/schemas/PublicReadinessContributors'
+          title: ''
+          description: Contributors of the daily readiness score.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the daily readiness belongs to.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Daily readiness score.
+        temperature_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature deviation in degrees Celcius.
+        temperature_trend_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature trend deviation in degrees Celcius.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp of the daily readiness.
+      type: object
+      required:
+      - id
+      - meta
+      - contributors
+      - day
+      - timestamp
+      title: PublicDailyReadiness
+      description: Public object defining daily readiness.
+      x-cloud-only: true
+      x-collection: publicdailyreadiness
+      x-owner: health-squad
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MultiDocumentResponse_PublicDailyReadiness_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyReadiness'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyReadiness]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict

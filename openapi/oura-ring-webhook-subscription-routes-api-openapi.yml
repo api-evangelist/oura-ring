@@ -1,0 +1,333 @@
+openapi: 3.1.0
+info:
+  title: Oura Daily Activity Routes Webhook Subscription Routes API
+  version: '2.0'
+tags:
+- name: Webhook Subscription Routes
+paths:
+  /v2/webhook/subscription:
+    get:
+      tags:
+      - Webhook Subscription Routes
+      summary: List Webhook Subscriptions
+      operationId: list_webhook_subscriptions_v2_webhook_subscription_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/WebhookSubscriptionModel'
+                type: array
+                title: Response List Webhook Subscriptions V2 Webhook Subscription Get
+      security:
+      - ClientIdAuth: []
+        ClientSecretAuth: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/webhook/subscription'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'''
+    post:
+      tags:
+      - Webhook Subscription Routes
+      summary: Create Webhook Subscription
+      operationId: create_webhook_subscription_v2_webhook_subscription_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWebhookSubscriptionRequest'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscriptionModel'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - ClientIdAuth: []
+        ClientSecretAuth: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: "curl --location --request POST 'https://api.ouraring.com/v2/webhook/subscription' --header 'x-client-id: client-id' --header 'x-client-secret: client-secret' --header 'Content-Type: application/json' --data-raw '{\n    \"callback_url\": \"https://my-api/oura/tag/delete\",\n    \"verification_token\": \"123\",\n    \"event_type\": \"delete\",\n    \"data_type\": \"tag\"\n}'"
+  /v2/webhook/subscription/{id}:
+    get:
+      tags:
+      - Webhook Subscription Routes
+      summary: Get Webhook Subscription
+      operationId: get_webhook_subscription_v2_webhook_subscription__id__get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscriptionModel'
+        '403':
+          description: Webhook with specified id does not exist.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - ClientIdAuth: []
+        ClientSecretAuth: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/webhook/subscription/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'''
+    put:
+      tags:
+      - Webhook Subscription Routes
+      summary: Update Webhook Subscription
+      operationId: update_webhook_subscription_v2_webhook_subscription__id__put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWebhookSubscriptionRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscriptionModel'
+        '403':
+          description: Webhook with specified id does not exist.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - ClientIdAuth: []
+        ClientSecretAuth: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: "curl --location --request PUT 'https://api.ouraring.com/v2/webhook/subscription/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78' --header 'x-client-id: client-id' --header 'x-client-secret: client-secret' --header 'Content-Type: application/json' --data-raw '{\n    \"callback_url\": \"https://my-api/oura/tag/delete\",\n    \"verification_token\": \"123\",\n    \"event_type\": \"delete\",\n    \"data_type\": \"tag\"\n}'"
+    delete:
+      tags:
+      - Webhook Subscription Routes
+      summary: Delete Webhook Subscription
+      operationId: delete_webhook_subscription_v2_webhook_subscription__id__delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Id
+      responses:
+        '204':
+          description: Successful Response
+        '403':
+          description: Webhook with specified id does not exist.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - ClientIdAuth: []
+        ClientSecretAuth: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request DELETE ''https://api.ouraring.com/v2/webhook/subscription/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'''
+  /v2/webhook/subscription/renew/{id}:
+    put:
+      tags:
+      - Webhook Subscription Routes
+      summary: Renew Webhook Subscription
+      operationId: renew_webhook_subscription_v2_webhook_subscription_renew__id__put
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSubscriptionModel'
+        '403':
+          description: Webhook with specified id does not exist.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - ClientIdAuth: []
+        ClientSecretAuth: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request PUT ''https://api.ouraring.com/v2/webhook/subscription/renew/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'' --header ''Content-Type: application/json'''
+components:
+  schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UpdateWebhookSubscriptionRequest:
+      properties:
+        verification_token:
+          type: string
+          title: Verification Token
+        callback_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Callback Url
+        event_type:
+          anyOf:
+          - $ref: '#/components/schemas/WebhookOperation'
+          - type: 'null'
+        data_type:
+          anyOf:
+          - $ref: '#/components/schemas/ExtApiV2DataType'
+          - type: 'null'
+      type: object
+      required:
+      - verification_token
+      title: UpdateWebhookSubscriptionRequest
+    WebhookSubscriptionModel:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        callback_url:
+          type: string
+          title: Callback Url
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+        expiration_time:
+          type: string
+          format: date-time
+          title: Expiration Time
+      type: object
+      required:
+      - id
+      - callback_url
+      - event_type
+      - data_type
+      - expiration_time
+      title: WebhookSubscriptionModel
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    CreateWebhookSubscriptionRequest:
+      properties:
+        callback_url:
+          type: string
+          title: Callback Url
+        verification_token:
+          type: string
+          title: Verification Token
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+      type: object
+      required:
+      - callback_url
+      - verification_token
+      - event_type
+      - data_type
+      title: CreateWebhookSubscriptionRequest
+    ExtApiV2DataType:
+      type: string
+      enum:
+      - tag
+      - enhanced_tag
+      - workout
+      - session
+      - sleep
+      - daily_sleep
+      - daily_readiness
+      - daily_activity
+      - daily_spo2
+      - sleep_time
+      - rest_mode_period
+      - ring_configuration
+      - daily_stress
+      - daily_cycle_phases
+      - activation_status
+      - daily_cardiovascular_age
+      - daily_resilience
+      - vo2_max
+      - period_start
+      - pregnancy
+      - fertile_window
+      - ovulation_confirmed
+      - blood_glucose
+      title: ExtApiV2DataType
+    WebhookOperation:
+      type: string
+      enum:
+      - create
+      - update
+      - delete
+      title: WebhookOperation

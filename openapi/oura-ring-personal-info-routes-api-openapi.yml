@@ -1,0 +1,82 @@
+openapi: 3.1.0
+info:
+  title: Oura Daily Activity Routes Personal Info Routes API
+  version: '2.0'
+tags:
+- name: Personal Info Routes
+paths:
+  /v2/usercollection/personal_info:
+    get:
+      tags:
+      - Personal Info Routes
+      summary: Single Personal Info Document
+      operationId: Single_Personal_Info_Document_v2_usercollection_personal_info_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalInfoResponse'
+        '400':
+          description: Client Exception
+        '401':
+          description: Unauthorized access exception. Usually means the access token is expired, malformed or revoked.
+        '403':
+          description: Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.
+        '429':
+          description: Request Rate Limit Exceeded.
+      security:
+      - BearerAuth: []
+      - OAuth2: []
+      x-codeSamples:
+      - lang: cURL
+        label: cURL
+        source: 'curl --location --request GET ''https://api.ouraring.com/v2/usercollection/personal_info'' \
+
+          --header ''Authorization: Bearer <token>'''
+      - lang: Python
+        source: "import requests \nurl = 'https://api.ouraring.com/v2/usercollection/personal_info' \nparams={ \n    'start_date': '2021-11-01', \n    'end_date': '2021-12-01' \n}\nheaders = { \n  'Authorization': 'Bearer <token>' \n}\nresponse = requests.request('GET', url, headers=headers, params=params) \nprint(response.text)"
+        label: Python
+      - lang: JavaScript
+        source: "var myHeaders = new Headers(); \nmyHeaders.append('Authorization', 'Bearer <token>'); \nvar requestOptions = { \n  method: 'GET', \n  headers: myHeaders, \nfetch('https://api.ouraring.com/v2/usercollection/personal_info', requestOptions) \n  .then(response => response.text()) \n  .then(result => console.log(result)) \n  .catch(error => console.log('error', error));"
+        label: JavaScript
+      - lang: Java
+        source: "OkHttpClient client = new OkHttpClient().newBuilder() \n  .build(); \nRequest request = new Request.Builder() \n  .url(\"https://api.ouraring.com/v2/usercollection/personal_info\") \n  .method(\"GET\", null) \n  .addHeader(\"Authorization\", \"Bearer <token>\") \n  .build(); \nResponse response = client.newCall(request).execute();"
+        label: Java
+components:
+  schemas:
+    PersonalInfoResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+        age:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Age
+        weight:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Weight
+        height:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Height
+        biological_sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Biological Sex
+        email:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Email
+      type: object
+      required:
+      - id
+      title: PersonalInfoResponse
