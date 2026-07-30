@@ -1,173 +1,297 @@
 aid: oura-ring
 url: https://raw.githubusercontent.com/api-evangelist/oura-ring/refs/heads/main/apis.yml
 apis:
-- aid: oura-ring:oura-personal-info-api
-  name: Oura Personal Info API
-  tags:
-  - Health
-  - Personal Info
-  - User
-  - Wearables
+- aid: oura-ring:oura-ring-daily-activity-routes-api
+  name: Oura Daily Activity Routes API
+  description: The Daily Activity Routes API from Oura — 2 operation(s) for daily activity routes.
   humanURL: https://cloud.ouraring.com/v2/docs
-  properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  - url: graphql/oura-ring-graphql.md
-    type: GraphQL
-  description: Retrieve the authenticated user's Oura profile including age, weight,
-    height, biological sex, and email via /v2/usercollection/personal_info. Returned
-    with the personal scope and represents the static profile metadata associated
-    with the Oura account.
-- aid: oura-ring:oura-daily-summaries-api
-  name: Oura Daily Summaries API
   tags:
-  - Activity
-  - Cardiovascular Age
-  - Daily
-  - Health
-  - Readiness
-  - Resilience
-  - Sleep
-  - SpO2
-  - Stress
-  - VO2 Max
-  - Wearables
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Activity Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Per-day scored summaries derived from Oura Ring sensor data — daily_activity,
-    daily_sleep, daily_readiness, daily_resilience, daily_stress, daily_spo2, daily_cardiovascular_age,
-    and vO2_max. Each document collection supports list with start_date/end_date and
-    individual document retrieval by document_id.
-- aid: oura-ring:oura-sleep-api
-  name: Oura Sleep API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-activity-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-daily-cardiovascular-age-routes-api
+  name: Oura Daily Cardiovascular Age Routes API
+  description: >-
+    The Daily Cardiovascular Age Routes API from Oura — 2 operation(s) for daily cardiovascular age routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Health
-  - Rest Mode
-  - Sleep
-  - Sleep Time
-  - Wearables
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Cardiovascular Age Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Detailed sleep period documents from the ring including HRV, respiratory
-    rate, sleep stages, and movement plus recommended sleep_time windows and user-defined
-    rest_mode_period blocks. Endpoints under /v2/usercollection/sleep, /v2/usercollection/sleep_time,
-    and /v2/usercollection/rest_mode_period.
-- aid: oura-ring:oura-activity-api
-  name: Oura Activity API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-cardiovascular-age-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-daily-readiness-routes-api
+  name: Oura Daily Readiness Routes API
+  description: The Daily Readiness Routes API from Oura — 2 operation(s) for daily readiness routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Activity
-  - Fitness
-  - Health
-  - Sessions
-  - Wearables
-  - Workouts
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Readiness Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Workout, session (meditation/breathwork/reset), and movement data captured
-    by the Oura Ring. /v2/usercollection/workout returns auto-detected and manually
-    logged workouts; /v2/usercollection/session returns guided sessions with intensity
-    and labels.
-- aid: oura-ring:oura-heart-rate-api
-  name: Oura Heart Rate API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-readiness-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-daily-resilience-routes-api
+  name: Oura Daily Resilience Routes API
+  description: The Daily Resilience Routes API from Oura — 2 operation(s) for daily resilience routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Health
-  - Heart Rate
-  - HRV
-  - Interbeat Interval
-  - Time Series
-  - Wearables
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Resilience Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Continuous heart-rate samples and interbeat interval (RR) data captured
-    by the Oura Ring. /v2/usercollection/heartrate returns datetime-bounded BPM samples;
-    /v2/usercollection/interbeat_interval returns the underlying IBI time series used
-    for HRV calculation.
-- aid: oura-ring:oura-tags-api
-  name: Oura Tags API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-resilience-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-daily-sleep-routes-api
+  name: Oura Daily Sleep Routes API
+  description: The Daily Sleep Routes API from Oura — 2 operation(s) for daily sleep routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Annotations
-  - Enhanced Tags
-  - Health
-  - Tags
-  - Wearables
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Sleep Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: User-authored annotations attached to specific days or events — legacy
-    /v2/usercollection/tag and structured /v2/usercollection/enhanced_tag. Tags carry
-    custom text, comments, and (for enhanced tags) typed categories like ailment,
-    lifestyle, or nutrition.
-- aid: oura-ring:oura-ring-api
-  name: Oura Ring Configuration API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-sleep-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-daily-spo2-routes-api
+  name: Oura Daily Spo2 Routes API
+  description: The Daily Spo2 Routes API from Oura — 2 operation(s) for daily spo2 routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Battery
-  - Hardware
-  - Ring
-  - Telemetry
-  - Wearables
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Spo2 Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Metadata about the Oura Ring hardware itself — color, design, firmware
-    version, hardware type, set id, and ring battery level samples — via /v2/usercollection/ring_configuration
-    and /v2/usercollection/ring_battery_level.
-- aid: oura-ring:oura-webhooks-api
-  name: Oura Webhooks API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-spo2-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-daily-stress-routes-api
+  name: Oura Daily Stress Routes API
+  description: The Daily Stress Routes API from Oura — 2 operation(s) for daily stress routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Events
-  - Notifications
-  - Subscriptions
-  - Webhooks
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Daily Stress Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Create, list, renew, update, and delete event subscriptions over /v2/webhook/subscription.
-    Each subscription targets a data_type (sleep, activity, readiness, tag, workout,
-    session, daily_*, heartrate, etc.) and an event_type (create, update, delete)
-    and posts events to a developer-controlled callback URL with HMAC verification.
-- aid: oura-ring:oura-sandbox-api
-  name: Oura Sandbox API
+  - type: OpenAPI
+    url: openapi/oura-ring-daily-stress-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-enhanced-tag-routes-api
+  name: Oura Enhanced Tag Routes API
+  description: The Enhanced Tag Routes API from Oura — 2 operation(s) for enhanced tag routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
   tags:
-  - Sandbox
-  - Sample Data
-  - Testing
-  - Wearables
-  humanURL: https://cloud.ouraring.com/v2/docs
+  - Enhanced Tag Routes
   properties:
-  - url: https://cloud.ouraring.com/v2/docs
-    type: Documentation
-  - url: openapi/oura-api-openapi.yml
-    type: OpenAPI
-  description: Mirror of the production usercollection endpoints under /v2/sandbox/usercollection/*
-    that returns deterministic sample data without requiring a connected ring or real
-    user consent. Used for integration testing, demos, and CI.
+  - type: OpenAPI
+    url: openapi/oura-ring-enhanced-tag-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-heart-rate-routes-api
+  name: Oura Heart Rate Routes API
+  description: The Heart Rate Routes API from Oura — 1 operation(s) for heart rate routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Heart Rate Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-heart-rate-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-interbeat-interval-routes-api
+  name: Oura Interbeat Interval Routes API
+  description: >-
+    The Interbeat Interval Routes API from Oura — 1 operation(s) for interbeat interval routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Interbeat Interval Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-interbeat-interval-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-personal-info-routes-api
+  name: Oura Personal Info Routes API
+  description: The Personal Info Routes API from Oura — 1 operation(s) for personal info routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Personal Info Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-personal-info-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-rest-mode-period-routes-api
+  name: Oura Rest Mode Period Routes API
+  description: The Rest Mode Period Routes API from Oura — 2 operation(s) for rest mode period routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Rest Mode Period Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-rest-mode-period-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-ring-battery-level-routes-api
+  name: Oura Ring Battery Level Routes API
+  description: >-
+    The Ring Battery Level Routes API from Oura — 1 operation(s) for ring battery level routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Ring Battery Level Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-ring-battery-level-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-ring-configuration-routes-api
+  name: Oura Ring Configuration Routes API
+  description: >-
+    The Ring Configuration Routes API from Oura — 2 operation(s) for ring configuration routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Ring Configuration Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-ring-configuration-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-sandbox-routes-api
+  name: Oura Sandbox Routes API
+  description: The Sandbox Routes API from Oura — 35 operation(s) for sandbox routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Sandbox Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-sandbox-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-session-routes-api
+  name: Oura Session Routes API
+  description: The Session Routes API from Oura — 2 operation(s) for session routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Session Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-session-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-sleep-routes-api
+  name: Oura Sleep Routes API
+  description: The Sleep Routes API from Oura — 2 operation(s) for sleep routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Sleep Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-sleep-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-sleep-time-routes-api
+  name: Oura Sleep Time Routes API
+  description: The Sleep Time Routes API from Oura — 2 operation(s) for sleep time routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Sleep Time Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-sleep-time-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-tag-routes-api
+  name: Oura Tag Routes API
+  description: The Tag Routes API from Oura — 2 operation(s) for tag routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Tag Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-tag-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-vo2-max-routes-api
+  name: Oura VO2 Max Routes API
+  description: The VO2 Max Routes API from Oura — 2 operation(s) for vo2 max routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - VO2 Max Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-vo2-max-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-webhook-subscription-routes-api
+  name: Oura Webhook Subscription Routes API
+  description: >-
+    The Webhook Subscription Routes API from Oura — 3 operation(s) for webhook subscription routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Webhook Subscription Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-webhook-subscription-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
+- aid: oura-ring:oura-ring-workout-routes-api
+  name: Oura Workout Routes API
+  description: The Workout Routes API from Oura — 2 operation(s) for workout routes.
+  humanURL: https://cloud.ouraring.com/v2/docs
+  tags:
+  - Workout Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/oura-ring-workout-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.ouraring.com/v2/docs
+  - type: GraphQL
+    url: graphql/oura-ring-graphql.md
 name: Oura
 tags:
 - Activity
@@ -187,9 +311,23 @@ tags:
 - Wellness
 - Women's Health
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/oura-ring.png
 access: 3rd-Party
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/oura/overview
 - type: AgenticAccess
   url: agentic-access/oura-ring-agentic-access.yml
 - type: TrustCenter
