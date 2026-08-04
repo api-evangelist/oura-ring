@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "4eaf82a2-9029-4f11-8ca1-0f7da4dfaa88",
+    "name": "Oura Daily Activity Routes Ring Battery Level Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:58.000Z",
+    "updatedAt": "2026-07-28T02:29:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4eaf82a2-9029-4f11-8ca1-0f7da4dfaa88"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "ring_battery_level",
+              "item": [
+                {
+                  "name": "Multiple Ring Battery Level Documents",
+                  "id": "69f92d87-034f-4ef6-ae84-59de6a75e0ed",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "ring_battery_level"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "latest",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "48e9055d-0c98-470f-94dd-b394b9b2b709",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_battery_level"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"timestamp_unix\": \"<integer>\",\n      \"level\": \"<integer>\",\n      \"charging\": \"<boolean>\",\n      \"in_charger\": \"<boolean>\"\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"timestamp_unix\": \"<integer>\",\n      \"level\": \"<integer>\",\n      \"charging\": \"<boolean>\",\n      \"in_charger\": \"<boolean>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:58.000Z",
+                      "updatedAt": "2026-07-28T02:29:58.000Z",
+                      "uid": "35240-48e9055d-0c98-470f-94dd-b394b9b2b709"
+                    },
+                    {
+                      "id": "7ee98a44-7840-4f14-92c6-f7f3e54c5669",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_battery_level"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:58.000Z",
+                      "updatedAt": "2026-07-28T02:29:58.000Z",
+                      "uid": "35240-7ee98a44-7840-4f14-92c6-f7f3e54c5669"
+                    },
+                    {
+                      "id": "9624e51a-0ebb-4972-a752-9ddd19aae983",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_battery_level"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:58.000Z",
+                      "updatedAt": "2026-07-28T02:29:58.000Z",
+                      "uid": "35240-9624e51a-0ebb-4972-a752-9ddd19aae983"
+                    },
+                    {
+                      "id": "7ea0b86a-7e8d-4288-a21a-bea92ae7c23b",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_battery_level"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:58.000Z",
+                      "updatedAt": "2026-07-28T02:29:58.000Z",
+                      "uid": "35240-7ea0b86a-7e8d-4288-a21a-bea92ae7c23b"
+                    },
+                    {
+                      "id": "b4dd8630-3e61-4807-990a-e1d62cdecda8",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_battery_level"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:58.000Z",
+                      "updatedAt": "2026-07-28T02:29:58.000Z",
+                      "uid": "35240-b4dd8630-3e61-4807-990a-e1d62cdecda8"
+                    },
+                    {
+                      "id": "9d93b493-5226-4430-ad06-d1e80db93773",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_battery_level?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_battery_level"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:58.000Z",
+                      "updatedAt": "2026-07-28T02:29:58.000Z",
+                      "uid": "35240-9d93b493-5226-4430-ad06-d1e80db93773"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:58.000Z",
+                  "updatedAt": "2026-07-28T02:29:58.000Z",
+                  "uid": "35240-69f92d87-034f-4ef6-ae84-59de6a75e0ed"
+                }
+              ],
+              "id": "ab9bf595-7444-4ab5-b94e-3c1a1751d296",
+              "createdAt": "2026-07-28T02:29:58.000Z",
+              "updatedAt": "2026-07-28T02:29:58.000Z",
+              "uid": "35240-ab9bf595-7444-4ab5-b94e-3c1a1751d296"
+            }
+          ],
+          "id": "017fc04e-96cd-42fa-b664-d0de2b6cff23",
+          "createdAt": "2026-07-28T02:29:58.000Z",
+          "updatedAt": "2026-07-28T02:29:58.000Z",
+          "uid": "35240-017fc04e-96cd-42fa-b664-d0de2b6cff23"
+        }
+      ],
+      "id": "54d9d003-d78a-4f68-bda1-de42b4a094c6",
+      "createdAt": "2026-07-28T02:29:58.000Z",
+      "updatedAt": "2026-07-28T02:29:58.000Z",
+      "uid": "35240-54d9d003-d78a-4f68-bda1-de42b4a094c6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

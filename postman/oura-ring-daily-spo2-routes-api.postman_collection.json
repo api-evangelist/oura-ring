@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "9afa5801-0249-48fc-9124-8f7a959ae3c3",
+    "name": "Oura Daily Activity Routes Daily Spo2 Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:37.000Z",
+    "updatedAt": "2026-07-28T02:29:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9afa5801-0249-48fc-9124-8f7a959ae3c3"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "daily_spo2",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Daily Spo2 Document",
+                      "id": "771d6315-f6a4-4720-b190-da75e8b66e3b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9c5b3e14-fb5e-4ad0-a2c9-00a7d9bdb2ec",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6a053387-bf53-488e-a712-4521dab1c50f",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"day\": \"<string>\",\n  \"breathing_disturbance_index\": \"<integer>\",\n  \"spo2_percentage\": {\n    \"average\": \"<number>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-6a053387-bf53-488e-a712-4521dab1c50f"
+                        },
+                        {
+                          "id": "a8da4731-7e39-429f-9050-cebbd3747e0d",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-a8da4731-7e39-429f-9050-cebbd3747e0d"
+                        },
+                        {
+                          "id": "6b3b16a8-c23e-4d2a-9895-450fe92860bb",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-6b3b16a8-c23e-4d2a-9895-450fe92860bb"
+                        },
+                        {
+                          "id": "c501c979-055f-4d37-876b-9aa7a36ea672",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-c501c979-055f-4d37-876b-9aa7a36ea672"
+                        },
+                        {
+                          "id": "ea7b5bbc-add2-4a1a-89fc-1fa2b9bd8c16",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-ea7b5bbc-add2-4a1a-89fc-1fa2b9bd8c16"
+                        },
+                        {
+                          "id": "74db2bfc-b3cc-46d8-bb9d-fcd974d17a7c",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-74db2bfc-b3cc-46d8-bb9d-fcd974d17a7c"
+                        },
+                        {
+                          "id": "aedd3a71-148e-40e4-a3b2-5e0710fbbcf6",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_spo2/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_spo2",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:37.000Z",
+                          "updatedAt": "2026-07-28T02:29:37.000Z",
+                          "uid": "35240-aedd3a71-148e-40e4-a3b2-5e0710fbbcf6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-771d6315-f6a4-4720-b190-da75e8b66e3b"
+                    }
+                  ],
+                  "id": "ad31057e-f761-4aaf-8c0f-425818c9058b",
+                  "createdAt": "2026-07-28T02:29:37.000Z",
+                  "updatedAt": "2026-07-28T02:29:37.000Z",
+                  "uid": "35240-ad31057e-f761-4aaf-8c0f-425818c9058b"
+                },
+                {
+                  "name": "Multiple Daily Spo2 Documents",
+                  "id": "53442457-49cb-4535-934a-f24a5f71c99f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "daily_spo2"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "50142697-ba1e-443c-91d4-0ab082599b09",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"breathing_disturbance_index\": \"<integer>\",\n      \"spo2_percentage\": {\n        \"average\": \"<number>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"breathing_disturbance_index\": \"<integer>\",\n      \"spo2_percentage\": {\n        \"average\": \"<number>\"\n      }\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-50142697-ba1e-443c-91d4-0ab082599b09"
+                    },
+                    {
+                      "id": "77fbc0f4-f80d-4fed-b60e-19baa0360c27",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-77fbc0f4-f80d-4fed-b60e-19baa0360c27"
+                    },
+                    {
+                      "id": "7d2f2fcd-77fd-43ae-9fde-381fd0b382a6",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-7d2f2fcd-77fd-43ae-9fde-381fd0b382a6"
+                    },
+                    {
+                      "id": "ab315153-cd8c-43be-bf8d-b1d045dc7da3",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-ab315153-cd8c-43be-bf8d-b1d045dc7da3"
+                    },
+                    {
+                      "id": "fde6d782-2051-4696-849c-43feec7041ff",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-fde6d782-2051-4696-849c-43feec7041ff"
+                    },
+                    {
+                      "id": "a6d3cc94-5175-47cf-96e5-703aae978974",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_spo2?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_spo2"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:37.000Z",
+                      "updatedAt": "2026-07-28T02:29:37.000Z",
+                      "uid": "35240-a6d3cc94-5175-47cf-96e5-703aae978974"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:37.000Z",
+                  "updatedAt": "2026-07-28T02:29:37.000Z",
+                  "uid": "35240-53442457-49cb-4535-934a-f24a5f71c99f"
+                }
+              ],
+              "id": "e3a6f1d0-896d-4570-832b-c0ad561f63e8",
+              "createdAt": "2026-07-28T02:29:37.000Z",
+              "updatedAt": "2026-07-28T02:29:37.000Z",
+              "uid": "35240-e3a6f1d0-896d-4570-832b-c0ad561f63e8"
+            }
+          ],
+          "id": "b6d22ce3-d7dc-4686-aef1-3b692dd3161e",
+          "createdAt": "2026-07-28T02:29:37.000Z",
+          "updatedAt": "2026-07-28T02:29:37.000Z",
+          "uid": "35240-b6d22ce3-d7dc-4686-aef1-3b692dd3161e"
+        }
+      ],
+      "id": "c81beeec-92bc-49b3-8152-d5096b416d14",
+      "createdAt": "2026-07-28T02:29:37.000Z",
+      "updatedAt": "2026-07-28T02:29:37.000Z",
+      "uid": "35240-c81beeec-92bc-49b3-8152-d5096b416d14"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

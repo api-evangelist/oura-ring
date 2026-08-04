@@ -1,0 +1,233 @@
+{
+  "info": {
+    "_postman_id": "11a57338-d73e-4ccf-954b-b494fc8959c9",
+    "name": "Oura Daily Activity Routes Personal Info Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:42.000Z",
+    "updatedAt": "2026-07-28T02:29:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-11a57338-d73e-4ccf-954b-b494fc8959c9"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "personal_info",
+              "item": [
+                {
+                  "name": "Single Personal Info Document",
+                  "id": "15c0b039-c7d0-4395-88dc-86c54d61ec23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/personal_info",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "personal_info"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "49713b22-7c15-462b-ab5b-c02c33d8a50d",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/personal_info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "personal_info"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"age\": \"<integer>\",\n  \"weight\": \"<number>\",\n  \"height\": \"<number>\",\n  \"biological_sex\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:43.000Z",
+                      "updatedAt": "2026-07-28T02:29:43.000Z",
+                      "uid": "35240-49713b22-7c15-462b-ab5b-c02c33d8a50d"
+                    },
+                    {
+                      "id": "b85519f2-95b1-404f-8abe-6d1ffdeec9e7",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/personal_info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "personal_info"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:43.000Z",
+                      "updatedAt": "2026-07-28T02:29:43.000Z",
+                      "uid": "35240-b85519f2-95b1-404f-8abe-6d1ffdeec9e7"
+                    },
+                    {
+                      "id": "9dce58f3-05ef-4266-8e71-557befcefa59",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/personal_info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "personal_info"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:43.000Z",
+                      "updatedAt": "2026-07-28T02:29:43.000Z",
+                      "uid": "35240-9dce58f3-05ef-4266-8e71-557befcefa59"
+                    },
+                    {
+                      "id": "843e1343-95a1-4c90-b429-6752849ff4f0",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/personal_info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "personal_info"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:43.000Z",
+                      "updatedAt": "2026-07-28T02:29:43.000Z",
+                      "uid": "35240-843e1343-95a1-4c90-b429-6752849ff4f0"
+                    },
+                    {
+                      "id": "9afd75a6-ea51-49d1-aa30-3431fca028fb",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/personal_info",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "personal_info"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:43.000Z",
+                      "updatedAt": "2026-07-28T02:29:43.000Z",
+                      "uid": "35240-9afd75a6-ea51-49d1-aa30-3431fca028fb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:43.000Z",
+                  "updatedAt": "2026-07-28T02:29:43.000Z",
+                  "uid": "35240-15c0b039-c7d0-4395-88dc-86c54d61ec23"
+                }
+              ],
+              "id": "2ec584dd-785b-4ccb-bb73-c53b8d05e4ad",
+              "createdAt": "2026-07-28T02:29:43.000Z",
+              "updatedAt": "2026-07-28T02:29:43.000Z",
+              "uid": "35240-2ec584dd-785b-4ccb-bb73-c53b8d05e4ad"
+            }
+          ],
+          "id": "c779d736-dfba-4332-8fc3-43081ca56a07",
+          "createdAt": "2026-07-28T02:29:43.000Z",
+          "updatedAt": "2026-07-28T02:29:43.000Z",
+          "uid": "35240-c779d736-dfba-4332-8fc3-43081ca56a07"
+        }
+      ],
+      "id": "58509131-ab4a-4a39-a551-ca10ebe41bef",
+      "createdAt": "2026-07-28T02:29:43.000Z",
+      "updatedAt": "2026-07-28T02:29:43.000Z",
+      "uid": "35240-58509131-ab4a-4a39-a551-ca10ebe41bef"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "9463b4f4-b01a-4acd-8ab8-72387e5e3715",
+    "name": "Oura Daily Activity Routes Daily Cardiovascular Age Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:32.000Z",
+    "updatedAt": "2026-07-28T02:29:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9463b4f4-b01a-4acd-8ab8-72387e5e3715"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "daily_cardiovascular_age",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Daily Cardiovascular Age Document",
+                      "id": "2ed1853c-5ca3-478a-89b9-92ca9077b364",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8510563a-af44-4b10-9d2c-aeddc2554c2d",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7754197f-d9f5-47e2-aeac-858dbadf8e7c",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"day\": \"<string>\",\n  \"vascular_age\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-7754197f-d9f5-47e2-aeac-858dbadf8e7c"
+                        },
+                        {
+                          "id": "a0f92f52-6ee3-42f7-9a59-a188f0d52cb3",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-a0f92f52-6ee3-42f7-9a59-a188f0d52cb3"
+                        },
+                        {
+                          "id": "3c1bfdb2-5e0f-49e4-a5d6-4bd7e6660216",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-3c1bfdb2-5e0f-49e4-a5d6-4bd7e6660216"
+                        },
+                        {
+                          "id": "b0cf4172-04a2-4849-bf2e-18343fdc01fa",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-b0cf4172-04a2-4849-bf2e-18343fdc01fa"
+                        },
+                        {
+                          "id": "660ead25-2ceb-420f-a579-95ddb636035c",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-660ead25-2ceb-420f-a579-95ddb636035c"
+                        },
+                        {
+                          "id": "32c9eb5f-0d28-436a-a7fd-9cf6366cae22",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-32c9eb5f-0d28-436a-a7fd-9cf6366cae22"
+                        },
+                        {
+                          "id": "8511727c-8e89-4f9b-ac4d-26a13e2d40bc",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_cardiovascular_age",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:32.000Z",
+                          "updatedAt": "2026-07-28T02:29:32.000Z",
+                          "uid": "35240-8511727c-8e89-4f9b-ac4d-26a13e2d40bc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-2ed1853c-5ca3-478a-89b9-92ca9077b364"
+                    }
+                  ],
+                  "id": "ad45cfa9-9121-44f2-8360-78b352a118b9",
+                  "createdAt": "2026-07-28T02:29:32.000Z",
+                  "updatedAt": "2026-07-28T02:29:32.000Z",
+                  "uid": "35240-ad45cfa9-9121-44f2-8360-78b352a118b9"
+                },
+                {
+                  "name": "Multiple Daily Cardiovascular Age Documents",
+                  "id": "721a12fa-6160-4ad4-ab98-19a2f5a713b1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "daily_cardiovascular_age"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "43584edd-0e13-4eca-a10d-c8c843bb7c1a",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"vascular_age\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"vascular_age\": \"<integer>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-43584edd-0e13-4eca-a10d-c8c843bb7c1a"
+                    },
+                    {
+                      "id": "b92676c7-2c1e-4dcc-af34-20d071f01de4",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-b92676c7-2c1e-4dcc-af34-20d071f01de4"
+                    },
+                    {
+                      "id": "68adf444-0bbc-4e95-a59e-c1d0d6220b4b",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-68adf444-0bbc-4e95-a59e-c1d0d6220b4b"
+                    },
+                    {
+                      "id": "0cbfc266-922a-407f-a852-4f27394188d6",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-0cbfc266-922a-407f-a852-4f27394188d6"
+                    },
+                    {
+                      "id": "ed0fb5e2-22d9-400b-91b7-49e7101a1a49",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-ed0fb5e2-22d9-400b-91b7-49e7101a1a49"
+                    },
+                    {
+                      "id": "c05f7fe5-ca94-4c5e-8ce9-3c6997288c86",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_cardiovascular_age?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_cardiovascular_age"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:32.000Z",
+                      "updatedAt": "2026-07-28T02:29:32.000Z",
+                      "uid": "35240-c05f7fe5-ca94-4c5e-8ce9-3c6997288c86"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:32.000Z",
+                  "updatedAt": "2026-07-28T02:29:32.000Z",
+                  "uid": "35240-721a12fa-6160-4ad4-ab98-19a2f5a713b1"
+                }
+              ],
+              "id": "bdec65ef-d06b-4a60-872d-048c072d4ebf",
+              "createdAt": "2026-07-28T02:29:32.000Z",
+              "updatedAt": "2026-07-28T02:29:32.000Z",
+              "uid": "35240-bdec65ef-d06b-4a60-872d-048c072d4ebf"
+            }
+          ],
+          "id": "2602411b-f236-49b7-909c-322d05ca9e7f",
+          "createdAt": "2026-07-28T02:29:32.000Z",
+          "updatedAt": "2026-07-28T02:29:32.000Z",
+          "uid": "35240-2602411b-f236-49b7-909c-322d05ca9e7f"
+        }
+      ],
+      "id": "01a39c81-ccd3-4e13-95a4-5913d0c1e037",
+      "createdAt": "2026-07-28T02:29:32.000Z",
+      "updatedAt": "2026-07-28T02:29:32.000Z",
+      "uid": "35240-01a39c81-ccd3-4e13-95a4-5913d0c1e037"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

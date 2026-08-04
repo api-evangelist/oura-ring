@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "38e9b34a-4660-4d9f-8855-86ed702e59cb",
+    "name": "Oura Daily Activity Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:31.000Z",
+    "updatedAt": "2026-07-28T02:29:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-38e9b34a-4660-4d9f-8855-86ed702e59cb"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "daily_activity",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Daily Activity Document",
+                      "id": "81457771-4361-4428-b468-56328c30eb97",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8a64ac20-2263-46a4-903e-7a59386708b2",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1ae5395a-8e72-4f4c-90ef-235eedbe878c",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"active_calories\": \"<integer>\",\n  \"average_met_minutes\": \"<number>\",\n  \"contributors\": {\n    \"meet_daily_targets\": \"<integer>\",\n    \"move_every_hour\": \"<integer>\",\n    \"recovery_time\": \"<integer>\",\n    \"stay_active\": \"<integer>\",\n    \"training_frequency\": \"<integer>\",\n    \"training_volume\": \"<integer>\"\n  },\n  \"day\": \"<string>\",\n  \"equivalent_walking_distance\": \"<integer>\",\n  \"high_activity_met_minutes\": \"<integer>\",\n  \"high_activity_time\": \"<integer>\",\n  \"inactivity_alerts\": \"<integer>\",\n  \"low_activity_met_minutes\": \"<integer>\",\n  \"low_activity_time\": \"<integer>\",\n  \"medium_activity_met_minutes\": \"<integer>\",\n  \"medium_activity_time\": \"<integer>\",\n  \"met\": {\n    \"interval\": \"<number>\",\n    \"items\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"timestamp\": \"<string>\"\n  },\n  \"meters_to_target\": \"<integer>\",\n  \"non_wear_time\": \"<integer>\",\n  \"resting_time\": \"<integer>\",\n  \"sedentary_met_minutes\": \"<integer>\",\n  \"sedentary_time\": \"<integer>\",\n  \"steps\": \"<integer>\",\n  \"target_calories\": \"<integer>\",\n  \"target_meters\": \"<integer>\",\n  \"timestamp\": \"<string>\",\n  \"total_calories\": \"<integer>\",\n  \"class_5_min\": \"<string>\",\n  \"score\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-1ae5395a-8e72-4f4c-90ef-235eedbe878c"
+                        },
+                        {
+                          "id": "d5d20ab0-caa9-46ef-8a66-d9b3a621a324",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-d5d20ab0-caa9-46ef-8a66-d9b3a621a324"
+                        },
+                        {
+                          "id": "684dd0f1-dae3-4e2d-a87b-0e22e18767ac",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-684dd0f1-dae3-4e2d-a87b-0e22e18767ac"
+                        },
+                        {
+                          "id": "5658e757-e91d-4609-8b42-5fd60d8e6552",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-5658e757-e91d-4609-8b42-5fd60d8e6552"
+                        },
+                        {
+                          "id": "2caba9bd-455a-4df6-ae0e-baa1ce206c78",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-2caba9bd-455a-4df6-ae0e-baa1ce206c78"
+                        },
+                        {
+                          "id": "31fa7b69-b678-484f-9036-8bfc185df2d7",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-31fa7b69-b678-484f-9036-8bfc185df2d7"
+                        },
+                        {
+                          "id": "5a6e3fdb-3d30-46e5-b9c5-c321ccb6505f",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_activity",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:31.000Z",
+                          "updatedAt": "2026-07-28T02:29:31.000Z",
+                          "uid": "35240-5a6e3fdb-3d30-46e5-b9c5-c321ccb6505f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-81457771-4361-4428-b468-56328c30eb97"
+                    }
+                  ],
+                  "id": "ba00c21b-1352-4129-b6bc-ba7617ab67d4",
+                  "createdAt": "2026-07-28T02:29:31.000Z",
+                  "updatedAt": "2026-07-28T02:29:31.000Z",
+                  "uid": "35240-ba00c21b-1352-4129-b6bc-ba7617ab67d4"
+                },
+                {
+                  "name": "Multiple Daily Activity Documents",
+                  "id": "f660b1e9-e2f8-4ceb-896c-00f9a83c4f50",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "daily_activity"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "cb03ad2e-d25f-44fd-a795-9e22c313dc06",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"active_calories\": \"<integer>\",\n      \"average_met_minutes\": \"<number>\",\n      \"contributors\": {\n        \"meet_daily_targets\": \"<integer>\",\n        \"move_every_hour\": \"<integer>\",\n        \"recovery_time\": \"<integer>\",\n        \"stay_active\": \"<integer>\",\n        \"training_frequency\": \"<integer>\",\n        \"training_volume\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"equivalent_walking_distance\": \"<integer>\",\n      \"high_activity_met_minutes\": \"<integer>\",\n      \"high_activity_time\": \"<integer>\",\n      \"inactivity_alerts\": \"<integer>\",\n      \"low_activity_met_minutes\": \"<integer>\",\n      \"low_activity_time\": \"<integer>\",\n      \"medium_activity_met_minutes\": \"<integer>\",\n      \"medium_activity_time\": \"<integer>\",\n      \"met\": {\n        \"interval\": \"<number>\",\n        \"items\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"timestamp\": \"<string>\"\n      },\n      \"meters_to_target\": \"<integer>\",\n      \"non_wear_time\": \"<integer>\",\n      \"resting_time\": \"<integer>\",\n      \"sedentary_met_minutes\": \"<integer>\",\n      \"sedentary_time\": \"<integer>\",\n      \"steps\": \"<integer>\",\n      \"target_calories\": \"<integer>\",\n      \"target_meters\": \"<integer>\",\n      \"timestamp\": \"<string>\",\n      \"total_calories\": \"<integer>\",\n      \"class_5_min\": \"<string>\",\n      \"score\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"active_calories\": \"<integer>\",\n      \"average_met_minutes\": \"<number>\",\n      \"contributors\": {\n        \"meet_daily_targets\": \"<integer>\",\n        \"move_every_hour\": \"<integer>\",\n        \"recovery_time\": \"<integer>\",\n        \"stay_active\": \"<integer>\",\n        \"training_frequency\": \"<integer>\",\n        \"training_volume\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"equivalent_walking_distance\": \"<integer>\",\n      \"high_activity_met_minutes\": \"<integer>\",\n      \"high_activity_time\": \"<integer>\",\n      \"inactivity_alerts\": \"<integer>\",\n      \"low_activity_met_minutes\": \"<integer>\",\n      \"low_activity_time\": \"<integer>\",\n      \"medium_activity_met_minutes\": \"<integer>\",\n      \"medium_activity_time\": \"<integer>\",\n      \"met\": {\n        \"interval\": \"<number>\",\n        \"items\": [\n          \"<number>\",\n          \"<number>\"\n        ],\n        \"timestamp\": \"<string>\"\n      },\n      \"meters_to_target\": \"<integer>\",\n      \"non_wear_time\": \"<integer>\",\n      \"resting_time\": \"<integer>\",\n      \"sedentary_met_minutes\": \"<integer>\",\n      \"sedentary_time\": \"<integer>\",\n      \"steps\": \"<integer>\",\n      \"target_calories\": \"<integer>\",\n      \"target_meters\": \"<integer>\",\n      \"timestamp\": \"<string>\",\n      \"total_calories\": \"<integer>\",\n      \"class_5_min\": \"<string>\",\n      \"score\": \"<integer>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-cb03ad2e-d25f-44fd-a795-9e22c313dc06"
+                    },
+                    {
+                      "id": "89265def-7703-41cf-9854-e9e4a1e98e93",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-89265def-7703-41cf-9854-e9e4a1e98e93"
+                    },
+                    {
+                      "id": "896394ab-541c-4e7f-af3d-940785088b61",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-896394ab-541c-4e7f-af3d-940785088b61"
+                    },
+                    {
+                      "id": "6bb3a185-0072-4ac5-8fde-6a85689e256e",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-6bb3a185-0072-4ac5-8fde-6a85689e256e"
+                    },
+                    {
+                      "id": "1ee7d2d4-f9eb-44cd-b2e8-7dddac9b8284",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-1ee7d2d4-f9eb-44cd-b2e8-7dddac9b8284"
+                    },
+                    {
+                      "id": "1a19bd02-6d6b-469d-8f39-ee81e1403ed1",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_activity?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_activity"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:31.000Z",
+                      "updatedAt": "2026-07-28T02:29:31.000Z",
+                      "uid": "35240-1a19bd02-6d6b-469d-8f39-ee81e1403ed1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:31.000Z",
+                  "updatedAt": "2026-07-28T02:29:31.000Z",
+                  "uid": "35240-f660b1e9-e2f8-4ceb-896c-00f9a83c4f50"
+                }
+              ],
+              "id": "caebe6e2-63b3-46e9-9cde-33e122499474",
+              "createdAt": "2026-07-28T02:29:31.000Z",
+              "updatedAt": "2026-07-28T02:29:31.000Z",
+              "uid": "35240-caebe6e2-63b3-46e9-9cde-33e122499474"
+            }
+          ],
+          "id": "49f11b43-0f9c-418a-80c8-60e34a3ad517",
+          "createdAt": "2026-07-28T02:29:31.000Z",
+          "updatedAt": "2026-07-28T02:29:31.000Z",
+          "uid": "35240-49f11b43-0f9c-418a-80c8-60e34a3ad517"
+        }
+      ],
+      "id": "a8c3983b-a131-42e8-99d8-c2c81f579d54",
+      "createdAt": "2026-07-28T02:29:31.000Z",
+      "updatedAt": "2026-07-28T02:29:31.000Z",
+      "uid": "35240-a8c3983b-a131-42e8-99d8-c2c81f579d54"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

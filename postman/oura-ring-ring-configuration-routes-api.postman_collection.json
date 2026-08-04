@@ -1,0 +1,664 @@
+{
+  "info": {
+    "_postman_id": "e46ef621-5b27-40e1-8f08-f4336249f9d9",
+    "name": "Oura Daily Activity Routes Ring Configuration Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:59.000Z",
+    "updatedAt": "2026-07-28T02:29:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e46ef621-5b27-40e1-8f08-f4336249f9d9"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "ring_configuration",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Ring Configuration Document",
+                      "id": "7f90f1c4-c932-458a-a8d7-07140b638f06",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ad9e5e27-e4b1-4801-9a3c-7cda296da772",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1cabdd0b-4ff3-444e-b940-8edc85aec90b",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"color\": \"stealth_black\",\n  \"design\": \"ceramic\",\n  \"firmware_version\": \"<string>\",\n  \"hardware_type\": \"gen2m\",\n  \"set_up_at\": \"<string>\",\n  \"size\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-1cabdd0b-4ff3-444e-b940-8edc85aec90b"
+                        },
+                        {
+                          "id": "b11a144d-681d-477e-b7d5-791df86b8e5c",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-b11a144d-681d-477e-b7d5-791df86b8e5c"
+                        },
+                        {
+                          "id": "6e97ef52-766b-460a-a02b-929426582c6e",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-6e97ef52-766b-460a-a02b-929426582c6e"
+                        },
+                        {
+                          "id": "b4bbd328-92d3-4a39-91d3-3df6f0f89895",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-b4bbd328-92d3-4a39-91d3-3df6f0f89895"
+                        },
+                        {
+                          "id": "9a2934e8-11e7-4736-9ffe-7c8ed6a7f326",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-9a2934e8-11e7-4736-9ffe-7c8ed6a7f326"
+                        },
+                        {
+                          "id": "a0961f5e-4b95-40f2-be0b-cc240bbd0ad4",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-a0961f5e-4b95-40f2-be0b-cc240bbd0ad4"
+                        },
+                        {
+                          "id": "14e688ef-ab5d-485a-9793-d023f0dcbd96",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "ring_configuration",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:59.000Z",
+                          "updatedAt": "2026-07-28T02:29:59.000Z",
+                          "uid": "35240-14e688ef-ab5d-485a-9793-d023f0dcbd96"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-7f90f1c4-c932-458a-a8d7-07140b638f06"
+                    }
+                  ],
+                  "id": "212c7838-0b15-437f-8f3f-ed555d5f4a1d",
+                  "createdAt": "2026-07-28T02:29:59.000Z",
+                  "updatedAt": "2026-07-28T02:29:59.000Z",
+                  "uid": "35240-212c7838-0b15-437f-8f3f-ed555d5f4a1d"
+                },
+                {
+                  "name": "Multiple Ring Configuration Documents",
+                  "id": "52faee2c-847f-4722-ba52-e90f95f72ade",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "ring_configuration"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "fa824019-fbec-4cc3-b8f6-b2fc60f4e38d",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"color\": \"titanium_and_gold\",\n      \"design\": \"ceramic\",\n      \"firmware_version\": \"<string>\",\n      \"hardware_type\": \"gen2m\",\n      \"set_up_at\": \"<string>\",\n      \"size\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"color\": \"glossy_black\",\n      \"design\": \"ceramic\",\n      \"firmware_version\": \"<string>\",\n      \"hardware_type\": \"gen1\",\n      \"set_up_at\": \"<string>\",\n      \"size\": \"<integer>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-fa824019-fbec-4cc3-b8f6-b2fc60f4e38d"
+                    },
+                    {
+                      "id": "d395ce26-ccb0-4e07-8066-229b9b7dd71a",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-d395ce26-ccb0-4e07-8066-229b9b7dd71a"
+                    },
+                    {
+                      "id": "87007d4e-df15-4d9a-8b0d-f467b4dd9d6e",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-87007d4e-df15-4d9a-8b0d-f467b4dd9d6e"
+                    },
+                    {
+                      "id": "85b0eb02-d98b-4aa9-ad5e-71011fd32966",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-85b0eb02-d98b-4aa9-ad5e-71011fd32966"
+                    },
+                    {
+                      "id": "4ddfdff9-7388-4c27-b581-c2f69e19823c",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-4ddfdff9-7388-4c27-b581-c2f69e19823c"
+                    },
+                    {
+                      "id": "350ccb31-b905-44ee-a2bb-420e676270d8",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/ring_configuration?fields=<string>&next_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "ring_configuration"
+                          ],
+                          "query": [
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:59.000Z",
+                      "updatedAt": "2026-07-28T02:29:59.000Z",
+                      "uid": "35240-350ccb31-b905-44ee-a2bb-420e676270d8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:59.000Z",
+                  "updatedAt": "2026-07-28T02:29:59.000Z",
+                  "uid": "35240-52faee2c-847f-4722-ba52-e90f95f72ade"
+                }
+              ],
+              "id": "d1922ec7-e360-4a80-a02d-38d66d85e656",
+              "createdAt": "2026-07-28T02:29:59.000Z",
+              "updatedAt": "2026-07-28T02:29:59.000Z",
+              "uid": "35240-d1922ec7-e360-4a80-a02d-38d66d85e656"
+            }
+          ],
+          "id": "3b3bfbe4-b051-4e20-b96f-565bf1ff4ba7",
+          "createdAt": "2026-07-28T02:29:59.000Z",
+          "updatedAt": "2026-07-28T02:29:59.000Z",
+          "uid": "35240-3b3bfbe4-b051-4e20-b96f-565bf1ff4ba7"
+        }
+      ],
+      "id": "5511936a-cdb6-4e50-8291-9c8178138fe2",
+      "createdAt": "2026-07-28T02:29:59.000Z",
+      "updatedAt": "2026-07-28T02:29:59.000Z",
+      "uid": "35240-5511936a-cdb6-4e50-8291-9c8178138fe2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

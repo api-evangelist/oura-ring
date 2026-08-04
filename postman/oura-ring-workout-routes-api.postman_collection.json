@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "387678b9-9036-4676-b749-cd195d397052",
+    "name": "Oura Daily Activity Routes Workout Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:30:28.000Z",
+    "updatedAt": "2026-07-28T02:30:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-387678b9-9036-4676-b749-cd195d397052"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "workout",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Workout Document",
+                      "id": "d0fac29b-4096-46bc-b062-050ae11d504e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8aac70b3-0f29-4333-81ab-8f54ca283ede",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2ae45abf-c154-486e-8a6f-25a77cb35073",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"activity\": \"<string>\",\n  \"day\": \"<string>\",\n  \"end_datetime\": \"<string>\",\n  \"intensity\": \"moderate\",\n  \"source\": \"workout_heart_rate\",\n  \"start_datetime\": \"<string>\",\n  \"calories\": \"<number>\",\n  \"distance\": \"<number>\",\n  \"label\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-2ae45abf-c154-486e-8a6f-25a77cb35073"
+                        },
+                        {
+                          "id": "86b1cd4b-d8c2-451e-b3f7-782b4d38c344",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-86b1cd4b-d8c2-451e-b3f7-782b4d38c344"
+                        },
+                        {
+                          "id": "39e2c4ee-560a-45b4-b856-8fd8aa53b9dc",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-39e2c4ee-560a-45b4-b856-8fd8aa53b9dc"
+                        },
+                        {
+                          "id": "2786dff4-ddce-438b-a6c9-e91f9dd77b4a",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-2786dff4-ddce-438b-a6c9-e91f9dd77b4a"
+                        },
+                        {
+                          "id": "55aba023-53ca-4a32-bdf6-ea5e48cb2b8d",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-55aba023-53ca-4a32-bdf6-ea5e48cb2b8d"
+                        },
+                        {
+                          "id": "5dba874c-0495-4036-9622-6ab3be8ac54b",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-5dba874c-0495-4036-9622-6ab3be8ac54b"
+                        },
+                        {
+                          "id": "583663ee-c24b-4b07-a53a-49b6e60d4c4b",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/workout/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "workout",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:28.000Z",
+                          "updatedAt": "2026-07-28T02:30:28.000Z",
+                          "uid": "35240-583663ee-c24b-4b07-a53a-49b6e60d4c4b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-d0fac29b-4096-46bc-b062-050ae11d504e"
+                    }
+                  ],
+                  "id": "870f287d-5967-4eab-8c43-047b76a710dc",
+                  "createdAt": "2026-07-28T02:30:28.000Z",
+                  "updatedAt": "2026-07-28T02:30:28.000Z",
+                  "uid": "35240-870f287d-5967-4eab-8c43-047b76a710dc"
+                },
+                {
+                  "name": "Multiple Workout Documents",
+                  "id": "005a1741-51b4-452b-b38a-789bce7129ce",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "workout"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "89d3f148-6c1a-48aa-ad94-9a4e3d6aec6a",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"activity\": \"<string>\",\n      \"day\": \"<string>\",\n      \"end_datetime\": \"<string>\",\n      \"intensity\": \"moderate\",\n      \"source\": \"manual\",\n      \"start_datetime\": \"<string>\",\n      \"calories\": \"<number>\",\n      \"distance\": \"<number>\",\n      \"label\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"activity\": \"<string>\",\n      \"day\": \"<string>\",\n      \"end_datetime\": \"<string>\",\n      \"intensity\": \"hard\",\n      \"source\": \"manual\",\n      \"start_datetime\": \"<string>\",\n      \"calories\": \"<number>\",\n      \"distance\": \"<number>\",\n      \"label\": \"<string>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-89d3f148-6c1a-48aa-ad94-9a4e3d6aec6a"
+                    },
+                    {
+                      "id": "7663894d-9447-4f86-8a1c-5dd11de2ae1f",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-7663894d-9447-4f86-8a1c-5dd11de2ae1f"
+                    },
+                    {
+                      "id": "94cb6f9d-6054-4e32-83c6-f3ec578300f9",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-94cb6f9d-6054-4e32-83c6-f3ec578300f9"
+                    },
+                    {
+                      "id": "e8d6d204-137f-4f8b-968a-5e49984f78ee",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-e8d6d204-137f-4f8b-968a-5e49984f78ee"
+                    },
+                    {
+                      "id": "18a26ea2-8954-42de-8011-114f0cf11836",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-18a26ea2-8954-42de-8011-114f0cf11836"
+                    },
+                    {
+                      "id": "495e6bb6-8ebf-4146-8d44-874eaf52a09e",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/workout?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "workout"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:28.000Z",
+                      "updatedAt": "2026-07-28T02:30:28.000Z",
+                      "uid": "35240-495e6bb6-8ebf-4146-8d44-874eaf52a09e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:30:28.000Z",
+                  "updatedAt": "2026-07-28T02:30:28.000Z",
+                  "uid": "35240-005a1741-51b4-452b-b38a-789bce7129ce"
+                }
+              ],
+              "id": "acde29ed-9afd-4622-9109-30304cd5d655",
+              "createdAt": "2026-07-28T02:30:28.000Z",
+              "updatedAt": "2026-07-28T02:30:28.000Z",
+              "uid": "35240-acde29ed-9afd-4622-9109-30304cd5d655"
+            }
+          ],
+          "id": "ccd881f6-661d-4c95-a514-d056298bdc72",
+          "createdAt": "2026-07-28T02:30:28.000Z",
+          "updatedAt": "2026-07-28T02:30:28.000Z",
+          "uid": "35240-ccd881f6-661d-4c95-a514-d056298bdc72"
+        }
+      ],
+      "id": "30fbdfc8-cda3-4ab0-9f6f-83cb0bfe113e",
+      "createdAt": "2026-07-28T02:30:28.000Z",
+      "updatedAt": "2026-07-28T02:30:28.000Z",
+      "uid": "35240-30fbdfc8-cda3-4ab0-9f6f-83cb0bfe113e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

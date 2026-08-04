@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "2507ead2-a2e1-4e83-908c-1d5980ced288",
+    "name": "Oura Daily Activity Routes Sleep Time Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:30:24.000Z",
+    "updatedAt": "2026-07-28T02:30:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2507ead2-a2e1-4e83-908c-1d5980ced288"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "sleep_time",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Sleep Time Document",
+                      "id": "515843a9-1c52-4824-803f-2877d20cc589",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f87d3e1a-763d-4b49-b188-64afbebcad50",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "374c3c6d-467e-4d57-99e2-3fe5f9ae091e",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"day\": \"<string>\",\n  \"optimal_bedtime\": {\n    \"day_tz\": \"<integer>\",\n    \"end_offset\": \"<integer>\",\n    \"start_offset\": \"<integer>\"\n  },\n  \"recommendation\": \"later_wake_up_time\",\n  \"status\": \"optimal_found\"\n}",
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-374c3c6d-467e-4d57-99e2-3fe5f9ae091e"
+                        },
+                        {
+                          "id": "8771063f-6dac-4267-b216-d55253b44905",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-8771063f-6dac-4267-b216-d55253b44905"
+                        },
+                        {
+                          "id": "c7815b60-fd28-4bbf-ad29-efd4db4c6c68",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-c7815b60-fd28-4bbf-ad29-efd4db4c6c68"
+                        },
+                        {
+                          "id": "211acb8e-fddb-4f84-9112-d3a47f30ce9b",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-211acb8e-fddb-4f84-9112-d3a47f30ce9b"
+                        },
+                        {
+                          "id": "ff235f5d-4438-49ec-a1d3-bae87f3b7959",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-ff235f5d-4438-49ec-a1d3-bae87f3b7959"
+                        },
+                        {
+                          "id": "5b847779-e2be-4337-b0c8-691c5d529e2e",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-5b847779-e2be-4337-b0c8-691c5d529e2e"
+                        },
+                        {
+                          "id": "c76eb5f5-68d7-49df-977e-2f6363bf0091",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/sleep_time/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "sleep_time",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:30:24.000Z",
+                          "updatedAt": "2026-07-28T02:30:24.000Z",
+                          "uid": "35240-c76eb5f5-68d7-49df-977e-2f6363bf0091"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-515843a9-1c52-4824-803f-2877d20cc589"
+                    }
+                  ],
+                  "id": "a16b3a49-372e-42fb-8bed-25644d5c366b",
+                  "createdAt": "2026-07-28T02:30:24.000Z",
+                  "updatedAt": "2026-07-28T02:30:24.000Z",
+                  "uid": "35240-a16b3a49-372e-42fb-8bed-25644d5c366b"
+                },
+                {
+                  "name": "Multiple Sleep Time Documents",
+                  "id": "fe2ec1b2-8de5-4d72-babe-413c0c4309c3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "sleep_time"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8c74995b-b32d-4be8-8873-51c6764771b6",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"optimal_bedtime\": {\n        \"day_tz\": \"<integer>\",\n        \"end_offset\": \"<integer>\",\n        \"start_offset\": \"<integer>\"\n      },\n      \"recommendation\": \"earlier_bedtime\",\n      \"status\": \"not_enough_recent_nights\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"optimal_bedtime\": {\n        \"day_tz\": \"<integer>\",\n        \"end_offset\": \"<integer>\",\n        \"start_offset\": \"<integer>\"\n      },\n      \"recommendation\": \"later_wake_up_time\",\n      \"status\": \"only_recommended_found\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-8c74995b-b32d-4be8-8873-51c6764771b6"
+                    },
+                    {
+                      "id": "8d49a9ae-134a-4571-b977-8d07ce7909e7",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-8d49a9ae-134a-4571-b977-8d07ce7909e7"
+                    },
+                    {
+                      "id": "b35805d4-ffc4-4516-99df-c0c667e224b6",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-b35805d4-ffc4-4516-99df-c0c667e224b6"
+                    },
+                    {
+                      "id": "23c8921f-1e0b-4e72-b0ad-f5915865809f",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-23c8921f-1e0b-4e72-b0ad-f5915865809f"
+                    },
+                    {
+                      "id": "f5c05619-d607-4835-a68b-8ac5b2323c77",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-f5c05619-d607-4835-a68b-8ac5b2323c77"
+                    },
+                    {
+                      "id": "ca7298c0-791a-42c3-b7c6-ca8dff47890a",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/sleep_time?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "sleep_time"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:30:24.000Z",
+                      "updatedAt": "2026-07-28T02:30:24.000Z",
+                      "uid": "35240-ca7298c0-791a-42c3-b7c6-ca8dff47890a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:30:24.000Z",
+                  "updatedAt": "2026-07-28T02:30:24.000Z",
+                  "uid": "35240-fe2ec1b2-8de5-4d72-babe-413c0c4309c3"
+                }
+              ],
+              "id": "78c2c4a7-be3e-4331-82cb-9b96a37c7c43",
+              "createdAt": "2026-07-28T02:30:24.000Z",
+              "updatedAt": "2026-07-28T02:30:24.000Z",
+              "uid": "35240-78c2c4a7-be3e-4331-82cb-9b96a37c7c43"
+            }
+          ],
+          "id": "fcaac19f-f906-43eb-8526-97cede6e027d",
+          "createdAt": "2026-07-28T02:30:24.000Z",
+          "updatedAt": "2026-07-28T02:30:24.000Z",
+          "uid": "35240-fcaac19f-f906-43eb-8526-97cede6e027d"
+        }
+      ],
+      "id": "5a66f234-8c7f-4769-a6a1-29b1ed13cc76",
+      "createdAt": "2026-07-28T02:30:24.000Z",
+      "updatedAt": "2026-07-28T02:30:24.000Z",
+      "uid": "35240-5a66f234-8c7f-4769-a6a1-29b1ed13cc76"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

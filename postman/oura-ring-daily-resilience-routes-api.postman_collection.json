@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "208aa525-4da3-4a0b-8d0e-744c930e4ce0",
+    "name": "Oura Daily Activity Routes Daily Resilience Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:35.000Z",
+    "updatedAt": "2026-07-28T02:29:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-208aa525-4da3-4a0b-8d0e-744c930e4ce0"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "daily_resilience",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Daily Resilience Document",
+                      "id": "09df7f1f-ecf4-4bf3-9374-5c6b25c7cd3f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a22b40ad-7705-4d66-90d5-d00d2e628f47",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "cbd4a34b-2b3d-4fd1-8eee-14a1b68b9936",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"day\": \"<date>\",\n  \"contributors\": {\n    \"sleep_recovery\": \"<number>\",\n    \"daytime_recovery\": \"<number>\",\n    \"stress\": \"<number>\"\n  },\n  \"level\": \"solid\"\n}",
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-cbd4a34b-2b3d-4fd1-8eee-14a1b68b9936"
+                        },
+                        {
+                          "id": "37c2b9c7-1fae-4e3d-bf8f-647231d6f5df",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-37c2b9c7-1fae-4e3d-bf8f-647231d6f5df"
+                        },
+                        {
+                          "id": "59e2b6b1-8c4d-4f9c-9269-5480a74ab1ea",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-59e2b6b1-8c4d-4f9c-9269-5480a74ab1ea"
+                        },
+                        {
+                          "id": "a40c018d-4155-4eb1-b31a-14dd72c8e07b",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-a40c018d-4155-4eb1-b31a-14dd72c8e07b"
+                        },
+                        {
+                          "id": "670735f4-ef9f-41eb-a416-8d86ac95a053",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-670735f4-ef9f-41eb-a416-8d86ac95a053"
+                        },
+                        {
+                          "id": "65c1b5ce-65dd-49f6-a52a-68401ded9a4a",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-65c1b5ce-65dd-49f6-a52a-68401ded9a4a"
+                        },
+                        {
+                          "id": "d1352c37-6404-4ed3-88b0-efc9d5f4f10a",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_resilience/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_resilience",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:35.000Z",
+                          "updatedAt": "2026-07-28T02:29:35.000Z",
+                          "uid": "35240-d1352c37-6404-4ed3-88b0-efc9d5f4f10a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-09df7f1f-ecf4-4bf3-9374-5c6b25c7cd3f"
+                    }
+                  ],
+                  "id": "5b8e7ba3-7372-45c1-bb53-220492b1080c",
+                  "createdAt": "2026-07-28T02:29:35.000Z",
+                  "updatedAt": "2026-07-28T02:29:35.000Z",
+                  "uid": "35240-5b8e7ba3-7372-45c1-bb53-220492b1080c"
+                },
+                {
+                  "name": "Multiple Daily Resilience Documents",
+                  "id": "bf019bbc-9dce-4d5a-91c3-8705cdd077f9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "daily_resilience"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b109b51b-473b-47c3-ab60-bf64ef5aaf69",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"day\": \"<date>\",\n      \"contributors\": {\n        \"sleep_recovery\": \"<number>\",\n        \"daytime_recovery\": \"<number>\",\n        \"stress\": \"<number>\"\n      },\n      \"level\": \"strong\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"day\": \"<date>\",\n      \"contributors\": {\n        \"sleep_recovery\": \"<number>\",\n        \"daytime_recovery\": \"<number>\",\n        \"stress\": \"<number>\"\n      },\n      \"level\": \"adequate\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-b109b51b-473b-47c3-ab60-bf64ef5aaf69"
+                    },
+                    {
+                      "id": "aafba9df-4dae-4d48-ae9b-fda3f594b51e",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-aafba9df-4dae-4d48-ae9b-fda3f594b51e"
+                    },
+                    {
+                      "id": "f2a4a5bc-4a07-4200-828e-832036e91f15",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-f2a4a5bc-4a07-4200-828e-832036e91f15"
+                    },
+                    {
+                      "id": "2cea40f6-409e-4f2a-8f8e-0de62ade2aa9",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-2cea40f6-409e-4f2a-8f8e-0de62ade2aa9"
+                    },
+                    {
+                      "id": "aafdb59f-04fb-4e7c-a514-3140c52c695f",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-aafdb59f-04fb-4e7c-a514-3140c52c695f"
+                    },
+                    {
+                      "id": "7badd580-a19a-4201-8e50-a528f608890d",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_resilience?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_resilience"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:35.000Z",
+                      "updatedAt": "2026-07-28T02:29:35.000Z",
+                      "uid": "35240-7badd580-a19a-4201-8e50-a528f608890d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:35.000Z",
+                  "updatedAt": "2026-07-28T02:29:35.000Z",
+                  "uid": "35240-bf019bbc-9dce-4d5a-91c3-8705cdd077f9"
+                }
+              ],
+              "id": "2d683ad2-9125-4231-8e61-79f1be71072a",
+              "createdAt": "2026-07-28T02:29:35.000Z",
+              "updatedAt": "2026-07-28T02:29:35.000Z",
+              "uid": "35240-2d683ad2-9125-4231-8e61-79f1be71072a"
+            }
+          ],
+          "id": "3b58e1d3-648c-43f9-9e9e-f6bbc6cadaf0",
+          "createdAt": "2026-07-28T02:29:35.000Z",
+          "updatedAt": "2026-07-28T02:29:35.000Z",
+          "uid": "35240-3b58e1d3-648c-43f9-9e9e-f6bbc6cadaf0"
+        }
+      ],
+      "id": "ae7a6b31-fb17-4cc7-acfd-d9aa8e8c6ee1",
+      "createdAt": "2026-07-28T02:29:35.000Z",
+      "updatedAt": "2026-07-28T02:29:35.000Z",
+      "uid": "35240-ae7a6b31-fb17-4cc7-acfd-d9aa8e8c6ee1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

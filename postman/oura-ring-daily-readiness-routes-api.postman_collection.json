@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "af0cc2f4-b1c2-4167-bd2c-c306c58ca19f",
+    "name": "Oura Daily Activity Routes Daily Readiness Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:34.000Z",
+    "updatedAt": "2026-07-28T02:29:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-af0cc2f4-b1c2-4167-bd2c-c306c58ca19f"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "daily_readiness",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Daily Readiness Document",
+                      "id": "f284abc1-d136-45c7-9294-fd0b88d5ee4c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ecc9f74e-210c-45a8-9e39-3dda0e2daadd",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9361f9f5-ae96-4af2-a03e-bf7e1a10bc21",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"contributors\": {\n    \"activity_balance\": \"<integer>\",\n    \"body_temperature\": \"<integer>\",\n    \"hrv_balance\": \"<integer>\",\n    \"previous_day_activity\": \"<integer>\",\n    \"previous_night\": \"<integer>\",\n    \"recovery_index\": \"<integer>\",\n    \"resting_heart_rate\": \"<integer>\",\n    \"sleep_balance\": \"<integer>\",\n    \"sleep_regularity\": \"<integer>\"\n  },\n  \"day\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"score\": \"<integer>\",\n  \"temperature_deviation\": \"<number>\",\n  \"temperature_trend_deviation\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-9361f9f5-ae96-4af2-a03e-bf7e1a10bc21"
+                        },
+                        {
+                          "id": "ea61e5cc-c6f5-4d62-b418-db88cd0b857b",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-ea61e5cc-c6f5-4d62-b418-db88cd0b857b"
+                        },
+                        {
+                          "id": "23fd1f58-bf39-42b0-90cd-264ac3920d6e",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-23fd1f58-bf39-42b0-90cd-264ac3920d6e"
+                        },
+                        {
+                          "id": "875ab15d-137a-4f50-b83c-f05c19e78092",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-875ab15d-137a-4f50-b83c-f05c19e78092"
+                        },
+                        {
+                          "id": "0a1bd88f-05f5-49de-9451-0b7ece4bb63e",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-0a1bd88f-05f5-49de-9451-0b7ece4bb63e"
+                        },
+                        {
+                          "id": "df6b6875-54fa-4297-b897-87e4b7085b42",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-df6b6875-54fa-4297-b897-87e4b7085b42"
+                        },
+                        {
+                          "id": "7315a13e-1a15-4740-b6cf-e6386a85be34",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/daily_readiness/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "daily_readiness",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:34.000Z",
+                          "updatedAt": "2026-07-28T02:29:34.000Z",
+                          "uid": "35240-7315a13e-1a15-4740-b6cf-e6386a85be34"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-f284abc1-d136-45c7-9294-fd0b88d5ee4c"
+                    }
+                  ],
+                  "id": "5dd524f1-6130-4ee4-8d53-3c48081fe789",
+                  "createdAt": "2026-07-28T02:29:34.000Z",
+                  "updatedAt": "2026-07-28T02:29:34.000Z",
+                  "uid": "35240-5dd524f1-6130-4ee4-8d53-3c48081fe789"
+                },
+                {
+                  "name": "Multiple Daily Readiness Documents",
+                  "id": "c1a5903b-2c59-482d-9b27-09f441002c5d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "daily_readiness"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "57a7bd54-32de-4098-9a8d-436eae14081f",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"contributors\": {\n        \"activity_balance\": \"<integer>\",\n        \"body_temperature\": \"<integer>\",\n        \"hrv_balance\": \"<integer>\",\n        \"previous_day_activity\": \"<integer>\",\n        \"previous_night\": \"<integer>\",\n        \"recovery_index\": \"<integer>\",\n        \"resting_heart_rate\": \"<integer>\",\n        \"sleep_balance\": \"<integer>\",\n        \"sleep_regularity\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"score\": \"<integer>\",\n      \"temperature_deviation\": \"<number>\",\n      \"temperature_trend_deviation\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"contributors\": {\n        \"activity_balance\": \"<integer>\",\n        \"body_temperature\": \"<integer>\",\n        \"hrv_balance\": \"<integer>\",\n        \"previous_day_activity\": \"<integer>\",\n        \"previous_night\": \"<integer>\",\n        \"recovery_index\": \"<integer>\",\n        \"resting_heart_rate\": \"<integer>\",\n        \"sleep_balance\": \"<integer>\",\n        \"sleep_regularity\": \"<integer>\"\n      },\n      \"day\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"score\": \"<integer>\",\n      \"temperature_deviation\": \"<number>\",\n      \"temperature_trend_deviation\": \"<number>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-57a7bd54-32de-4098-9a8d-436eae14081f"
+                    },
+                    {
+                      "id": "1fc67d13-582c-484a-ab25-6adae1dea7dd",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-1fc67d13-582c-484a-ab25-6adae1dea7dd"
+                    },
+                    {
+                      "id": "82ce25d3-b014-4ad8-bffa-e776d93b0845",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-82ce25d3-b014-4ad8-bffa-e776d93b0845"
+                    },
+                    {
+                      "id": "e56acb5e-29e7-47d5-bc73-6b3f9dcf2ac6",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-e56acb5e-29e7-47d5-bc73-6b3f9dcf2ac6"
+                    },
+                    {
+                      "id": "dd35c0b4-3aa3-4858-94c5-d6757c5b2d2c",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-dd35c0b4-3aa3-4858-94c5-d6757c5b2d2c"
+                    },
+                    {
+                      "id": "d7d04ae9-c093-46cc-ae8e-3b368d8af32a",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/daily_readiness?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "daily_readiness"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:34.000Z",
+                      "updatedAt": "2026-07-28T02:29:34.000Z",
+                      "uid": "35240-d7d04ae9-c093-46cc-ae8e-3b368d8af32a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:34.000Z",
+                  "updatedAt": "2026-07-28T02:29:34.000Z",
+                  "uid": "35240-c1a5903b-2c59-482d-9b27-09f441002c5d"
+                }
+              ],
+              "id": "6e9c20fd-f89f-48e9-9903-5fdf0528a5ec",
+              "createdAt": "2026-07-28T02:29:34.000Z",
+              "updatedAt": "2026-07-28T02:29:34.000Z",
+              "uid": "35240-6e9c20fd-f89f-48e9-9903-5fdf0528a5ec"
+            }
+          ],
+          "id": "ea80d058-4f05-40d8-8ef8-57f4e4e475e1",
+          "createdAt": "2026-07-28T02:29:34.000Z",
+          "updatedAt": "2026-07-28T02:29:34.000Z",
+          "uid": "35240-ea80d058-4f05-40d8-8ef8-57f4e4e475e1"
+        }
+      ],
+      "id": "76b306d5-fd17-41b8-8ad2-b7aba278fce2",
+      "createdAt": "2026-07-28T02:29:34.000Z",
+      "updatedAt": "2026-07-28T02:29:34.000Z",
+      "uid": "35240-76b306d5-fd17-41b8-8ad2-b7aba278fce2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "2f78752e-c4b0-487a-a0cc-907d6ac2bc0a",
+    "name": "Oura Daily Activity Routes Enhanced Tag Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:40.000Z",
+    "updatedAt": "2026-07-28T02:29:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2f78752e-c4b0-487a-a0cc-907d6ac2bc0a"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "enhanced_tag",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Enhanced Tag Document",
+                      "id": "8f61a090-b9de-4639-a0a8-7bcaf170e5e8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "408bdb3b-fd19-42c4-8403-0398d90e4368",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ef7a5e4e-e988-4451-a20a-77de45087342",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"start_time\": \"<string>\",\n  \"start_day\": \"<date>\",\n  \"tag_type_code\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"end_day\": \"<date>\",\n  \"comment\": \"<string>\",\n  \"custom_name\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-ef7a5e4e-e988-4451-a20a-77de45087342"
+                        },
+                        {
+                          "id": "12982e52-e2da-4096-b38a-4fc885c83a2d",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-12982e52-e2da-4096-b38a-4fc885c83a2d"
+                        },
+                        {
+                          "id": "ce3181e6-dc67-4284-afa4-3762a3fdf743",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-ce3181e6-dc67-4284-afa4-3762a3fdf743"
+                        },
+                        {
+                          "id": "604d9880-5ab9-4bb6-bb81-b0faab652be0",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-604d9880-5ab9-4bb6-bb81-b0faab652be0"
+                        },
+                        {
+                          "id": "9d171c0f-7b12-4a4f-896f-287e3cce79e5",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-9d171c0f-7b12-4a4f-896f-287e3cce79e5"
+                        },
+                        {
+                          "id": "6e46d8d5-b9d9-40b2-9dea-e1785171570b",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-6e46d8d5-b9d9-40b2-9dea-e1785171570b"
+                        },
+                        {
+                          "id": "44297b1f-4ff8-4cee-b280-4648b7feb3e8",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "enhanced_tag",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:40.000Z",
+                          "updatedAt": "2026-07-28T02:29:40.000Z",
+                          "uid": "35240-44297b1f-4ff8-4cee-b280-4648b7feb3e8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-8f61a090-b9de-4639-a0a8-7bcaf170e5e8"
+                    }
+                  ],
+                  "id": "b8585aab-b6a9-412f-8a8a-618c1e9b9884",
+                  "createdAt": "2026-07-28T02:29:40.000Z",
+                  "updatedAt": "2026-07-28T02:29:40.000Z",
+                  "uid": "35240-b8585aab-b6a9-412f-8a8a-618c1e9b9884"
+                },
+                {
+                  "name": "Multiple Enhanced Tag Documents",
+                  "id": "6f1c426b-4669-470a-833a-153b30ced4d4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "enhanced_tag"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "068b8bd1-7068-4ff8-8f10-f8971ad3653c",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"start_time\": \"<string>\",\n      \"start_day\": \"<date>\",\n      \"tag_type_code\": \"<string>\",\n      \"end_time\": \"<string>\",\n      \"end_day\": \"<date>\",\n      \"comment\": \"<string>\",\n      \"custom_name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"start_time\": \"<string>\",\n      \"start_day\": \"<date>\",\n      \"tag_type_code\": \"<string>\",\n      \"end_time\": \"<string>\",\n      \"end_day\": \"<date>\",\n      \"comment\": \"<string>\",\n      \"custom_name\": \"<string>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-068b8bd1-7068-4ff8-8f10-f8971ad3653c"
+                    },
+                    {
+                      "id": "169a62f9-d16c-4464-b723-6400f3445b21",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-169a62f9-d16c-4464-b723-6400f3445b21"
+                    },
+                    {
+                      "id": "20afaf37-07fb-41be-a8e8-4132c8b5949b",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-20afaf37-07fb-41be-a8e8-4132c8b5949b"
+                    },
+                    {
+                      "id": "33a93eae-7a3b-4cc7-92c0-cc80df2ad6be",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-33a93eae-7a3b-4cc7-92c0-cc80df2ad6be"
+                    },
+                    {
+                      "id": "7c0262ff-ef6f-40b5-a2a0-eea9e2f4bc49",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-7c0262ff-ef6f-40b5-a2a0-eea9e2f4bc49"
+                    },
+                    {
+                      "id": "f1fd9acf-7d5e-4970-b5e1-8eccdf14e4b4",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/enhanced_tag?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "enhanced_tag"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "N/A. This route does not support field selection yet, all fields will be returned.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:40.000Z",
+                      "updatedAt": "2026-07-28T02:29:40.000Z",
+                      "uid": "35240-f1fd9acf-7d5e-4970-b5e1-8eccdf14e4b4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:40.000Z",
+                  "updatedAt": "2026-07-28T02:29:40.000Z",
+                  "uid": "35240-6f1c426b-4669-470a-833a-153b30ced4d4"
+                }
+              ],
+              "id": "8562e54b-1b48-41a6-8890-7aeadd94dbf4",
+              "createdAt": "2026-07-28T02:29:40.000Z",
+              "updatedAt": "2026-07-28T02:29:40.000Z",
+              "uid": "35240-8562e54b-1b48-41a6-8890-7aeadd94dbf4"
+            }
+          ],
+          "id": "c5156825-1f41-4fae-b265-668f07841809",
+          "createdAt": "2026-07-28T02:29:40.000Z",
+          "updatedAt": "2026-07-28T02:29:40.000Z",
+          "uid": "35240-c5156825-1f41-4fae-b265-668f07841809"
+        }
+      ],
+      "id": "f952ec58-4e5f-4856-a722-65e1f46ffcf1",
+      "createdAt": "2026-07-28T02:29:40.000Z",
+      "updatedAt": "2026-07-28T02:29:40.000Z",
+      "uid": "35240-f952ec58-4e5f-4856-a722-65e1f46ffcf1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

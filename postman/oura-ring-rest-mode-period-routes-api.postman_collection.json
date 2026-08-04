@@ -1,0 +1,720 @@
+{
+  "info": {
+    "_postman_id": "f20be172-9679-47a4-bbf6-477eaff90953",
+    "name": "Oura Daily Activity Routes Rest Mode Period Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:57.000Z",
+    "updatedAt": "2026-07-28T02:29:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f20be172-9679-47a4-bbf6-477eaff90953"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "rest_mode_period",
+              "item": [
+                {
+                  "name": "{document_id}",
+                  "item": [
+                    {
+                      "name": "Single Rest Mode Period Document",
+                      "id": "f02f6160-c198-40fd-8d03-6809a0aede29",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period",
+                            ":document_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7ff53e24-1d00-4922-96b0-89823e2fb174",
+                              "key": "document_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "75328be9-cef0-4744-9b6d-b8c2503a7c8c",
+                          "name": "Successful Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"meta\": {\n    \"updated_at\": \"<string>\",\n    \"version\": \"<integer>\"\n  },\n  \"episodes\": [\n    {\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timestamp\": \"<string>\"\n    },\n    {\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timestamp\": \"<string>\"\n    }\n  ],\n  \"start_day\": \"<string>\",\n  \"end_day\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"start_time\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-75328be9-cef0-4744-9b6d-b8c2503a7c8c"
+                        },
+                        {
+                          "id": "b41f91a6-9220-4fa4-83f3-65ba7a1e4c9e",
+                          "name": "Client Exception",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-b41f91a6-9220-4fa4-83f3-65ba7a1e4c9e"
+                        },
+                        {
+                          "id": "10e393c0-014b-4ba2-aca7-fd97476fbde9",
+                          "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-10e393c0-014b-4ba2-aca7-fd97476fbde9"
+                        },
+                        {
+                          "id": "3ac99cae-8e70-4918-9272-9c41856610d3",
+                          "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-3ac99cae-8e70-4918-9272-9c41856610d3"
+                        },
+                        {
+                          "id": "6b2c768f-eb38-4839-85cb-dddd94c5715b",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-6b2c768f-eb38-4839-85cb-dddd94c5715b"
+                        },
+                        {
+                          "id": "5360698f-129c-4d81-87f0-c5906f605c9b",
+                          "name": "Validation Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-5360698f-129c-4d81-87f0-c5906f605c9b"
+                        },
+                        {
+                          "id": "35880cff-fbdc-42e8-9e3a-6a7824c23cc5",
+                          "name": "Request Rate Limit Exceeded.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period/:document_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "usercollection",
+                                "rest_mode_period",
+                                ":document_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "document_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:29:57.000Z",
+                          "updatedAt": "2026-07-28T02:29:57.000Z",
+                          "uid": "35240-35880cff-fbdc-42e8-9e3a-6a7824c23cc5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-f02f6160-c198-40fd-8d03-6809a0aede29"
+                    }
+                  ],
+                  "id": "ae27ddc4-665d-48db-b2fa-e1a3304bde71",
+                  "createdAt": "2026-07-28T02:29:57.000Z",
+                  "updatedAt": "2026-07-28T02:29:57.000Z",
+                  "uid": "35240-ae27ddc4-665d-48db-b2fa-e1a3304bde71"
+                },
+                {
+                  "name": "Multiple Rest Mode Period Documents",
+                  "id": "e10ebeec-44a1-49e7-b66c-edecbdac2e42",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "rest_mode_period"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3d3d3de3-351c-425d-a3b0-72729e50f0fa",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"episodes\": [\n        {\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timestamp\": \"<string>\"\n        },\n        {\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timestamp\": \"<string>\"\n        }\n      ],\n      \"start_day\": \"<string>\",\n      \"end_day\": \"<string>\",\n      \"end_time\": \"<string>\",\n      \"start_time\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meta\": {\n        \"updated_at\": \"<string>\",\n        \"version\": \"<integer>\"\n      },\n      \"episodes\": [\n        {\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timestamp\": \"<string>\"\n        },\n        {\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timestamp\": \"<string>\"\n        }\n      ],\n      \"start_day\": \"<string>\",\n      \"end_day\": \"<string>\",\n      \"end_time\": \"<string>\",\n      \"start_time\": \"<string>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-3d3d3de3-351c-425d-a3b0-72729e50f0fa"
+                    },
+                    {
+                      "id": "bf602619-f77e-48e1-89c6-f0a7c71d221c",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-bf602619-f77e-48e1-89c6-f0a7c71d221c"
+                    },
+                    {
+                      "id": "8a813e8f-634d-4bb2-9b62-4ea799afd817",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-8a813e8f-634d-4bb2-9b62-4ea799afd817"
+                    },
+                    {
+                      "id": "bebc8c65-5e20-4385-88c2-503d9a3b4de8",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-bebc8c65-5e20-4385-88c2-503d9a3b4de8"
+                    },
+                    {
+                      "id": "c05ed6dd-c1e0-4ba0-9d16-7dacd24ef1fb",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-c05ed6dd-c1e0-4ba0-9d16-7dacd24ef1fb"
+                    },
+                    {
+                      "id": "8ce50c0c-ac65-4b18-8907-f6bc7a32ec60",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/rest_mode_period?start_date=<dateTime>&end_date=<dateTime>&next_token=<string>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "rest_mode_period"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_date",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:57.000Z",
+                      "updatedAt": "2026-07-28T02:29:57.000Z",
+                      "uid": "35240-8ce50c0c-ac65-4b18-8907-f6bc7a32ec60"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:57.000Z",
+                  "updatedAt": "2026-07-28T02:29:57.000Z",
+                  "uid": "35240-e10ebeec-44a1-49e7-b66c-edecbdac2e42"
+                }
+              ],
+              "id": "c06bb2d6-f77a-453c-b8cf-cc1d2b5d58c7",
+              "createdAt": "2026-07-28T02:29:57.000Z",
+              "updatedAt": "2026-07-28T02:29:57.000Z",
+              "uid": "35240-c06bb2d6-f77a-453c-b8cf-cc1d2b5d58c7"
+            }
+          ],
+          "id": "c222d457-c03b-4d16-bcdb-d3ac240360ba",
+          "createdAt": "2026-07-28T02:29:57.000Z",
+          "updatedAt": "2026-07-28T02:29:57.000Z",
+          "uid": "35240-c222d457-c03b-4d16-bcdb-d3ac240360ba"
+        }
+      ],
+      "id": "7983d1ee-11e2-497c-802a-ae79910b3179",
+      "createdAt": "2026-07-28T02:29:57.000Z",
+      "updatedAt": "2026-07-28T02:29:57.000Z",
+      "uid": "35240-7983d1ee-11e2-497c-802a-ae79910b3179"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

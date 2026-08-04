@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "23fa9510-7199-46d2-8008-622b3b67d086",
+    "name": "Oura Daily Activity Routes Heart Rate Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:41.000Z",
+    "updatedAt": "2026-07-28T02:29:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-23fa9510-7199-46d2-8008-622b3b67d086"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "heartrate",
+              "item": [
+                {
+                  "name": "Multiple Heartrate Documents",
+                  "id": "a8a89ffe-b72d-417c-8359-6e066ec3baf1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "heartrate"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "latest",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c54a09ec-26f9-4fdf-8732-e4bc9ff0a2ce",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "heartrate"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"timestamp_unix\": \"<integer>\",\n      \"bpm\": \"<integer>\",\n      \"source\": \"sleep\"\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"timestamp_unix\": \"<integer>\",\n      \"bpm\": \"<integer>\",\n      \"source\": \"awake\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:41.000Z",
+                      "updatedAt": "2026-07-28T02:29:41.000Z",
+                      "uid": "35240-c54a09ec-26f9-4fdf-8732-e4bc9ff0a2ce"
+                    },
+                    {
+                      "id": "e0c29127-da75-4630-96cd-0f542ef5b364",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "heartrate"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:41.000Z",
+                      "updatedAt": "2026-07-28T02:29:41.000Z",
+                      "uid": "35240-e0c29127-da75-4630-96cd-0f542ef5b364"
+                    },
+                    {
+                      "id": "18ef5da6-ef3a-49d9-978a-92883aef5a2d",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "heartrate"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:41.000Z",
+                      "updatedAt": "2026-07-28T02:29:41.000Z",
+                      "uid": "35240-18ef5da6-ef3a-49d9-978a-92883aef5a2d"
+                    },
+                    {
+                      "id": "47912104-bd40-4d6d-9f2e-282427fcff0e",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "heartrate"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:41.000Z",
+                      "updatedAt": "2026-07-28T02:29:41.000Z",
+                      "uid": "35240-47912104-bd40-4d6d-9f2e-282427fcff0e"
+                    },
+                    {
+                      "id": "9a5a9ef0-9ac9-422d-ab60-77726ef3c1e7",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "heartrate"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:41.000Z",
+                      "updatedAt": "2026-07-28T02:29:41.000Z",
+                      "uid": "35240-9a5a9ef0-9ac9-422d-ab60-77726ef3c1e7"
+                    },
+                    {
+                      "id": "614bedb8-fdf5-418c-8926-06d26c96631a",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/heartrate?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "heartrate"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:41.000Z",
+                      "updatedAt": "2026-07-28T02:29:41.000Z",
+                      "uid": "35240-614bedb8-fdf5-418c-8926-06d26c96631a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:41.000Z",
+                  "updatedAt": "2026-07-28T02:29:41.000Z",
+                  "uid": "35240-a8a89ffe-b72d-417c-8359-6e066ec3baf1"
+                }
+              ],
+              "id": "70836358-069b-4153-a5a5-89f2e2685fe7",
+              "createdAt": "2026-07-28T02:29:41.000Z",
+              "updatedAt": "2026-07-28T02:29:41.000Z",
+              "uid": "35240-70836358-069b-4153-a5a5-89f2e2685fe7"
+            }
+          ],
+          "id": "f4bac1d8-925b-4145-b414-43eff852e942",
+          "createdAt": "2026-07-28T02:29:41.000Z",
+          "updatedAt": "2026-07-28T02:29:41.000Z",
+          "uid": "35240-f4bac1d8-925b-4145-b414-43eff852e942"
+        }
+      ],
+      "id": "aaf175d2-d760-48ac-a431-c30e2835ee7b",
+      "createdAt": "2026-07-28T02:29:41.000Z",
+      "updatedAt": "2026-07-28T02:29:41.000Z",
+      "uid": "35240-aaf175d2-d760-48ac-a431-c30e2835ee7b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

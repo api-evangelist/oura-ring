@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "69703f95-6e9e-4f93-8878-e281a5407d68",
+    "name": "Oura Daily Activity Routes Interbeat Interval Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:29:41.000Z",
+    "updatedAt": "2026-07-28T02:29:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69703f95-6e9e-4f93-8878-e281a5407d68"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "usercollection",
+          "item": [
+            {
+              "name": "interbeat_interval",
+              "item": [
+                {
+                  "name": "Multiple Interbeat Interval Documents",
+                  "id": "6f155180-9638-4e80-abbe-5d4dcf09745b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "usercollection",
+                        "interbeat_interval"
+                      ],
+                      "query": [
+                        {
+                          "key": "start_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "end_datetime",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "next_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "latest",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                          "key": "fields",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "fae59ed3-03c1-4689-8e73-98bfae15ea11",
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "interbeat_interval"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"timestamp_unix\": \"<integer>\",\n      \"ibi\": \"<integer>\",\n      \"validity\": \"<integer>\"\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"timestamp_unix\": \"<integer>\",\n      \"ibi\": \"<integer>\",\n      \"validity\": \"<integer>\"\n    }\n  ],\n  \"next_token\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:29:42.000Z",
+                      "updatedAt": "2026-07-28T02:29:42.000Z",
+                      "uid": "35240-fae59ed3-03c1-4689-8e73-98bfae15ea11"
+                    },
+                    {
+                      "id": "ed86246e-496a-40d7-9ac2-7700562296f7",
+                      "name": "Client Exception",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "interbeat_interval"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:42.000Z",
+                      "updatedAt": "2026-07-28T02:29:42.000Z",
+                      "uid": "35240-ed86246e-496a-40d7-9ac2-7700562296f7"
+                    },
+                    {
+                      "id": "ca0a0fa2-f046-4591-b743-95b69fdb0002",
+                      "name": "Unauthorized access exception. Usually means the access token is expired, malformed or revoked.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "interbeat_interval"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:42.000Z",
+                      "updatedAt": "2026-07-28T02:29:42.000Z",
+                      "uid": "35240-ca0a0fa2-f046-4591-b743-95b69fdb0002"
+                    },
+                    {
+                      "id": "63bb5702-a240-4900-9087-202ce3dc9e05",
+                      "name": "Access forbidden. Usually means the user's subscription to Oura has expired and their data is not available via the API.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "interbeat_interval"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:42.000Z",
+                      "updatedAt": "2026-07-28T02:29:42.000Z",
+                      "uid": "35240-63bb5702-a240-4900-9087-202ce3dc9e05"
+                    },
+                    {
+                      "id": "656a7878-0c23-43bb-b663-31a2b2e876bd",
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "interbeat_interval"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"loc\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"msg\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:29:42.000Z",
+                      "updatedAt": "2026-07-28T02:29:42.000Z",
+                      "uid": "35240-656a7878-0c23-43bb-b663-31a2b2e876bd"
+                    },
+                    {
+                      "id": "1ec156cc-36b4-479c-9e5d-1b52fd0e2ea1",
+                      "name": "Request Rate Limit Exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/usercollection/interbeat_interval?start_datetime=<dateTime>&end_datetime=<dateTime>&next_token=<string>&latest=<boolean>&fields=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "usercollection",
+                            "interbeat_interval"
+                          ],
+                          "query": [
+                            {
+                              "key": "start_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "end_datetime",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "next_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "latest",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided.",
+                              "key": "fields",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:29:42.000Z",
+                      "updatedAt": "2026-07-28T02:29:42.000Z",
+                      "uid": "35240-1ec156cc-36b4-479c-9e5d-1b52fd0e2ea1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:29:42.000Z",
+                  "updatedAt": "2026-07-28T02:29:42.000Z",
+                  "uid": "35240-6f155180-9638-4e80-abbe-5d4dcf09745b"
+                }
+              ],
+              "id": "475360a0-330d-4fa3-bd3c-79d10e04d345",
+              "createdAt": "2026-07-28T02:29:42.000Z",
+              "updatedAt": "2026-07-28T02:29:42.000Z",
+              "uid": "35240-475360a0-330d-4fa3-bd3c-79d10e04d345"
+            }
+          ],
+          "id": "287a2a04-d8a2-48bf-9ad7-5645ae0d9135",
+          "createdAt": "2026-07-28T02:29:42.000Z",
+          "updatedAt": "2026-07-28T02:29:42.000Z",
+          "uid": "35240-287a2a04-d8a2-48bf-9ad7-5645ae0d9135"
+        }
+      ],
+      "id": "acac3e16-44b8-43af-9a4f-9e4028cb25b6",
+      "createdAt": "2026-07-28T02:29:42.000Z",
+      "updatedAt": "2026-07-28T02:29:42.000Z",
+      "uid": "35240-acac3e16-44b8-43af-9a4f-9e4028cb25b6"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}
