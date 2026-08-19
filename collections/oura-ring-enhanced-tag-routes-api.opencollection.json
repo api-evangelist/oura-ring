@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oura Daily Activity Routes Enhanced Tag Routes API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Enhanced Tag Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Enhanced Tag Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/enhanced_tag",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "N/A. This route does not support field selection yet, all fields will be returned."
+              }
+            ]
+          },
+          "docs": "Multiple Enhanced Tag Documents"
+        },
+        {
+          "info": {
+            "name": "Single Enhanced Tag Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/enhanced_tag/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Enhanced Tag Document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

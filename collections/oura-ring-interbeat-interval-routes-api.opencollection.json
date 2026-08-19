@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oura Daily Activity Routes Interbeat Interval Routes API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Interbeat Interval Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Interbeat Interval Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/interbeat_interval",
+            "params": [
+              {
+                "name": "start_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_datetime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "latest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Interbeat Interval Documents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

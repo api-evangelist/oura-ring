@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oura Daily Activity Routes API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Daily Activity Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Activity Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_activity",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Activity Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Activity Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_activity/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Activity Document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

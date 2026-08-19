@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oura Daily Activity Routes Daily Sleep Routes API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Daily Sleep Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Daily Sleep Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_sleep",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              }
+            ]
+          },
+          "docs": "Multiple Daily Sleep Documents"
+        },
+        {
+          "info": {
+            "name": "Single Daily Sleep Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/daily_sleep/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Daily Sleep Document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

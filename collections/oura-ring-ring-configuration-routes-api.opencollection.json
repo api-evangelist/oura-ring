@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Oura Daily Activity Routes Ring Configuration Routes API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ring Configuration Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Multiple Ring Configuration Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/ring_configuration",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response, in addition to the always returned fields. Defaults to all fields if not provided."
+              },
+              {
+                "name": "next_token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Multiple Ring Configuration Documents"
+        },
+        {
+          "info": {
+            "name": "Single Ring Configuration Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v2/usercollection/ring_configuration/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Single Ring Configuration Document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
