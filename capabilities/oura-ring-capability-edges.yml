@@ -1,0 +1,25 @@
+slug: oura-ring
+provider: Oura
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Healthcare Providers
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Webhook Subscription Routes
+  spec_file: oura-ring-webhook-subscription-routes-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.9
+  evidence: POST /v2/webhook/subscription 'Create Webhook Subscription'; 'Renew Webhook Subscription';
+    schemas CreateWebhookSubscriptionRequest, WebhookSubscriptionModel, WebhookOperation
+  reason: Full CRUD plus renewal over outbound webhook subscriptions with event data types — this is exactly
+    the lifecycle of outbound webhook/event subscriptions offered to third-party developers on the platform.

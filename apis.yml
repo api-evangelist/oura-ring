@@ -338,6 +338,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/oura-ring.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/oura-ring-capability-edges.yml
+  name: Oura Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/oura/overview
 - type: AgenticAccess
