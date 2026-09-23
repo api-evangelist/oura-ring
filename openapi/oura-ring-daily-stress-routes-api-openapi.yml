@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Daily Stress Routes API
+  title: Oura Daily Stress Routes API
   version: '2.0'
 tags:
 - name: Daily Stress Routes
@@ -158,40 +158,59 @@ components:
       - stressful
       title: PublicDailyStressSummary
       description: Possible public daily stress summary types.
-    ISODate:
-      type: string
-    UtcDateTime:
-      type: string
-    ValidationError:
+    MultiDocumentResponseDict:
       properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            additionalProperties: true
+            type: object
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    MultiDocumentResponse_PublicDailyStress_:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/PublicDailyStress'
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyStress]
+    UtcDateTime:
+      type: string
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
     PublicDailyStress:
       properties:
         id:
@@ -235,54 +254,35 @@ components:
       x-cloud-only: true
       x-collection: publicdailystress
       x-owner: wellbeing-squad
-    Metadata:
+    ISODate:
+      type: string
+    HTTPValidationError:
       properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponseDict:
-      properties:
-        data:
+        detail:
           items:
-            additionalProperties: true
-            type: object
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    MultiDocumentResponse_PublicDailyStress_:
+      title: HTTPValidationError
+    ValidationError:
       properties:
-        data:
+        loc:
           items:
-            $ref: '#/components/schemas/PublicDailyStress'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyStress]
+      - loc
+      - msg
+      - type
+      title: ValidationError

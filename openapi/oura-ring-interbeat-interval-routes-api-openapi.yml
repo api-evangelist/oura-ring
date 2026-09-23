@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Interbeat Interval Routes API
+  title: Oura Interbeat Interval Routes API
   version: '2.0'
 tags:
 - name: Interbeat Interval Routes
@@ -98,54 +98,6 @@ paths:
         label: Java
 components:
   schemas:
-    TimeSeriesResponse_PublicInterbeatIntervalRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
-    UtcDateTime:
-      type: string
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     PublicInterbeatIntervalRow:
       properties:
         timestamp:
@@ -185,6 +137,24 @@ components:
       x-cloud-only: true
       x-collection: publicinterbeatinterval
       x-owner: app-platform
+    TimeSeriesResponse_PublicInterbeatIntervalRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
+    UtcDateTime:
+      type: string
     TimeSeriesResponseDict:
       properties:
         data:
@@ -202,3 +172,33 @@ components:
       required:
       - data
       title: TimeSeriesResponseDict
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

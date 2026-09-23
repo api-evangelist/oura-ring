@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Sandbox Routes API
+  title: Oura Sandbox Routes API
   version: '2.0'
 tags:
 - name: Sandbox Routes
@@ -2332,729 +2332,27 @@ paths:
         label: Java
 components:
   schemas:
-    MultiDocumentResponse_PublicDailySpO2_:
+    PublicSleepTimeWindow:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailySpO2'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailySpO2]
-    ISODate:
-      type: string
-    MultiDocumentResponse_PublicRestModePeriod_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicRestModePeriod'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicRestModePeriod]
-    TimeSeriesResponse_PublicInterbeatIntervalRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
-    MultiDocumentResponse_PublicRingConfiguration_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicRingConfiguration'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicRingConfiguration]
-    PublicDailyReadiness:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        contributors:
-          $ref: '#/components/schemas/PublicReadinessContributors'
-          title: ''
-          description: Contributors of the daily readiness score.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the daily readiness belongs to.
-        score:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Daily readiness score.
-        temperature_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature deviation in degrees Celcius.
-        temperature_trend_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature trend deviation in degrees Celcius.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp of the daily readiness.
-      type: object
-      required:
-      - id
-      - meta
-      - contributors
-      - day
-      - timestamp
-      title: PublicDailyReadiness
-      description: Public object defining daily readiness.
-      x-cloud-only: true
-      x-collection: publicdailyreadiness
-      x-owner: health-squad
-    MultiDocumentResponse_PublicSleepTime_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicSleepTime'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicSleepTime]
-    PublicHeartRateRow:
-      properties:
-        timestamp:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp of the discrete sample.
-        timestamp_unix:
+        day_tz:
           type: integer
           title: ''
-          description: Timestamp of the discrete sample as unix time in milliseconds.
-        bpm:
+          description: Timezone offset in second from GMT of the day
+        end_offset:
           type: integer
           title: ''
-          description: Heart rate as beats per minute.
-        source:
-          $ref: '#/components/schemas/PublicHeartRateSource'
-          title: ''
-          description: Source of the sample.
-      type: object
-      required:
-      - timestamp
-      - timestamp_unix
-      - bpm
-      - source
-      title: PublicHeartRateRow
-      description: Heart rate sample
-      x-cloud-only: true
-      x-collection: publicheartrate
-      x-owner: health-squad
-    PublicWorkoutSource:
-      type: string
-      enum:
-      - manual
-      - autodetected
-      - confirmed
-      - workout_heart_rate
-      title: PublicWorkoutSource
-      description: Possible workout sources.
-    PublicDailySpO2:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        breathing_disturbance_index:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Breathing Disturbance Index (BDI) calculated using detected SpO2 drops from timeseries. Values should be in range [0, 100]
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the spo2 values belong to.
-        spo2_percentage:
-          anyOf:
-          - $ref: '#/components/schemas/PublicSpo2AggregatedValues'
-          - type: 'null'
-          title: ''
-          description: The daily SpO2 percentage value aggregates. Sourced from SpO2 percentage timeseries values.
-      type: object
-      required:
-      - id
-      - meta
-      - day
-      title: PublicDailySpO2
-      description: Daily SpO2 (Oxygen saturation).
-      x-cloud-only: true
-      x-collection: publicdailyspo2
-      x-owner: health-squad
-    PublicVO2Max:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the estimate belongs to.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the estimate was created.
-        vo2_max:
+          description: End offset from midnight in second
+        start_offset:
           type: integer
           title: ''
-          description: VO2 max value.
+          description: Start offset from midnight in second
       type: object
       required:
-      - id
-      - meta
-      - day
-      - timestamp
-      - vo2_max
-      title: PublicVO2Max
-      description: VO2Max estimate.
-      x-cloud-only: true
-      x-collection: publicvo2max
-      x-owner: health-squad
-    PublicRingHardwareType:
-      type: string
-      enum:
-      - gen1
-      - gen2
-      - gen2m
-      - gen3
-      - gen4
-      title: PublicRingHardwareType
-      description: Possible ring hardware types.
-    MultiDocumentResponse_PublicDailyActivity_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyActivity'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyActivity]
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    TimeSeriesResponse_PublicRingBatteryLevelRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
-    PublicMomentType:
-      type: string
-      enum:
-      - breathing
-      - meditation
-      - nap
-      - relaxation
-      - rest
-      - body_status
-      title: PublicMomentType
-      description: Possible Moment types.
-    EnhancedTagModel:
-      properties:
-        id:
-          type: string
-          title: Id
-        tag_type_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tag Type Code
-          description: The unique code of the selected tag type, `NULL` for text-only tags, or `custom` for custom tag types.
-        start_time:
-          $ref: '#/components/schemas/LocalDateTime'
-          description: Timestamp of the tag (if no duration) or the start time of the tag (with duration).
-        end_time:
-          anyOf:
-          - $ref: '#/components/schemas/LocalDateTime'
-          - type: 'null'
-          description: Timestamp of the tag's end for events with duration or `NULL` if there is no duration.
-        start_day:
-          type: string
-          format: date
-          title: Start Day
-          description: Day of the tag (if no duration) or the start day of the tag (with duration).
-        end_day:
-          anyOf:
-          - type: string
-            format: date
-          - type: 'null'
-          title: End Day
-          description: Day of the tag's end for events with duration or `NULL` if there is no duration.
-        comment:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Comment
-          description: Additional freeform text on the tag.
-        custom_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Custom Name
-          description: The name of the tag if the tag_type_code is `custom`.
-      type: object
-      required:
-      - id
-      - start_time
-      - start_day
-      title: EnhancedTagModel
-      description: 'An EnhancedTagModel maps an ASSATag. An ASSATag in ExtAPIV2 is called a EnhancedTag
-
-        An EnhancedTagModel will be populated by data from an ASSATag
-
-        The fields in the EnhancedTagModel map to fields in an ASSATag'
-    PublicRingColor:
-      type: string
-      enum:
-      - brushed_silver
-      - glossy_black
-      - glossy_gold
-      - glossy_white
-      - gucci
-      - matt_gold
-      - rose
-      - silver
-      - stealth_black
-      - titanium
-      - titanium_and_gold
-      - cloud
-      - petal
-      - midnight
-      - tide
-      title: PublicRingColor
-      description: Possible ring colors.
-    MultiDocumentResponse_PublicModifiedSleepModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicModifiedSleepModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicModifiedSleepModel]
-    MultiDocumentResponse_PublicWorkout_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicWorkout'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicWorkout]
-    MultiDocumentResponse_PublicDailyStress_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyStress'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyStress]
-    PublicSleepAnalysisReason:
-      type: string
-      enum:
-      - foreground_sleep_analysis
-      - bedtime_edit
-      title: PublicSleepAnalysisReason
-      description: Possible sleep analysis reasons.
-    DailyResilienceModel:
-      properties:
-        id:
-          type: string
-          title: Id
-        day:
-          type: string
-          format: date
-          title: Day
-          description: Day when the resilience record was recorded.
-        contributors:
-          $ref: '#/components/schemas/ResilienceContributors'
-          description: Contributors to the resilience score.
-        level:
-          $ref: '#/components/schemas/LongTermResilienceLevel'
-          description: Resilience level.
-      type: object
-      required:
-      - id
-      - day
-      - contributors
-      - level
-      title: DailyResilienceModel
-    PublicSpo2AggregatedValues:
-      properties:
-        average:
-          type: number
-          title: ''
-          description: Average of spo2.
-      type: object
-      required:
-      - average
-      title: PublicSpo2AggregatedValues
-      description: Object defining public spo2 aggregated values.
-    PublicSleepTimeRecommendation:
-      type: string
-      enum:
-      - improve_efficiency
-      - earlier_bedtime
-      - later_bedtime
-      - earlier_wake_up_time
-      - later_wake_up_time
-      - follow_optimal_bedtime
-      title: PublicSleepTimeRecommendation
-      description: Possible public SleepTime recommendation.
-    MultiDocumentResponse_PublicDailySleep_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailySleep'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailySleep]
-    PublicActivityContributors:
-      properties:
-        meet_daily_targets:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of meeting previous 7-day daily activity targets in range [1, 100].
-        move_every_hour:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 24-hour inactivity alerts in range [1, 100].
-        recovery_time:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 7-day recovery time in range [1, 100].
-        stay_active:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 24-hour activity in range [1, 100].
-        training_frequency:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 7-day exercise frequency in range [1, 100].
-        training_volume:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 7-day exercise volume in range [1, 100].
-      type: object
-      title: PublicActivityContributors
-      description: Object defining activity score contributors.
-    PublicWorkoutIntensity:
-      type: string
-      enum:
-      - easy
-      - moderate
-      - hard
-      title: PublicWorkoutIntensity
-      description: Possible workout intensities.
-    PublicSleepContributors:
-      properties:
-        deep_sleep:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of deep sleep in range [1, 100].
-        efficiency:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of sleep efficiency in range [1, 100].
-        latency:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of sleep latency in range [1, 100].
-        rem_sleep:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of REM sleep in range [1, 100].
-        restfulness:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of sleep restfulness in range [1, 100].
-        timing:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of sleep timing in range [1, 100].
-        total_sleep:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of total sleep in range [1, 100].
-      type: object
-      title: PublicSleepContributors
-      description: Object defining sleep score contributors.
-    TimeSeriesResponse_PublicHeartRateRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicHeartRateRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicHeartRateRow]
-    PublicRestModePeriod:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        end_day:
-          anyOf:
-          - $ref: '#/components/schemas/ISODate'
-          - type: 'null'
-          title: ''
-          description: End date of rest mode.
-        end_time:
-          anyOf:
-          - $ref: '#/components/schemas/LocalizedDateTime'
-          - type: 'null'
-          title: ''
-          description: Timestamp when rest mode ended.
-        episodes:
-          items:
-            $ref: '#/components/schemas/PublicRestModeEpisode'
-          type: array
-          title: ''
-          description: Collection of episodes during rest mode, consisting of tags.
-        start_day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Start date of rest mode.
-        start_time:
-          anyOf:
-          - $ref: '#/components/schemas/LocalizedDateTime'
-          - type: 'null'
-          title: ''
-          description: Timestamp when rest mode ended.
-      type: object
-      required:
-      - id
-      - meta
-      - episodes
-      - start_day
-      title: PublicRestModePeriod
-      description: Rest mode episode information.
-      x-cloud-only: true
-      x-collection: publicrestmodeperiod
-      x-owner: health-squad
-    MultiDocumentResponse_PublicVO2Max_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicVO2Max'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicVO2Max]
-    PublicSleepTimeStatus:
-      type: string
-      enum:
-      - not_enough_nights
-      - not_enough_recent_nights
-      - bad_sleep_quality
-      - only_recommended_found
-      - optimal_found
-      title: PublicSleepTimeStatus
-      description: Possible public SleepTime status.
-    PublicSample:
-      properties:
-        interval:
-          type: number
-          title: ''
-          description: Interval in seconds between the sampled items.
-        items:
-          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
-          title: ''
-          description: Recorded sample items.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp when the sample recording started.
-      type: object
-      required:
-      - interval
-      - items
-      - timestamp
-      title: PublicSample
-      description: Object defining a recorded sample.
+      - day_tz
+      - end_offset
+      - start_offset
+      title: PublicSleepTimeWindow
+      description: Object defining sleep time window
     PublicDailySleep:
       properties:
         id:
@@ -3096,6 +2394,23 @@ components:
       x-cloud-only: true
       x-collection: publicdailysleep
       x-owner: health-squad
+    MultiDocumentResponse_PublicDailyCardiovascularAge_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyCardiovascularAge'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyCardiovascularAge]
     MultiDocumentResponseDict:
       properties:
         data:
@@ -3114,18 +2429,9 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    PublicSleepAlgorithmVersion:
+    UtcDateTime:
       type: string
-      enum:
-      - v1
-      - v2
-      title: PublicSleepAlgorithmVersion
-      description: 'Oura Sleep Staging Algorithms.
-
-        v1 = original aka legacy aka OSSA 1.0,
-
-        v2 = latest sleep algorithm'
-    PublicSleepTime:
+    PublicDailyActivity:
       properties:
         id:
           type: string
@@ -3136,38 +2442,219 @@ components:
           $ref: '#/components/schemas/Metadata'
           title: ''
           description: Meta data of the object.
+        active_calories:
+          type: integer
+          title: ''
+          description: Active calories expended in kilocalories.
+        average_met_minutes:
+          type: number
+          title: ''
+          description: Average MET minutes.
+        class_5_min:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: ''
+          description: '5-minute activity classification for the period where every character corresponds to:
+
+            ''0'' = non wear
+
+            ''1'' = rest
+
+            ''2'' = inactive
+
+            ''3'' = low activity
+
+            ''4'' = medium activity
+
+            ''5'' = high activity
+
+            Example: "001233334555524001".'
+        contributors:
+          $ref: '#/components/schemas/PublicActivityContributors'
+          title: ''
+          description: Object containing activity score contributors.
         day:
           $ref: '#/components/schemas/ISODate'
           title: ''
-          description: Corresponding day for the sleep time.
-        optimal_bedtime:
+          description: Day that the daily activity belong to.
+        equivalent_walking_distance:
+          type: integer
+          title: ''
+          description: Equivalent walking distance of energe expenditure in meters.
+        high_activity_met_minutes:
+          type: integer
+          title: ''
+          description: The total METs of each minute classified as high activity.
+        high_activity_time:
+          type: integer
+          title: ''
+          description: The total time in seconds of each minute classified as high activity.
+        inactivity_alerts:
+          type: integer
+          title: ''
+          description: Number of inactivity alerts received.
+        low_activity_met_minutes:
+          type: integer
+          title: ''
+          description: The total METs of each minute classified as low activity.
+        low_activity_time:
+          type: integer
+          title: ''
+          description: The total time in seconds of each minute classified as low activity.
+        medium_activity_met_minutes:
+          type: integer
+          title: ''
+          description: The total METs of each minute classified as medium activity.
+        medium_activity_time:
+          type: integer
+          title: ''
+          description: The total time in seconds of each minute classified as medium activity.
+        met:
+          $ref: '#/components/schemas/PublicSample'
+          title: ''
+          description: Sample containing METs.
+        meters_to_target:
+          type: integer
+          title: ''
+          description: Meters remaining to target.
+        non_wear_time:
+          type: integer
+          title: ''
+          description: Ring non-wear time in seconds.
+        resting_time:
+          type: integer
+          title: ''
+          description: Resting time in seconds.
+        score:
           anyOf:
-          - $ref: '#/components/schemas/PublicSleepTimeWindow'
+          - type: integer
           - type: 'null'
           title: ''
-          description: Optimal bedtime.
-        recommendation:
-          anyOf:
-          - $ref: '#/components/schemas/PublicSleepTimeRecommendation'
-          - type: 'null'
+          description: Activity score in range [1, 100].
+        sedentary_met_minutes:
+          type: integer
           title: ''
-          description: Recommended action for bedtime.
-        status:
-          anyOf:
-          - $ref: '#/components/schemas/PublicSleepTimeStatus'
-          - type: 'null'
+          description: Sedentary MET minutes.
+        sedentary_time:
+          type: integer
           title: ''
-          description: Sleep time status; used to inform sleep time recommendation.
+          description: Sedentary time in seconds.
+        steps:
+          type: integer
+          title: ''
+          description: Total number of steps taken.
+        target_calories:
+          type: integer
+          title: ''
+          description: Daily activity target in kilocalories.
+        target_meters:
+          type: integer
+          title: ''
+          description: Daily activity target in meters.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp of the daily activity.
+        total_calories:
+          type: integer
+          title: ''
+          description: Total calories expended in kilocalories.
       type: object
       required:
       - id
       - meta
+      - active_calories
+      - average_met_minutes
+      - contributors
       - day
-      title: PublicSleepTime
-      description: Suggested bedtime for the user.
+      - equivalent_walking_distance
+      - high_activity_met_minutes
+      - high_activity_time
+      - inactivity_alerts
+      - low_activity_met_minutes
+      - low_activity_time
+      - medium_activity_met_minutes
+      - medium_activity_time
+      - met
+      - meters_to_target
+      - non_wear_time
+      - resting_time
+      - sedentary_met_minutes
+      - sedentary_time
+      - steps
+      - target_calories
+      - target_meters
+      - timestamp
+      - total_calories
+      title: PublicDailyActivity
+      description: Object defining a daily activity that is a 24-hour period starting at 4 a.m.
       x-cloud-only: true
-      x-collection: publicsleeptime
-      x-owner: app-platform
+      x-collection: publicdailyactivity
+      x-owner: movement-squad
+    TimeSeriesResponse_PublicInterbeatIntervalRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
+    PublicRingHardwareType:
+      type: string
+      enum:
+      - gen1
+      - gen2
+      - gen2m
+      - gen3
+      - gen4
+      title: PublicRingHardwareType
+      description: Possible ring hardware types.
+    MultiDocumentResponse_DailyResilienceModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DailyResilienceModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[DailyResilienceModel]
+    PublicRingColor:
+      type: string
+      enum:
+      - brushed_silver
+      - glossy_black
+      - glossy_gold
+      - glossy_white
+      - gucci
+      - matt_gold
+      - rose
+      - silver
+      - stealth_black
+      - titanium
+      - titanium_and_gold
+      - cloud
+      - petal
+      - midnight
+      - tide
+      title: PublicRingColor
+      description: Possible ring colors.
     PublicReadinessContributors:
       properties:
         activity_balance:
@@ -3227,31 +2714,1082 @@ components:
       type: object
       title: PublicReadinessContributors
       description: Object defining readiness score contributors.
-    PublicSleepTimeWindow:
+    PublicSleepTimeStatus:
+      type: string
+      enum:
+      - not_enough_nights
+      - not_enough_recent_nights
+      - bad_sleep_quality
+      - only_recommended_found
+      - optimal_found
+      title: PublicSleepTimeStatus
+      description: Possible public SleepTime status.
+    PublicSample:
       properties:
-        day_tz:
-          type: integer
+        interval:
+          type: number
           title: ''
-          description: Timezone offset in second from GMT of the day
-        end_offset:
-          type: integer
+          description: Interval in seconds between the sampled items.
+        items:
+          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
           title: ''
-          description: End offset from midnight in second
-        start_offset:
-          type: integer
+          description: Recorded sample items.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
           title: ''
-          description: Start offset from midnight in second
+          description: Timestamp when the sample recording started.
       type: object
       required:
-      - day_tz
-      - end_offset
-      - start_offset
-      title: PublicSleepTimeWindow
-      description: Object defining sleep time window
-    UtcDateTime:
+      - interval
+      - items
+      - timestamp
+      title: PublicSample
+      description: Object defining a recorded sample.
+    LocalDateTime:
       type: string
-    LocalizedDateTime:
+    ResilienceContributors:
+      properties:
+        sleep_recovery:
+          type: number
+          title: Sleep Recovery
+          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
+        daytime_recovery:
+          type: number
+          title: Daytime Recovery
+          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
+        stress:
+          type: number
+          title: Stress
+          description: 'Stress contributor to the resilience score. Range: [0, 100]'
+      type: object
+      required:
+      - sleep_recovery
+      - daytime_recovery
+      - stress
+      title: ResilienceContributors
+    PublicDailyReadiness:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        contributors:
+          $ref: '#/components/schemas/PublicReadinessContributors'
+          title: ''
+          description: Contributors of the daily readiness score.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the daily readiness belongs to.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Daily readiness score.
+        temperature_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature deviation in degrees Celcius.
+        temperature_trend_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature trend deviation in degrees Celcius.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp of the daily readiness.
+      type: object
+      required:
+      - id
+      - meta
+      - contributors
+      - day
+      - timestamp
+      title: PublicDailyReadiness
+      description: Public object defining daily readiness.
+      x-cloud-only: true
+      x-collection: publicdailyreadiness
+      x-owner: health-squad
+    PublicWorkoutIntensity:
       type: string
+      enum:
+      - easy
+      - moderate
+      - hard
+      title: PublicWorkoutIntensity
+      description: Possible workout intensities.
+    MultiDocumentResponse_TagModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TagModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[TagModel]
+    MultiDocumentResponse_PublicDailyStress_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyStress'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyStress]
+    MultiDocumentResponse_PublicDailyReadiness_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyReadiness'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyReadiness]
+    DailyResilienceModel:
+      properties:
+        id:
+          type: string
+          title: Id
+        day:
+          type: string
+          format: date
+          title: Day
+          description: Day when the resilience record was recorded.
+        contributors:
+          $ref: '#/components/schemas/ResilienceContributors'
+          description: Contributors to the resilience score.
+        level:
+          $ref: '#/components/schemas/LongTermResilienceLevel'
+          description: Resilience level.
+      type: object
+      required:
+      - id
+      - day
+      - contributors
+      - level
+      title: DailyResilienceModel
+    PublicRestModePeriod:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        end_day:
+          anyOf:
+          - $ref: '#/components/schemas/ISODate'
+          - type: 'null'
+          title: ''
+          description: End date of rest mode.
+        end_time:
+          anyOf:
+          - $ref: '#/components/schemas/LocalizedDateTime'
+          - type: 'null'
+          title: ''
+          description: Timestamp when rest mode ended.
+        episodes:
+          items:
+            $ref: '#/components/schemas/PublicRestModeEpisode'
+          type: array
+          title: ''
+          description: Collection of episodes during rest mode, consisting of tags.
+        start_day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Start date of rest mode.
+        start_time:
+          anyOf:
+          - $ref: '#/components/schemas/LocalizedDateTime'
+          - type: 'null'
+          title: ''
+          description: Timestamp when rest mode ended.
+      type: object
+      required:
+      - id
+      - meta
+      - episodes
+      - start_day
+      title: PublicRestModePeriod
+      description: Rest mode episode information.
+      x-cloud-only: true
+      x-collection: publicrestmodeperiod
+      x-owner: health-squad
+    MultiDocumentResponse_PublicDailySpO2_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailySpO2'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailySpO2]
+    PublicSleepAnalysisReason:
+      type: string
+      enum:
+      - foreground_sleep_analysis
+      - bedtime_edit
+      title: PublicSleepAnalysisReason
+      description: Possible sleep analysis reasons.
+    PublicMomentMood:
+      type: string
+      enum:
+      - bad
+      - worse
+      - same
+      - good
+      - great
+      title: PublicMomentMood
+      description: Possible Moment moods.
+    PublicHeartRateRow:
+      properties:
+        timestamp:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp of the discrete sample.
+        timestamp_unix:
+          type: integer
+          title: ''
+          description: Timestamp of the discrete sample as unix time in milliseconds.
+        bpm:
+          type: integer
+          title: ''
+          description: Heart rate as beats per minute.
+        source:
+          $ref: '#/components/schemas/PublicHeartRateSource'
+          title: ''
+          description: Source of the sample.
+      type: object
+      required:
+      - timestamp
+      - timestamp_unix
+      - bpm
+      - source
+      title: PublicHeartRateRow
+      description: Heart rate sample
+      x-cloud-only: true
+      x-collection: publicheartrate
+      x-owner: health-squad
+    MultiDocumentResponse_PublicDailySleep_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailySleep'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailySleep]
+    MultiDocumentResponse_PublicModifiedSleepModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicModifiedSleepModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicModifiedSleepModel]
+    PublicDailySpO2:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        breathing_disturbance_index:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Breathing Disturbance Index (BDI) calculated using detected SpO2 drops from timeseries. Values should be in range [0, 100]
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the spo2 values belong to.
+        spo2_percentage:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSpo2AggregatedValues'
+          - type: 'null'
+          title: ''
+          description: The daily SpO2 percentage value aggregates. Sourced from SpO2 percentage timeseries values.
+      type: object
+      required:
+      - id
+      - meta
+      - day
+      title: PublicDailySpO2
+      description: Daily SpO2 (Oxygen saturation).
+      x-cloud-only: true
+      x-collection: publicdailyspo2
+      x-owner: health-squad
+    ISODate:
+      type: string
+    MultiDocumentResponse_PublicRestModePeriod_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicRestModePeriod'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicRestModePeriod]
+    MultiDocumentResponse_PublicWorkout_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicWorkout'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicWorkout]
+    TimeSeriesResponse_PublicHeartRateRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicHeartRateRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicHeartRateRow]
+    LongTermResilienceLevel:
+      type: string
+      enum:
+      - limited
+      - adequate
+      - solid
+      - strong
+      - exceptional
+      title: LongTermResilienceLevel
+      description: Possible long term resilience level values.
+    PublicSleepContributors:
+      properties:
+        deep_sleep:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of deep sleep in range [1, 100].
+        efficiency:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep efficiency in range [1, 100].
+        latency:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep latency in range [1, 100].
+        rem_sleep:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of REM sleep in range [1, 100].
+        restfulness:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep restfulness in range [1, 100].
+        timing:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep timing in range [1, 100].
+        total_sleep:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of total sleep in range [1, 100].
+      type: object
+      title: PublicSleepContributors
+      description: Object defining sleep score contributors.
+    TimeSeriesResponse_PublicRingBatteryLevelRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
+    PublicRingDesign:
+      type: string
+      enum:
+      - heritage
+      - balance
+      - balance_diamond
+      - horizon
+      - ceramic
+      title: PublicRingDesign
+      description: Possible ring designs.
+    PublicSpo2AggregatedValues:
+      properties:
+        average:
+          type: number
+          title: ''
+          description: Average of spo2.
+      type: object
+      required:
+      - average
+      title: PublicSpo2AggregatedValues
+      description: Object defining public spo2 aggregated values.
+    PublicInterbeatIntervalRow:
+      properties:
+        timestamp:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp of the discrete sample.
+        timestamp_unix:
+          type: integer
+          title: ''
+          description: Timestamp of the discrete sample as unix time in milliseconds.
+        ibi:
+          type: integer
+          title: ''
+          description: Time between two consecutive beats of the heart, in milliseconds. Maximum value limited to 2000ms.
+        validity:
+          type: integer
+          title: ''
+          description: 'Validation classification: 1=Good,2=Bad,3=Corrected,-1/-2=Gap, 0=Raw(Uncorrected). The validity indicates
+
+            whether the data in this row is trustworthy. Gap: indicates that there was no available ppg signal in the
+
+            past seconds, which makes it impossible to compute the IBI for this row. Corrected: In rare cases the ring
+
+            algorithm produces artifacts that can be corrected during post-processing. An example is the ring algo
+
+            generating two IBI events when there should be a single one. If the IBI value was fixed in post-processing,
+
+            it will have this validity classification. If the IBI value was not fixed, it will have the Raw classification.'
+      type: object
+      required:
+      - timestamp
+      - timestamp_unix
+      - ibi
+      - validity
+      title: PublicInterbeatIntervalRow
+      description: Discrete interbeat interval
+      x-cloud-only: true
+      x-collection: publicinterbeatinterval
+      x-owner: app-platform
+    PublicMomentType:
+      type: string
+      enum:
+      - breathing
+      - meditation
+      - nap
+      - relaxation
+      - rest
+      - body_status
+      title: PublicMomentType
+      description: Possible Moment types.
+    PublicRingConfiguration:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        color:
+          anyOf:
+          - $ref: '#/components/schemas/PublicRingColor'
+          - type: 'null'
+          title: ''
+          description: Color of the ring.
+        design:
+          anyOf:
+          - $ref: '#/components/schemas/PublicRingDesign'
+          - type: 'null'
+          title: ''
+          description: Design of the ring.
+        firmware_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: ''
+          description: Firmware version of the ring.
+        hardware_type:
+          anyOf:
+          - $ref: '#/components/schemas/PublicRingHardwareType'
+          - type: 'null'
+          title: ''
+          description: Hardware type of the ring.
+        set_up_at:
+          anyOf:
+          - $ref: '#/components/schemas/UtcDateTime'
+          - type: 'null'
+          title: ''
+          description: UTC timestamp indicating when the ring was set up.
+        size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: US size of the ring.
+      type: object
+      required:
+      - id
+      - meta
+      title: PublicRingConfiguration
+      description: Ring configuration.
+      x-cloud-only: true
+      x-collection: publicringconfiguration
+      x-owner: app-platform
+    MultiDocumentResponse_PublicRingConfiguration_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicRingConfiguration'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicRingConfiguration]
+    MultiDocumentResponse_EnhancedTagModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EnhancedTagModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[EnhancedTagModel]
+    PublicVO2Max:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the estimate belongs to.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the estimate was created.
+        vo2_max:
+          type: integer
+          title: ''
+          description: VO2 max value.
+      type: object
+      required:
+      - id
+      - meta
+      - day
+      - timestamp
+      - vo2_max
+      title: PublicVO2Max
+      description: VO2Max estimate.
+      x-cloud-only: true
+      x-collection: publicvo2max
+      x-owner: health-squad
+    PublicRestModeEpisode:
+      properties:
+        tags:
+          items:
+            type: string
+          type: array
+          title: ''
+          description: Tags selected for the episode.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the episode occurred.
+      type: object
+      required:
+      - tags
+      - timestamp
+      title: PublicRestModeEpisode
+      description: Object defining a public Rest Mode episode.
+    PublicSleepAlgorithmVersion:
+      type: string
+      enum:
+      - v1
+      - v2
+      title: PublicSleepAlgorithmVersion
+      description: 'Oura Sleep Staging Algorithms.
+
+        v1 = original aka legacy aka OSSA 1.0,
+
+        v2 = latest sleep algorithm'
+    PublicDailyStress:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the daily stress belongs to.
+        day_summary:
+          anyOf:
+          - $ref: '#/components/schemas/PublicDailyStressSummary'
+          - type: 'null'
+          title: ''
+          description: Stress summary of full day.
+        recovery_high:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Time spent in a high recovery zone (bottom quartile data) in seconds.
+        stress_high:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Time spent in a high stress zone (top quartile of data) in seconds.
+      type: object
+      required:
+      - id
+      - meta
+      - day
+      title: PublicDailyStress
+      description: Daily stress.
+      x-cloud-only: true
+      x-collection: publicdailystress
+      x-owner: wellbeing-squad
+    PublicReadiness:
+      properties:
+        contributors:
+          $ref: '#/components/schemas/PublicReadinessContributors'
+          title: ''
+          description: Contributors of the readiness score.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Readiness score in range [1, 100].
+        temperature_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature deviation in degrees Celcius.
+        temperature_trend_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature trend deviation in degrees Celcius.
+      type: object
+      required:
+      - contributors
+      title: PublicReadiness
+      description: Object defining readiness.
+    PublicSleepType:
+      type: string
+      enum:
+      - deleted
+      - sleep
+      - long_sleep
+      - late_nap
+      - rest
+      title: PublicSleepType
+      description: 'Possible sleep period types.
+
+        ''deleted'' = deleted sleep by user.
+
+        ''sleep'' = user confirmed sleep / nap, min 15 minutes, max 3 hours, contributes to daily scores
+
+        ''late_nap'' = user confirmed sleep / nap, min 15 minutes, ended after sleep day change (6 pm), contributes to next days daily scores
+
+        ''long_sleep'' = sleep that is long enough (>3h) to automatically contribute to daily scores
+
+        ''rest'' = Falsely detected sleep / nap, rejected in confirm prompt by user'
+    MultiDocumentResponse_PublicSleepTime_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicSleepTime'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicSleepTime]
+    PublicHeartRateSource:
+      type: string
+      enum:
+      - awake
+      - workout
+      - rest
+      - sleep
+      - live
+      - session
+      title: PublicHeartRateSource
+      description: Possible heart rate sources.
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    MultiDocumentResponse_PublicDailyActivity_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyActivity'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyActivity]
+    TagModel:
+      properties:
+        id:
+          type: string
+          title: Id
+        day:
+          type: string
+          format: date
+          title: Day
+          description: Day that the note belongs to.
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
+          description: Textual contents of the note.
+        timestamp:
+          $ref: '#/components/schemas/LocalDateTime'
+          description: Timestamp of the note.
+        tags:
+          items:
+            type: string
+          type: array
+          title: Tags
+          description: Selected tags for the tag.
+      type: object
+      required:
+      - id
+      - day
+      - text
+      - timestamp
+      - tags
+      title: TagModel
+      description: 'A TagModel maps to an ASSANote. An ASSANote in ExtAPIV2 is called a Tag
+
+        A TagModel will be populated by data from an ASSANote
+
+        The fields in the TagModel map to fields in an ASSANote'
+    PublicWorkoutSource:
+      type: string
+      enum:
+      - manual
+      - autodetected
+      - confirmed
+      - workout_heart_rate
+      title: PublicWorkoutSource
+      description: Possible workout sources.
+    PublicWorkout:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        activity:
+          type: string
+          title: ''
+          description: Type of the workout activity.
+        calories:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Energy burned in kilocalories during the workout.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day when the workout occurred.
+        distance:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Distance traveled in meters during the workout.
+        end_datetime:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the workout ended.
+        intensity:
+          $ref: '#/components/schemas/PublicWorkoutIntensity'
+          title: ''
+          description: Intensity of the workout.
+        label:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: ''
+          description: User-defined label for the workout.
+        source:
+          $ref: '#/components/schemas/PublicWorkoutSource'
+          title: ''
+          description: Possible workout sources.
+        start_datetime:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the workout started.
+      type: object
+      required:
+      - id
+      - meta
+      - activity
+      - day
+      - end_datetime
+      - intensity
+      - source
+      - start_datetime
+      title: PublicWorkout
+      description: Public model for Workout.
+      x-cloud-only: true
+      x-collection: publicworkout
+      x-owner: movement-squad
+    PublicDailyStressSummary:
+      type: string
+      enum:
+      - restored
+      - normal
+      - stressful
+      title: PublicDailyStressSummary
+      description: Possible public daily stress summary types.
+    MultiDocumentResponse_PublicSession_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicSession'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicSession]
+    PublicSleepTimeRecommendation:
+      type: string
+      enum:
+      - improve_efficiency
+      - earlier_bedtime
+      - later_bedtime
+      - earlier_wake_up_time
+      - later_wake_up_time
+      - follow_optimal_bedtime
+      title: PublicSleepTimeRecommendation
+      description: Possible public SleepTime recommendation.
+    Array_Union_float__NoneType__Bits64_:
+      items:
+        anyOf:
+        - type: number
+        - type: 'null'
+      type: array
+      title: ArrayNullableFloatBits64
+    PublicSleepTime:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Corresponding day for the sleep time.
+        optimal_bedtime:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSleepTimeWindow'
+          - type: 'null'
+          title: ''
+          description: Optimal bedtime.
+        recommendation:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSleepTimeRecommendation'
+          - type: 'null'
+          title: ''
+          description: Recommended action for bedtime.
+        status:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSleepTimeStatus'
+          - type: 'null'
+          title: ''
+          description: Sleep time status; used to inform sleep time recommendation.
+      type: object
+      required:
+      - id
+      - meta
+      - day
+      title: PublicSleepTime
+      description: Suggested bedtime for the user.
+      x-cloud-only: true
+      x-collection: publicsleeptime
+      x-owner: app-platform
     PublicRingBatteryLevelRow:
       properties:
         timestamp:
@@ -3319,52 +3857,106 @@ components:
       x-cloud-only: true
       x-collection: publicdailycardiovascularage
       x-owner: health-squad
-    PublicInterbeatIntervalRow:
+    PublicSession:
       properties:
-        timestamp:
-          $ref: '#/components/schemas/UtcDateTime'
+        id:
+          type: string
+          minLength: 1
           title: ''
-          description: Timestamp of the discrete sample.
-        timestamp_unix:
-          type: integer
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
           title: ''
-          description: Timestamp of the discrete sample as unix time in milliseconds.
-        ibi:
-          type: integer
+          description: Meta data of the object.
+        day:
+          $ref: '#/components/schemas/ISODate'
           title: ''
-          description: Time between two consecutive beats of the heart, in milliseconds. Maximum value limited to 2000ms.
-        validity:
-          type: integer
+          description: The date when the session occurred.
+        end_datetime:
+          $ref: '#/components/schemas/LocalizedDateTime'
           title: ''
-          description: 'Validation classification: 1=Good,2=Bad,3=Corrected,-1/-2=Gap, 0=Raw(Uncorrected). The validity indicates
-
-            whether the data in this row is trustworthy. Gap: indicates that there was no available ppg signal in the
-
-            past seconds, which makes it impossible to compute the IBI for this row. Corrected: In rare cases the ring
-
-            algorithm produces artifacts that can be corrected during post-processing. An example is the ring algo
-
-            generating two IBI events when there should be a single one. If the IBI value was fixed in post-processing,
-
-            it will have this validity classification. If the IBI value was not fixed, it will have the Raw classification.'
+          description: Timestamp indicating when the Moment ended.
+        heart_rate:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSample'
+          - type: 'null'
+          title: ''
+          description: Recorded heart rate samples during the Moment.
+        heart_rate_variability:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSample'
+          - type: 'null'
+          title: ''
+          description: Recorded heart rate variability samples during the Moment.
+        mood:
+          anyOf:
+          - $ref: '#/components/schemas/PublicMomentMood'
+          - type: 'null'
+          title: ''
+          description: User-selected mood for the Moment.
+        motion_count:
+          anyOf:
+          - $ref: '#/components/schemas/PublicSample'
+          - type: 'null'
+          title: ''
+          description: Recorded motion count samples during the Moment.
+        start_datetime:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the Moment ended.
+        type:
+          $ref: '#/components/schemas/PublicMomentType'
+          title: ''
+          description: Type of the Moment.
       type: object
       required:
-      - timestamp
-      - timestamp_unix
-      - ibi
-      - validity
-      title: PublicInterbeatIntervalRow
-      description: Discrete interbeat interval
+      - id
+      - meta
+      - day
+      - end_datetime
+      - start_datetime
+      - type
+      title: PublicSession
+      description: Public model defining a recorded Session.
       x-cloud-only: true
-      x-collection: publicinterbeatinterval
-      x-owner: app-platform
-    Array_Union_float__NoneType__Bits64_:
-      items:
-        anyOf:
-        - type: number
-        - type: 'null'
-      type: array
-      title: ArrayNullableFloatBits64
+      x-collection: publicsession
+      x-owner: health-squad
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
+    LocalizedDateTime:
+      type: string
+    MultiDocumentResponse_PublicVO2Max_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicVO2Max'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicVO2Max]
     PublicModifiedSleepModel:
       properties:
         id:
@@ -3594,242 +4186,110 @@ components:
       x-cloud-only: true
       x-collection: publicsleepmodel
       x-owner: health-squad
-    MultiDocumentResponse_PublicSession_:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            $ref: '#/components/schemas/PublicSession'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicSession]
-    PublicWorkout:
+      title: HTTPValidationError
+    PublicActivityContributors:
       properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        activity:
-          type: string
-          title: ''
-          description: Type of the workout activity.
-        calories:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Energy burned in kilocalories during the workout.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day when the workout occurred.
-        distance:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Distance traveled in meters during the workout.
-        end_datetime:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the workout ended.
-        intensity:
-          $ref: '#/components/schemas/PublicWorkoutIntensity'
-          title: ''
-          description: Intensity of the workout.
-        label:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: ''
-          description: User-defined label for the workout.
-        source:
-          $ref: '#/components/schemas/PublicWorkoutSource'
-          title: ''
-          description: Possible workout sources.
-        start_datetime:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the workout started.
-      type: object
-      required:
-      - id
-      - meta
-      - activity
-      - day
-      - end_datetime
-      - intensity
-      - source
-      - start_datetime
-      title: PublicWorkout
-      description: Public model for Workout.
-      x-cloud-only: true
-      x-collection: publicworkout
-      x-owner: movement-squad
-    MultiDocumentResponse_EnhancedTagModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/EnhancedTagModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[EnhancedTagModel]
-    PublicReadiness:
-      properties:
-        contributors:
-          $ref: '#/components/schemas/PublicReadinessContributors'
-          title: ''
-          description: Contributors of the readiness score.
-        score:
+        meet_daily_targets:
           anyOf:
           - type: integer
           - type: 'null'
           title: ''
-          description: Readiness score in range [1, 100].
-        temperature_deviation:
+          description: Contribution of meeting previous 7-day daily activity targets in range [1, 100].
+        move_every_hour:
           anyOf:
-          - type: number
+          - type: integer
           - type: 'null'
           title: ''
-          description: Temperature deviation in degrees Celcius.
-        temperature_trend_deviation:
+          description: Contribution of previous 24-hour inactivity alerts in range [1, 100].
+        recovery_time:
           anyOf:
-          - type: number
+          - type: integer
           - type: 'null'
           title: ''
-          description: Temperature trend deviation in degrees Celcius.
+          description: Contribution of previous 7-day recovery time in range [1, 100].
+        stay_active:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 24-hour activity in range [1, 100].
+        training_frequency:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 7-day exercise frequency in range [1, 100].
+        training_volume:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 7-day exercise volume in range [1, 100].
       type: object
-      required:
-      - contributors
-      title: PublicReadiness
-      description: Object defining readiness.
-    PublicSleepType:
-      type: string
-      enum:
-      - deleted
-      - sleep
-      - long_sleep
-      - late_nap
-      - rest
-      title: PublicSleepType
-      description: 'Possible sleep period types.
-
-        ''deleted'' = deleted sleep by user.
-
-        ''sleep'' = user confirmed sleep / nap, min 15 minutes, max 3 hours, contributes to daily scores
-
-        ''late_nap'' = user confirmed sleep / nap, min 15 minutes, ended after sleep day change (6 pm), contributes to next days daily scores
-
-        ''long_sleep'' = sleep that is long enough (>3h) to automatically contribute to daily scores
-
-        ''rest'' = Falsely detected sleep / nap, rejected in confirm prompt by user'
-    TagModel:
+      title: PublicActivityContributors
+      description: Object defining activity score contributors.
+    EnhancedTagModel:
       properties:
         id:
           type: string
           title: Id
-        day:
-          type: string
-          format: date
-          title: Day
-          description: Day that the note belongs to.
-        text:
+        tag_type_code:
           anyOf:
           - type: string
           - type: 'null'
-          title: Text
-          description: Textual contents of the note.
-        timestamp:
+          title: Tag Type Code
+          description: The unique code of the selected tag type, `NULL` for text-only tags, or `custom` for custom tag types.
+        start_time:
           $ref: '#/components/schemas/LocalDateTime'
-          description: Timestamp of the note.
-        tags:
-          items:
-            type: string
-          type: array
-          title: Tags
-          description: Selected tags for the tag.
+          description: Timestamp of the tag (if no duration) or the start time of the tag (with duration).
+        end_time:
+          anyOf:
+          - $ref: '#/components/schemas/LocalDateTime'
+          - type: 'null'
+          description: Timestamp of the tag's end for events with duration or `NULL` if there is no duration.
+        start_day:
+          type: string
+          format: date
+          title: Start Day
+          description: Day of the tag (if no duration) or the start day of the tag (with duration).
+        end_day:
+          anyOf:
+          - type: string
+            format: date
+          - type: 'null'
+          title: End Day
+          description: Day of the tag's end for events with duration or `NULL` if there is no duration.
+        comment:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Comment
+          description: Additional freeform text on the tag.
+        custom_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Custom Name
+          description: The name of the tag if the tag_type_code is `custom`.
       type: object
       required:
       - id
-      - day
-      - text
-      - timestamp
-      - tags
-      title: TagModel
-      description: 'A TagModel maps to an ASSANote. An ASSANote in ExtAPIV2 is called a Tag
+      - start_time
+      - start_day
+      title: EnhancedTagModel
+      description: 'An EnhancedTagModel maps an ASSATag. An ASSATag in ExtAPIV2 is called a EnhancedTag
 
-        A TagModel will be populated by data from an ASSANote
+        An EnhancedTagModel will be populated by data from an ASSATag
 
-        The fields in the TagModel map to fields in an ASSANote'
-    PublicRestModeEpisode:
-      properties:
-        tags:
-          items:
-            type: string
-          type: array
-          title: ''
-          description: Tags selected for the episode.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the episode occurred.
-      type: object
-      required:
-      - tags
-      - timestamp
-      title: PublicRestModeEpisode
-      description: Object defining a public Rest Mode episode.
-    PublicDailyStressSummary:
-      type: string
-      enum:
-      - restored
-      - normal
-      - stressful
-      title: PublicDailyStressSummary
-      description: Possible public daily stress summary types.
-    PublicHeartRateSource:
-      type: string
-      enum:
-      - awake
-      - workout
-      - rest
-      - sleep
-      - live
-      - session
-      title: PublicHeartRateSource
-      description: Possible heart rate sources.
-    PublicMomentMood:
-      type: string
-      enum:
-      - bad
-      - worse
-      - same
-      - good
-      - great
-      title: PublicMomentMood
-      description: Possible Moment moods.
+        The fields in the EnhancedTagModel map to fields in an ASSATag'
     ValidationError:
       properties:
         loc:
@@ -3851,463 +4311,3 @@ components:
       - msg
       - type
       title: ValidationError
-    MultiDocumentResponse_DailyResilienceModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/DailyResilienceModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[DailyResilienceModel]
-    MultiDocumentResponse_PublicDailyReadiness_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyReadiness'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyReadiness]
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    MultiDocumentResponse_TagModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/TagModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[TagModel]
-    PublicDailyActivity:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        active_calories:
-          type: integer
-          title: ''
-          description: Active calories expended in kilocalories.
-        average_met_minutes:
-          type: number
-          title: ''
-          description: Average MET minutes.
-        class_5_min:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: ''
-          description: '5-minute activity classification for the period where every character corresponds to:
-
-            ''0'' = non wear
-
-            ''1'' = rest
-
-            ''2'' = inactive
-
-            ''3'' = low activity
-
-            ''4'' = medium activity
-
-            ''5'' = high activity
-
-            Example: "001233334555524001".'
-        contributors:
-          $ref: '#/components/schemas/PublicActivityContributors'
-          title: ''
-          description: Object containing activity score contributors.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the daily activity belong to.
-        equivalent_walking_distance:
-          type: integer
-          title: ''
-          description: Equivalent walking distance of energe expenditure in meters.
-        high_activity_met_minutes:
-          type: integer
-          title: ''
-          description: The total METs of each minute classified as high activity.
-        high_activity_time:
-          type: integer
-          title: ''
-          description: The total time in seconds of each minute classified as high activity.
-        inactivity_alerts:
-          type: integer
-          title: ''
-          description: Number of inactivity alerts received.
-        low_activity_met_minutes:
-          type: integer
-          title: ''
-          description: The total METs of each minute classified as low activity.
-        low_activity_time:
-          type: integer
-          title: ''
-          description: The total time in seconds of each minute classified as low activity.
-        medium_activity_met_minutes:
-          type: integer
-          title: ''
-          description: The total METs of each minute classified as medium activity.
-        medium_activity_time:
-          type: integer
-          title: ''
-          description: The total time in seconds of each minute classified as medium activity.
-        met:
-          $ref: '#/components/schemas/PublicSample'
-          title: ''
-          description: Sample containing METs.
-        meters_to_target:
-          type: integer
-          title: ''
-          description: Meters remaining to target.
-        non_wear_time:
-          type: integer
-          title: ''
-          description: Ring non-wear time in seconds.
-        resting_time:
-          type: integer
-          title: ''
-          description: Resting time in seconds.
-        score:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Activity score in range [1, 100].
-        sedentary_met_minutes:
-          type: integer
-          title: ''
-          description: Sedentary MET minutes.
-        sedentary_time:
-          type: integer
-          title: ''
-          description: Sedentary time in seconds.
-        steps:
-          type: integer
-          title: ''
-          description: Total number of steps taken.
-        target_calories:
-          type: integer
-          title: ''
-          description: Daily activity target in kilocalories.
-        target_meters:
-          type: integer
-          title: ''
-          description: Daily activity target in meters.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp of the daily activity.
-        total_calories:
-          type: integer
-          title: ''
-          description: Total calories expended in kilocalories.
-      type: object
-      required:
-      - id
-      - meta
-      - active_calories
-      - average_met_minutes
-      - contributors
-      - day
-      - equivalent_walking_distance
-      - high_activity_met_minutes
-      - high_activity_time
-      - inactivity_alerts
-      - low_activity_met_minutes
-      - low_activity_time
-      - medium_activity_met_minutes
-      - medium_activity_time
-      - met
-      - meters_to_target
-      - non_wear_time
-      - resting_time
-      - sedentary_met_minutes
-      - sedentary_time
-      - steps
-      - target_calories
-      - target_meters
-      - timestamp
-      - total_calories
-      title: PublicDailyActivity
-      description: Object defining a daily activity that is a 24-hour period starting at 4 a.m.
-      x-cloud-only: true
-      x-collection: publicdailyactivity
-      x-owner: movement-squad
-    LongTermResilienceLevel:
-      type: string
-      enum:
-      - limited
-      - adequate
-      - solid
-      - strong
-      - exceptional
-      title: LongTermResilienceLevel
-      description: Possible long term resilience level values.
-    PublicDailyStress:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the daily stress belongs to.
-        day_summary:
-          anyOf:
-          - $ref: '#/components/schemas/PublicDailyStressSummary'
-          - type: 'null'
-          title: ''
-          description: Stress summary of full day.
-        recovery_high:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Time spent in a high recovery zone (bottom quartile data) in seconds.
-        stress_high:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Time spent in a high stress zone (top quartile of data) in seconds.
-      type: object
-      required:
-      - id
-      - meta
-      - day
-      title: PublicDailyStress
-      description: Daily stress.
-      x-cloud-only: true
-      x-collection: publicdailystress
-      x-owner: wellbeing-squad
-    MultiDocumentResponse_PublicDailyCardiovascularAge_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyCardiovascularAge'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyCardiovascularAge]
-    LocalDateTime:
-      type: string
-    ResilienceContributors:
-      properties:
-        sleep_recovery:
-          type: number
-          title: Sleep Recovery
-          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
-        daytime_recovery:
-          type: number
-          title: Daytime Recovery
-          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
-        stress:
-          type: number
-          title: Stress
-          description: 'Stress contributor to the resilience score. Range: [0, 100]'
-      type: object
-      required:
-      - sleep_recovery
-      - daytime_recovery
-      - stress
-      title: ResilienceContributors
-    PublicRingConfiguration:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        color:
-          anyOf:
-          - $ref: '#/components/schemas/PublicRingColor'
-          - type: 'null'
-          title: ''
-          description: Color of the ring.
-        design:
-          anyOf:
-          - $ref: '#/components/schemas/PublicRingDesign'
-          - type: 'null'
-          title: ''
-          description: Design of the ring.
-        firmware_version:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: ''
-          description: Firmware version of the ring.
-        hardware_type:
-          anyOf:
-          - $ref: '#/components/schemas/PublicRingHardwareType'
-          - type: 'null'
-          title: ''
-          description: Hardware type of the ring.
-        set_up_at:
-          anyOf:
-          - $ref: '#/components/schemas/UtcDateTime'
-          - type: 'null'
-          title: ''
-          description: UTC timestamp indicating when the ring was set up.
-        size:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: US size of the ring.
-      type: object
-      required:
-      - id
-      - meta
-      title: PublicRingConfiguration
-      description: Ring configuration.
-      x-cloud-only: true
-      x-collection: publicringconfiguration
-      x-owner: app-platform
-    PublicSession:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: The date when the session occurred.
-        end_datetime:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the Moment ended.
-        heart_rate:
-          anyOf:
-          - $ref: '#/components/schemas/PublicSample'
-          - type: 'null'
-          title: ''
-          description: Recorded heart rate samples during the Moment.
-        heart_rate_variability:
-          anyOf:
-          - $ref: '#/components/schemas/PublicSample'
-          - type: 'null'
-          title: ''
-          description: Recorded heart rate variability samples during the Moment.
-        mood:
-          anyOf:
-          - $ref: '#/components/schemas/PublicMomentMood'
-          - type: 'null'
-          title: ''
-          description: User-selected mood for the Moment.
-        motion_count:
-          anyOf:
-          - $ref: '#/components/schemas/PublicSample'
-          - type: 'null'
-          title: ''
-          description: Recorded motion count samples during the Moment.
-        start_datetime:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the Moment ended.
-        type:
-          $ref: '#/components/schemas/PublicMomentType'
-          title: ''
-          description: Type of the Moment.
-      type: object
-      required:
-      - id
-      - meta
-      - day
-      - end_datetime
-      - start_datetime
-      - type
-      title: PublicSession
-      description: Public model defining a recorded Session.
-      x-cloud-only: true
-      x-collection: publicsession
-      x-owner: health-squad
-    PublicRingDesign:
-      type: string
-      enum:
-      - heritage
-      - balance
-      - balance_diamond
-      - horizon
-      - ceramic
-      title: PublicRingDesign
-      description: Possible ring designs.
-    TimeSeriesResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict

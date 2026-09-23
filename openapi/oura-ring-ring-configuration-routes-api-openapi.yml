@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Ring Configuration Routes API
+  title: Oura Ring Configuration Routes API
   version: '2.0'
 tags:
 - name: Ring Configuration Routes
@@ -128,13 +128,22 @@ paths:
         label: Java
 components:
   schemas:
-    UtcDateTime:
+    PublicRingDesign:
       type: string
-    MultiDocumentResponse_PublicRingConfiguration_:
+      enum:
+      - heritage
+      - balance
+      - balance_diamond
+      - horizon
+      - ceramic
+      title: PublicRingDesign
+      description: Possible ring designs.
+    MultiDocumentResponseDict:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/PublicRingConfiguration'
+            additionalProperties: true
+            type: object
           type: array
           title: Data
         next_token:
@@ -146,63 +155,9 @@ components:
       required:
       - data
       - next_token
-      title: MultiDocumentResponse[PublicRingConfiguration]
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PublicRingHardwareType:
+      title: MultiDocumentResponseDict
+    UtcDateTime:
       type: string
-      enum:
-      - gen1
-      - gen2
-      - gen2m
-      - gen3
-      - gen4
-      title: PublicRingHardwareType
-      description: Possible ring hardware types.
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
     PublicRingConfiguration:
       properties:
         id:
@@ -259,12 +214,11 @@ components:
       x-cloud-only: true
       x-collection: publicringconfiguration
       x-owner: app-platform
-    MultiDocumentResponseDict:
+    MultiDocumentResponse_PublicRingConfiguration_:
       properties:
         data:
           items:
-            additionalProperties: true
-            type: object
+            $ref: '#/components/schemas/PublicRingConfiguration'
           type: array
           title: Data
         next_token:
@@ -276,17 +230,38 @@ components:
       required:
       - data
       - next_token
-      title: MultiDocumentResponseDict
-    PublicRingDesign:
+      title: MultiDocumentResponse[PublicRingConfiguration]
+    PublicRingHardwareType:
       type: string
       enum:
-      - heritage
-      - balance
-      - balance_diamond
-      - horizon
-      - ceramic
-      title: PublicRingDesign
-      description: Possible ring designs.
+      - gen1
+      - gen2
+      - gen2m
+      - gen3
+      - gen4
+      title: PublicRingHardwareType
+      description: Possible ring hardware types.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicRingColor:
       type: string
       enum:
@@ -307,3 +282,28 @@ components:
       - tide
       title: PublicRingColor
       description: Possible ring colors.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.

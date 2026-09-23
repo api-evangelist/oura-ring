@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Oura Daily Activity Routes API
   version: '2.0'
@@ -150,83 +150,24 @@ paths:
         label: Java
 components:
   schemas:
-    ISODate:
-      type: string
-    UtcDateTime:
-      type: string
-    LocalizedDateTime:
-      type: string
-    PublicActivityContributors:
+    MultiDocumentResponseDict:
       properties:
-        meet_daily_targets:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of meeting previous 7-day daily activity targets in range [1, 100].
-        move_every_hour:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 24-hour inactivity alerts in range [1, 100].
-        recovery_time:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 7-day recovery time in range [1, 100].
-        stay_active:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 24-hour activity in range [1, 100].
-        training_frequency:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 7-day exercise frequency in range [1, 100].
-        training_volume:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous 7-day exercise volume in range [1, 100].
-      type: object
-      title: PublicActivityContributors
-      description: Object defining activity score contributors.
-    ValidationError:
-      properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            additionalProperties: true
+            type: object
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
     PublicDailyActivity:
       properties:
         id:
@@ -388,23 +329,90 @@ components:
       x-cloud-only: true
       x-collection: publicdailyactivity
       x-owner: movement-squad
-    MultiDocumentResponse_PublicDailyActivity_:
+    UtcDateTime:
+      type: string
+    Array_Union_float__NoneType__Bits64_:
+      items:
+        anyOf:
+        - type: number
+        - type: 'null'
+      type: array
+      title: ArrayNullableFloatBits64
+    PublicActivityContributors:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyActivity'
-          type: array
-          title: Data
-        next_token:
+        meet_daily_targets:
           anyOf:
-          - type: string
+          - type: integer
           - type: 'null'
-          title: Next Token
+          title: ''
+          description: Contribution of meeting previous 7-day daily activity targets in range [1, 100].
+        move_every_hour:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 24-hour inactivity alerts in range [1, 100].
+        recovery_time:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 7-day recovery time in range [1, 100].
+        stay_active:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 24-hour activity in range [1, 100].
+        training_frequency:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 7-day exercise frequency in range [1, 100].
+        training_volume:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous 7-day exercise volume in range [1, 100].
+      type: object
+      title: PublicActivityContributors
+      description: Object defining activity score contributors.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyActivity]
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    LocalizedDateTime:
+      type: string
+    ISODate:
+      type: string
     PublicSample:
       properties:
         interval:
@@ -426,13 +434,6 @@ components:
       - timestamp
       title: PublicSample
       description: Object defining a recorded sample.
-    Array_Union_float__NoneType__Bits64_:
-      items:
-        anyOf:
-        - type: number
-        - type: 'null'
-      type: array
-      title: ArrayNullableFloatBits64
     Metadata:
       properties:
         updated_at:
@@ -449,12 +450,11 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponseDict:
+    MultiDocumentResponse_PublicDailyActivity_:
       properties:
         data:
           items:
-            additionalProperties: true
-            type: object
+            $ref: '#/components/schemas/PublicDailyActivity'
           type: array
           title: Data
         next_token:
@@ -466,4 +466,4 @@ components:
       required:
       - data
       - next_token
-      title: MultiDocumentResponseDict
+      title: MultiDocumentResponse[PublicDailyActivity]

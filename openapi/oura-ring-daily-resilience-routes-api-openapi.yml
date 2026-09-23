@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Daily Resilience Routes API
+  title: Oura Daily Resilience Routes API
   version: '2.0'
 tags:
 - name: Daily Resilience Routes
@@ -150,6 +150,71 @@ paths:
         label: Java
 components:
   schemas:
+    ResilienceContributors:
+      properties:
+        sleep_recovery:
+          type: number
+          title: Sleep Recovery
+          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
+        daytime_recovery:
+          type: number
+          title: Daytime Recovery
+          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
+        stress:
+          type: number
+          title: Stress
+          description: 'Stress contributor to the resilience score. Range: [0, 100]'
+      type: object
+      required:
+      - sleep_recovery
+      - daytime_recovery
+      - stress
+      title: ResilienceContributors
+    LongTermResilienceLevel:
+      type: string
+      enum:
+      - limited
+      - adequate
+      - solid
+      - strong
+      - exceptional
+      title: LongTermResilienceLevel
+      description: Possible long term resilience level values.
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    MultiDocumentResponse_DailyResilienceModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DailyResilienceModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[DailyResilienceModel]
     DailyResilienceModel:
       properties:
         id:
@@ -173,23 +238,15 @@ components:
       - contributors
       - level
       title: DailyResilienceModel
-    MultiDocumentResponse_DailyResilienceModel_:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            $ref: '#/components/schemas/DailyResilienceModel'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[DailyResilienceModel]
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -211,60 +268,3 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    LongTermResilienceLevel:
-      type: string
-      enum:
-      - limited
-      - adequate
-      - solid
-      - strong
-      - exceptional
-      title: LongTermResilienceLevel
-      description: Possible long term resilience level values.
-    ResilienceContributors:
-      properties:
-        sleep_recovery:
-          type: number
-          title: Sleep Recovery
-          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
-        daytime_recovery:
-          type: number
-          title: Daytime Recovery
-          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
-        stress:
-          type: number
-          title: Stress
-          description: 'Stress contributor to the resilience score. Range: [0, 100]'
-      type: object
-      required:
-      - sleep_recovery
-      - daytime_recovery
-      - stress
-      title: ResilienceContributors
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict

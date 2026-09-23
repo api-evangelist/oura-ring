@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Sleep Routes API
+  title: Oura Sleep Routes API
   version: '2.0'
 tags:
 - name: Sleep Routes
@@ -150,6 +150,42 @@ paths:
         label: Java
 components:
   schemas:
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    UtcDateTime:
+      type: string
+    Array_Union_float__NoneType__Bits64_:
+      items:
+        anyOf:
+        - type: number
+        - type: 'null'
+      type: array
+      title: ArrayNullableFloatBits64
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     PublicReadinessContributors:
       properties:
         activity_balance:
@@ -209,8 +245,6 @@ components:
       type: object
       title: PublicReadinessContributors
       description: Object defining readiness score contributors.
-    ISODate:
-      type: string
     PublicSleepAnalysisReason:
       type: string
       enum:
@@ -218,30 +252,6 @@ components:
       - bedtime_edit
       title: PublicSleepAnalysisReason
       description: Possible sleep analysis reasons.
-    UtcDateTime:
-      type: string
-    LocalizedDateTime:
-      type: string
-    PublicSleepType:
-      type: string
-      enum:
-      - deleted
-      - sleep
-      - long_sleep
-      - late_nap
-      - rest
-      title: PublicSleepType
-      description: 'Possible sleep period types.
-
-        ''deleted'' = deleted sleep by user.
-
-        ''sleep'' = user confirmed sleep / nap, min 15 minutes, max 3 hours, contributes to daily scores
-
-        ''late_nap'' = user confirmed sleep / nap, min 15 minutes, ended after sleep day change (6 pm), contributes to next days daily scores
-
-        ''long_sleep'' = sleep that is long enough (>3h) to automatically contribute to daily scores
-
-        ''rest'' = Falsely detected sleep / nap, rejected in confirm prompt by user'
     ValidationError:
       properties:
         loc:
@@ -263,15 +273,108 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
+    MultiDocumentResponse_PublicModifiedSleepModel_:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/PublicModifiedSleepModel'
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicModifiedSleepModel]
+    PublicSleepAlgorithmVersion:
+      type: string
+      enum:
+      - v1
+      - v2
+      title: PublicSleepAlgorithmVersion
+      description: 'Oura Sleep Staging Algorithms.
+
+        v1 = original aka legacy aka OSSA 1.0,
+
+        v2 = latest sleep algorithm'
+    LocalizedDateTime:
+      type: string
+    PublicReadiness:
+      properties:
+        contributors:
+          $ref: '#/components/schemas/PublicReadinessContributors'
+          title: ''
+          description: Contributors of the readiness score.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Readiness score in range [1, 100].
+        temperature_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature deviation in degrees Celcius.
+        temperature_trend_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature trend deviation in degrees Celcius.
+      type: object
+      required:
+      - contributors
+      title: PublicReadiness
+      description: Object defining readiness.
+    PublicSleepType:
+      type: string
+      enum:
+      - deleted
+      - sleep
+      - long_sleep
+      - late_nap
+      - rest
+      title: PublicSleepType
+      description: 'Possible sleep period types.
+
+        ''deleted'' = deleted sleep by user.
+
+        ''sleep'' = user confirmed sleep / nap, min 15 minutes, max 3 hours, contributes to daily scores
+
+        ''late_nap'' = user confirmed sleep / nap, min 15 minutes, ended after sleep day change (6 pm), contributes to next days daily scores
+
+        ''long_sleep'' = sleep that is long enough (>3h) to automatically contribute to daily scores
+
+        ''rest'' = Falsely detected sleep / nap, rejected in confirm prompt by user'
+    ISODate:
+      type: string
+    PublicSample:
+      properties:
+        interval:
+          type: number
+          title: ''
+          description: Interval in seconds between the sampled items.
+        items:
+          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
+          title: ''
+          description: Recorded sample items.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp when the sample recording started.
+      type: object
+      required:
+      - interval
+      - items
+      - timestamp
+      title: PublicSample
+      description: Object defining a recorded sample.
     PublicModifiedSleepModel:
       properties:
         id:
@@ -501,34 +604,6 @@ components:
       x-cloud-only: true
       x-collection: publicsleepmodel
       x-owner: health-squad
-    PublicSample:
-      properties:
-        interval:
-          type: number
-          title: ''
-          description: Interval in seconds between the sampled items.
-        items:
-          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
-          title: ''
-          description: Recorded sample items.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp when the sample recording started.
-      type: object
-      required:
-      - interval
-      - items
-      - timestamp
-      title: PublicSample
-      description: Object defining a recorded sample.
-    Array_Union_float__NoneType__Bits64_:
-      items:
-        anyOf:
-        - type: number
-        - type: 'null'
-      type: array
-      title: ArrayNullableFloatBits64
     Metadata:
       properties:
         updated_at:
@@ -545,78 +620,3 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    PublicReadiness:
-      properties:
-        contributors:
-          $ref: '#/components/schemas/PublicReadinessContributors'
-          title: ''
-          description: Contributors of the readiness score.
-        score:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Readiness score in range [1, 100].
-        temperature_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature deviation in degrees Celcius.
-        temperature_trend_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature trend deviation in degrees Celcius.
-      type: object
-      required:
-      - contributors
-      title: PublicReadiness
-      description: Object defining readiness.
-    PublicSleepAlgorithmVersion:
-      type: string
-      enum:
-      - v1
-      - v2
-      title: PublicSleepAlgorithmVersion
-      description: 'Oura Sleep Staging Algorithms.
-
-        v1 = original aka legacy aka OSSA 1.0,
-
-        v2 = latest sleep algorithm'
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    MultiDocumentResponse_PublicModifiedSleepModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicModifiedSleepModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicModifiedSleepModel]

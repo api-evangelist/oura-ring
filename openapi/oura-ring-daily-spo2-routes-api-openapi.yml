@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Daily Spo2 Routes API
+  title: Oura Daily Spo2 Routes API
   version: '2.0'
 tags:
 - name: Daily Spo2 Routes
@@ -150,6 +150,37 @@ paths:
         label: Java
 components:
   schemas:
+    PublicSpo2AggregatedValues:
+      properties:
+        average:
+          type: number
+          title: ''
+          description: Average of spo2.
+      type: object
+      required:
+      - average
+      title: PublicSpo2AggregatedValues
+      description: Object defining public spo2 aggregated values.
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    UtcDateTime:
+      type: string
     MultiDocumentResponse_PublicDailySpO2_:
       properties:
         data:
@@ -167,21 +198,15 @@ components:
       - data
       - next_token
       title: MultiDocumentResponse[PublicDailySpO2]
-    PublicSpo2AggregatedValues:
+    HTTPValidationError:
       properties:
-        average:
-          type: number
-          title: ''
-          description: Average of spo2.
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - average
-      title: PublicSpo2AggregatedValues
-      description: Object defining public spo2 aggregated values.
-    ISODate:
-      type: string
-    UtcDateTime:
-      type: string
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -240,15 +265,8 @@ components:
       x-cloud-only: true
       x-collection: publicdailyspo2
       x-owner: health-squad
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    ISODate:
+      type: string
     Metadata:
       properties:
         updated_at:
@@ -265,21 +283,3 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict

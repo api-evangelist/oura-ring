@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Daily Readiness Routes API
+  title: Oura Daily Readiness Routes API
   version: '2.0'
 tags:
 - name: Daily Readiness Routes
@@ -150,6 +150,96 @@ paths:
         label: Java
 components:
   schemas:
+    PublicDailyReadiness:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        contributors:
+          $ref: '#/components/schemas/PublicReadinessContributors'
+          title: ''
+          description: Contributors of the daily readiness score.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the daily readiness belongs to.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Daily readiness score.
+        temperature_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature deviation in degrees Celcius.
+        temperature_trend_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature trend deviation in degrees Celcius.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp of the daily readiness.
+      type: object
+      required:
+      - id
+      - meta
+      - contributors
+      - day
+      - timestamp
+      title: PublicDailyReadiness
+      description: Public object defining daily readiness.
+      x-cloud-only: true
+      x-collection: publicdailyreadiness
+      x-owner: health-squad
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    MultiDocumentResponse_PublicDailyReadiness_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyReadiness'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyReadiness]
+    UtcDateTime:
+      type: string
     PublicReadinessContributors:
       properties:
         activity_balance:
@@ -209,65 +299,35 @@ components:
       type: object
       title: PublicReadinessContributors
       description: Object defining readiness score contributors.
-    ISODate:
-      type: string
-    LocalizedDateTime:
-      type: string
-    UtcDateTime:
-      type: string
-    PublicDailyReadiness:
+    Metadata:
       properties:
-        id:
-          type: string
-          minLength: 1
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
           title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
           title: ''
-          description: Meta data of the object.
-        contributors:
-          $ref: '#/components/schemas/PublicReadinessContributors'
-          title: ''
-          description: Contributors of the daily readiness score.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the daily readiness belongs to.
-        score:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Daily readiness score.
-        temperature_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature deviation in degrees Celcius.
-        temperature_trend_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature trend deviation in degrees Celcius.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp of the daily readiness.
+          description: Version number of the object.
       type: object
       required:
-      - id
-      - meta
-      - contributors
-      - day
-      - timestamp
-      title: PublicDailyReadiness
-      description: Public object defining daily readiness.
-      x-cloud-only: true
-      x-collection: publicdailyreadiness
-      x-owner: health-squad
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    LocalizedDateTime:
+      type: string
+    ISODate:
+      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -289,63 +349,3 @@ components:
       - msg
       - type
       title: ValidationError
-    MultiDocumentResponse_PublicDailyReadiness_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyReadiness'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyReadiness]
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict

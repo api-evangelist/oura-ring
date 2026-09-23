@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Ring Battery Level Routes API
+  title: Oura Ring Battery Level Routes API
   version: '2.0'
 tags:
 - name: Ring Battery Level Routes
@@ -98,29 +98,24 @@ paths:
         label: Java
 components:
   schemas:
-    UtcDateTime:
-      type: string
-    ValidationError:
+    TimeSeriesResponse_PublicRingBatteryLevelRow_:
       properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - data
+      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
+    UtcDateTime:
+      type: string
     PublicRingBatteryLevelRow:
       properties:
         timestamp:
@@ -157,31 +152,6 @@ components:
       x-cloud-only: true
       x-collection: publicringbatterylevel
       x-owner: app-platform
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    TimeSeriesResponse_PublicRingBatteryLevelRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
     TimeSeriesResponseDict:
       properties:
         data:
@@ -199,3 +169,33 @@ components:
       required:
       - data
       title: TimeSeriesResponseDict
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

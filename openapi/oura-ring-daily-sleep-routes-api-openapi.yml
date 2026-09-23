@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Oura Daily Activity Routes Daily Sleep Routes API
+  title: Oura Daily Sleep Routes API
   version: '2.0'
 tags:
 - name: Daily Sleep Routes
@@ -150,27 +150,6 @@ paths:
         label: Java
 components:
   schemas:
-    ISODate:
-      type: string
-    MultiDocumentResponse_PublicDailySleep_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailySleep'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailySleep]
-    UtcDateTime:
-      type: string
     PublicSleepContributors:
       properties:
         deep_sleep:
@@ -218,38 +197,6 @@ components:
       type: object
       title: PublicSleepContributors
       description: Object defining sleep score contributors.
-    LocalizedDateTime:
-      type: string
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     PublicDailySleep:
       properties:
         id:
@@ -291,22 +238,6 @@ components:
       x-cloud-only: true
       x-collection: publicdailysleep
       x-owner: health-squad
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
     MultiDocumentResponseDict:
       properties:
         data:
@@ -325,3 +256,72 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
+    UtcDateTime:
+      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MultiDocumentResponse_PublicDailySleep_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailySleep'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailySleep]
+    LocalizedDateTime:
+      type: string
+    ISODate:
+      type: string
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
