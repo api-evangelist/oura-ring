@@ -12,8 +12,6 @@ apis:
     url: openapi/oura-ring-daily-activity-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-daily-cardiovascular-age-routes-api
   name: Oura Daily Cardiovascular Age Routes API
   description: >-
@@ -26,8 +24,6 @@ apis:
     url: openapi/oura-ring-daily-cardiovascular-age-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-daily-readiness-routes-api
   name: Oura Daily Readiness Routes API
   description: The Daily Readiness Routes API from Oura — 2 operation(s) for daily readiness routes.
@@ -39,8 +35,6 @@ apis:
     url: openapi/oura-ring-daily-readiness-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-daily-resilience-routes-api
   name: Oura Daily Resilience Routes API
   description: The Daily Resilience Routes API from Oura — 2 operation(s) for daily resilience routes.
@@ -52,8 +46,6 @@ apis:
     url: openapi/oura-ring-daily-resilience-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-daily-sleep-routes-api
   name: Oura Daily Sleep Routes API
   description: The Daily Sleep Routes API from Oura — 2 operation(s) for daily sleep routes.
@@ -65,8 +57,6 @@ apis:
     url: openapi/oura-ring-daily-sleep-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-daily-spo2-routes-api
   name: Oura Daily Spo2 Routes API
   description: The Daily Spo2 Routes API from Oura — 2 operation(s) for daily spo2 routes.
@@ -78,8 +68,6 @@ apis:
     url: openapi/oura-ring-daily-spo2-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-daily-stress-routes-api
   name: Oura Daily Stress Routes API
   description: The Daily Stress Routes API from Oura — 2 operation(s) for daily stress routes.
@@ -91,8 +79,6 @@ apis:
     url: openapi/oura-ring-daily-stress-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-enhanced-tag-routes-api
   name: Oura Enhanced Tag Routes API
   description: The Enhanced Tag Routes API from Oura — 2 operation(s) for enhanced tag routes.
@@ -104,8 +90,6 @@ apis:
     url: openapi/oura-ring-enhanced-tag-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-heart-rate-routes-api
   name: Oura Heart Rate Routes API
   description: The Heart Rate Routes API from Oura — 1 operation(s) for heart rate routes.
@@ -117,8 +101,6 @@ apis:
     url: openapi/oura-ring-heart-rate-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-interbeat-interval-routes-api
   name: Oura Interbeat Interval Routes API
   description: >-
@@ -131,8 +113,6 @@ apis:
     url: openapi/oura-ring-interbeat-interval-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-personal-info-routes-api
   name: Oura Personal Info Routes API
   description: The Personal Info Routes API from Oura — 1 operation(s) for personal info routes.
@@ -144,8 +124,6 @@ apis:
     url: openapi/oura-ring-personal-info-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-rest-mode-period-routes-api
   name: Oura Rest Mode Period Routes API
   description: The Rest Mode Period Routes API from Oura — 2 operation(s) for rest mode period routes.
@@ -157,8 +135,6 @@ apis:
     url: openapi/oura-ring-rest-mode-period-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-ring-battery-level-routes-api
   name: Oura Ring Battery Level Routes API
   description: >-
@@ -171,8 +147,6 @@ apis:
     url: openapi/oura-ring-ring-battery-level-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-ring-configuration-routes-api
   name: Oura Ring Configuration Routes API
   description: >-
@@ -185,8 +159,6 @@ apis:
     url: openapi/oura-ring-ring-configuration-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-sandbox-routes-api
   name: Oura Sandbox Routes API
   description: The Sandbox Routes API from Oura — 35 operation(s) for sandbox routes.
@@ -198,8 +170,6 @@ apis:
     url: openapi/oura-ring-sandbox-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-session-routes-api
   name: Oura Session Routes API
   description: The Session Routes API from Oura — 2 operation(s) for session routes.
@@ -211,8 +181,6 @@ apis:
     url: openapi/oura-ring-session-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-sleep-routes-api
   name: Oura Sleep Routes API
   description: The Sleep Routes API from Oura — 2 operation(s) for sleep routes.
@@ -224,8 +192,6 @@ apis:
     url: openapi/oura-ring-sleep-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-sleep-time-routes-api
   name: Oura Sleep Time Routes API
   description: The Sleep Time Routes API from Oura — 2 operation(s) for sleep time routes.
@@ -237,8 +203,6 @@ apis:
     url: openapi/oura-ring-sleep-time-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-tag-routes-api
   name: Oura Tag Routes API
   description: The Tag Routes API from Oura — 2 operation(s) for tag routes.
@@ -250,8 +214,6 @@ apis:
     url: openapi/oura-ring-tag-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-vo2-max-routes-api
   name: Oura VO2 Max Routes API
   description: The VO2 Max Routes API from Oura — 2 operation(s) for vo2 max routes.
@@ -263,8 +225,6 @@ apis:
     url: openapi/oura-ring-vo2-max-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-webhook-subscription-routes-api
   name: Oura Webhook Subscription Routes API
   description: >-
@@ -277,8 +237,6 @@ apis:
     url: openapi/oura-ring-webhook-subscription-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 - aid: oura-ring:oura-ring-workout-routes-api
   name: Oura Workout Routes API
   description: The Workout Routes API from Oura — 2 operation(s) for workout routes.
@@ -290,8 +248,6 @@ apis:
     url: openapi/oura-ring-workout-routes-api-openapi.yml
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
-  - type: GraphQL
-    url: graphql/oura-ring-graphql.md
 name: Oura
 tags:
 - Activity
