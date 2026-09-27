@@ -98,6 +98,48 @@ paths:
         label: Java
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TimeSeriesResponse_PublicInterbeatIntervalRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
     PublicInterbeatIntervalRow:
       properties:
         timestamp:
@@ -137,50 +179,8 @@ components:
       x-cloud-only: true
       x-collection: publicinterbeatinterval
       x-owner: app-platform
-    TimeSeriesResponse_PublicInterbeatIntervalRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
     UtcDateTime:
       type: string
-    TimeSeriesResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:

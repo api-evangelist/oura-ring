@@ -150,17 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    PublicSpo2AggregatedValues:
+    HTTPValidationError:
       properties:
-        average:
-          type: number
-          title: ''
-          description: Average of spo2.
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - average
-      title: PublicSpo2AggregatedValues
-      description: Object defining public spo2 aggregated values.
+      title: HTTPValidationError
     MultiDocumentResponseDict:
       properties:
         data:
@@ -179,7 +177,34 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    UtcDateTime:
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    PublicSpo2AggregatedValues:
+      properties:
+        average:
+          type: number
+          title: ''
+          description: Average of spo2.
+      type: object
+      required:
+      - average
+      title: PublicSpo2AggregatedValues
+      description: Object defining public spo2 aggregated values.
+    ISODate:
       type: string
     MultiDocumentResponse_PublicDailySpO2_:
       properties:
@@ -198,36 +223,8 @@ components:
       - data
       - next_token
       title: MultiDocumentResponse[PublicDailySpO2]
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+    UtcDateTime:
+      type: string
     PublicDailySpO2:
       properties:
         id:
@@ -265,21 +262,24 @@ components:
       x-cloud-only: true
       x-collection: publicdailyspo2
       x-owner: health-squad
-    ISODate:
-      type: string
-    Metadata:
+    ValidationError:
       properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
+      - loc
+      - msg
+      - type
+      title: ValidationError

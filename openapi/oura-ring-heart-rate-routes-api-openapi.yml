@@ -98,6 +98,26 @@ paths:
         label: Java
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PublicHeartRateSource:
+      type: string
+      enum:
+      - awake
+      - workout
+      - rest
+      - sleep
+      - live
+      - session
+      title: PublicHeartRateSource
+      description: Possible heart rate sources.
     TimeSeriesResponse_PublicHeartRateRow_:
       properties:
         data:
@@ -114,8 +134,6 @@ components:
       required:
       - data
       title: TimeSeriesResponse[PublicHeartRateRow]
-    UtcDateTime:
-      type: string
     PublicHeartRateRow:
       properties:
         timestamp:
@@ -162,26 +180,8 @@ components:
       required:
       - data
       title: TimeSeriesResponseDict
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PublicHeartRateSource:
+    UtcDateTime:
       type: string
-      enum:
-      - awake
-      - workout
-      - rest
-      - sleep
-      - live
-      - session
-      title: PublicHeartRateSource
-      description: Possible heart rate sources.
     ValidationError:
       properties:
         loc:

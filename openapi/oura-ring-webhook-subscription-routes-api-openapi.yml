@@ -201,106 +201,6 @@ paths:
         source: 'curl --location --request PUT ''https://api.ouraring.com/v2/webhook/subscription/renew/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'' --header ''Content-Type: application/json'''
 components:
   schemas:
-    WebhookOperation:
-      type: string
-      enum:
-      - create
-      - update
-      - delete
-      title: WebhookOperation
-    WebhookSubscriptionModel:
-      properties:
-        id:
-          type: string
-          format: uuid4
-          title: Id
-        callback_url:
-          type: string
-          title: Callback Url
-        event_type:
-          $ref: '#/components/schemas/WebhookOperation'
-        data_type:
-          $ref: '#/components/schemas/ExtApiV2DataType'
-        expiration_time:
-          type: string
-          format: date-time
-          title: Expiration Time
-      type: object
-      required:
-      - id
-      - callback_url
-      - event_type
-      - data_type
-      - expiration_time
-      title: WebhookSubscriptionModel
-    ExtApiV2DataType:
-      type: string
-      enum:
-      - tag
-      - enhanced_tag
-      - workout
-      - session
-      - sleep
-      - daily_sleep
-      - daily_readiness
-      - daily_activity
-      - daily_spo2
-      - sleep_time
-      - rest_mode_period
-      - ring_configuration
-      - daily_stress
-      - daily_cycle_phases
-      - activation_status
-      - daily_cardiovascular_age
-      - daily_resilience
-      - vo2_max
-      - period_start
-      - pregnancy
-      - fertile_window
-      - ovulation_confirmed
-      - blood_glucose
-      title: ExtApiV2DataType
-    CreateWebhookSubscriptionRequest:
-      properties:
-        callback_url:
-          type: string
-          title: Callback Url
-        verification_token:
-          type: string
-          title: Verification Token
-        event_type:
-          $ref: '#/components/schemas/WebhookOperation'
-        data_type:
-          $ref: '#/components/schemas/ExtApiV2DataType'
-      type: object
-      required:
-      - callback_url
-      - verification_token
-      - event_type
-      - data_type
-      title: CreateWebhookSubscriptionRequest
-    UpdateWebhookSubscriptionRequest:
-      properties:
-        verification_token:
-          type: string
-          title: Verification Token
-        callback_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Callback Url
-        event_type:
-          anyOf:
-          - $ref: '#/components/schemas/WebhookOperation'
-          - type: 'null'
-        data_type:
-          anyOf:
-          - $ref: '#/components/schemas/ExtApiV2DataType'
-          - type: 'null'
-      type: object
-      required:
-      - verification_token
-      title: UpdateWebhookSubscriptionRequest
     HTTPValidationError:
       properties:
         detail:
@@ -331,3 +231,103 @@ components:
       - msg
       - type
       title: ValidationError
+    CreateWebhookSubscriptionRequest:
+      properties:
+        callback_url:
+          type: string
+          title: Callback Url
+        verification_token:
+          type: string
+          title: Verification Token
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+      type: object
+      required:
+      - callback_url
+      - verification_token
+      - event_type
+      - data_type
+      title: CreateWebhookSubscriptionRequest
+    WebhookSubscriptionModel:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        callback_url:
+          type: string
+          title: Callback Url
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+        expiration_time:
+          type: string
+          format: date-time
+          title: Expiration Time
+      type: object
+      required:
+      - id
+      - callback_url
+      - event_type
+      - data_type
+      - expiration_time
+      title: WebhookSubscriptionModel
+    UpdateWebhookSubscriptionRequest:
+      properties:
+        verification_token:
+          type: string
+          title: Verification Token
+        callback_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Callback Url
+        event_type:
+          anyOf:
+          - $ref: '#/components/schemas/WebhookOperation'
+          - type: 'null'
+        data_type:
+          anyOf:
+          - $ref: '#/components/schemas/ExtApiV2DataType'
+          - type: 'null'
+      type: object
+      required:
+      - verification_token
+      title: UpdateWebhookSubscriptionRequest
+    ExtApiV2DataType:
+      type: string
+      enum:
+      - tag
+      - enhanced_tag
+      - workout
+      - session
+      - sleep
+      - daily_sleep
+      - daily_readiness
+      - daily_activity
+      - daily_spo2
+      - sleep_time
+      - rest_mode_period
+      - ring_configuration
+      - daily_stress
+      - daily_cycle_phases
+      - activation_status
+      - daily_cardiovascular_age
+      - daily_resilience
+      - vo2_max
+      - period_start
+      - pregnancy
+      - fertile_window
+      - ovulation_confirmed
+      - blood_glucose
+      title: ExtApiV2DataType
+    WebhookOperation:
+      type: string
+      enum:
+      - create
+      - update
+      - delete
+      title: WebhookOperation

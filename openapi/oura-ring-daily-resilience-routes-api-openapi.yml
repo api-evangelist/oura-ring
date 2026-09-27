@@ -150,26 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    ResilienceContributors:
+    HTTPValidationError:
       properties:
-        sleep_recovery:
-          type: number
-          title: Sleep Recovery
-          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
-        daytime_recovery:
-          type: number
-          title: Daytime Recovery
-          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
-        stress:
-          type: number
-          title: Stress
-          description: 'Stress contributor to the resilience score. Range: [0, 100]'
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - sleep_recovery
-      - daytime_recovery
-      - stress
-      title: ResilienceContributors
+      title: HTTPValidationError
     LongTermResilienceLevel:
       type: string
       enum:
@@ -238,15 +227,26 @@ components:
       - contributors
       - level
       title: DailyResilienceModel
-    HTTPValidationError:
+    ResilienceContributors:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        sleep_recovery:
+          type: number
+          title: Sleep Recovery
+          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
+        daytime_recovery:
+          type: number
+          title: Daytime Recovery
+          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
+        stress:
+          type: number
+          title: Stress
+          description: 'Stress contributor to the resilience score. Range: [0, 100]'
       type: object
-      title: HTTPValidationError
+      required:
+      - sleep_recovery
+      - daytime_recovery
+      - stress
+      title: ResilienceContributors
     ValidationError:
       properties:
         loc:

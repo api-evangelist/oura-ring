@@ -98,6 +98,32 @@ paths:
         label: Java
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
     TimeSeriesResponse_PublicRingBatteryLevelRow_:
       properties:
         data:
@@ -114,8 +140,6 @@ components:
       required:
       - data
       title: TimeSeriesResponse[PublicRingBatteryLevelRow]
-    UtcDateTime:
-      type: string
     PublicRingBatteryLevelRow:
       properties:
         timestamp:
@@ -152,32 +176,8 @@ components:
       x-cloud-only: true
       x-collection: publicringbatterylevel
       x-owner: app-platform
-    TimeSeriesResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    UtcDateTime:
+      type: string
     ValidationError:
       properties:
         loc:

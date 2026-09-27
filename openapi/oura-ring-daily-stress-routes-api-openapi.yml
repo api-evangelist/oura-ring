@@ -150,14 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    PublicDailyStressSummary:
-      type: string
-      enum:
-      - restored
-      - normal
-      - stressful
-      title: PublicDailyStressSummary
-      description: Possible public daily stress summary types.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     MultiDocumentResponseDict:
       properties:
         data:
@@ -176,25 +177,6 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    MultiDocumentResponse_PublicDailyStress_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyStress'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyStress]
-    UtcDateTime:
-      type: string
     Metadata:
       properties:
         updated_at:
@@ -211,6 +193,8 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
+    ISODate:
+      type: string
     PublicDailyStress:
       properties:
         id:
@@ -254,17 +238,33 @@ components:
       x-cloud-only: true
       x-collection: publicdailystress
       x-owner: wellbeing-squad
-    ISODate:
-      type: string
-    HTTPValidationError:
+    MultiDocumentResponse_PublicDailyStress_:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/PublicDailyStress'
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyStress]
+    UtcDateTime:
+      type: string
+    PublicDailyStressSummary:
+      type: string
+      enum:
+      - restored
+      - normal
+      - stressful
+      title: PublicDailyStressSummary
+      description: Possible public daily stress summary types.
     ValidationError:
       properties:
         loc:

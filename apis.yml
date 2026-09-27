@@ -2,6 +2,7 @@ aid: oura-ring
 url: https://raw.githubusercontent.com/api-evangelist/oura-ring/refs/heads/main/apis.yml
 apis:
 - aid: oura-ring:oura-ring-daily-activity-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Activity Routes API
   description: The Daily Activity Routes API from Oura — 2 operation(s) for daily activity routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -13,6 +14,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-daily-cardiovascular-age-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Cardiovascular Age Routes API
   description: >-
     The Daily Cardiovascular Age Routes API from Oura — 2 operation(s) for daily cardiovascular age routes.
@@ -25,6 +27,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-daily-readiness-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Readiness Routes API
   description: The Daily Readiness Routes API from Oura — 2 operation(s) for daily readiness routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -36,6 +39,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-daily-resilience-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Resilience Routes API
   description: The Daily Resilience Routes API from Oura — 2 operation(s) for daily resilience routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -47,6 +51,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-daily-sleep-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Sleep Routes API
   description: The Daily Sleep Routes API from Oura — 2 operation(s) for daily sleep routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -58,6 +63,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-daily-spo2-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Spo2 Routes API
   description: The Daily Spo2 Routes API from Oura — 2 operation(s) for daily spo2 routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -69,6 +75,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-daily-stress-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Daily Stress Routes API
   description: The Daily Stress Routes API from Oura — 2 operation(s) for daily stress routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -80,6 +87,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-enhanced-tag-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Enhanced Tag Routes API
   description: The Enhanced Tag Routes API from Oura — 2 operation(s) for enhanced tag routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -91,6 +99,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-heart-rate-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Heart Rate Routes API
   description: The Heart Rate Routes API from Oura — 1 operation(s) for heart rate routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -102,6 +111,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-interbeat-interval-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Interbeat Interval Routes API
   description: >-
     The Interbeat Interval Routes API from Oura — 1 operation(s) for interbeat interval routes.
@@ -114,6 +124,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-personal-info-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Personal Info Routes API
   description: The Personal Info Routes API from Oura — 1 operation(s) for personal info routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -125,6 +136,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-rest-mode-period-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Rest Mode Period Routes API
   description: The Rest Mode Period Routes API from Oura — 2 operation(s) for rest mode period routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -136,6 +148,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-ring-battery-level-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Ring Battery Level Routes API
   description: >-
     The Ring Battery Level Routes API from Oura — 1 operation(s) for ring battery level routes.
@@ -148,6 +161,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-ring-configuration-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Ring Configuration Routes API
   description: >-
     The Ring Configuration Routes API from Oura — 2 operation(s) for ring configuration routes.
@@ -160,6 +174,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-sandbox-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Sandbox Routes API
   description: The Sandbox Routes API from Oura — 35 operation(s) for sandbox routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -171,6 +186,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-session-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Session Routes API
   description: The Session Routes API from Oura — 2 operation(s) for session routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -182,6 +198,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-sleep-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Sleep Routes API
   description: The Sleep Routes API from Oura — 2 operation(s) for sleep routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -193,6 +210,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-sleep-time-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Sleep Time Routes API
   description: The Sleep Time Routes API from Oura — 2 operation(s) for sleep time routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -204,6 +222,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-tag-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Tag Routes API
   description: The Tag Routes API from Oura — 2 operation(s) for tag routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -215,6 +234,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-vo2-max-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura VO2 Max Routes API
   description: The VO2 Max Routes API from Oura — 2 operation(s) for vo2 max routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -226,6 +246,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-webhook-subscription-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Webhook Subscription Routes API
   description: >-
     The Webhook Subscription Routes API from Oura — 3 operation(s) for webhook subscription routes.
@@ -238,6 +259,7 @@ apis:
   - type: Documentation
     url: https://cloud.ouraring.com/v2/docs
 - aid: oura-ring:oura-ring-workout-routes-api
+  baseURL: https://api.ouraring.com/v2
   name: Oura Workout Routes API
   description: The Workout Routes API from Oura — 2 operation(s) for workout routes.
   humanURL: https://cloud.ouraring.com/v2/docs
@@ -266,6 +288,8 @@ tags:
 - Wearables
 - Wellness
 - Women's Health
+- Heart Rate
+- Smart Ring
 kind: contract
 deliveryModel:
   model: saas

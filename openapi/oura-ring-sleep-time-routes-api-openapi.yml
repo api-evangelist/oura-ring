@@ -150,11 +150,21 @@ paths:
         label: Java
 components:
   schemas:
-    MultiDocumentResponse_PublicSleepTime_:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MultiDocumentResponseDict:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/PublicSleepTime'
+            additionalProperties: true
+            type: object
           type: array
           title: Data
         next_token:
@@ -166,7 +176,23 @@ components:
       required:
       - data
       - next_token
-      title: MultiDocumentResponse[PublicSleepTime]
+      title: MultiDocumentResponseDict
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
     PublicSleepTimeWindow:
       properties:
         day_tz:
@@ -188,24 +214,16 @@ components:
       - start_offset
       title: PublicSleepTimeWindow
       description: Object defining sleep time window
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
+    PublicSleepTimeStatus:
+      type: string
+      enum:
+      - not_enough_nights
+      - not_enough_recent_nights
+      - bad_sleep_quality
+      - only_recommended_found
+      - optimal_found
+      title: PublicSleepTimeStatus
+      description: Possible public SleepTime status.
     PublicSleepTimeRecommendation:
       type: string
       enum:
@@ -217,8 +235,25 @@ components:
       - follow_optimal_bedtime
       title: PublicSleepTimeRecommendation
       description: Possible public SleepTime recommendation.
-    UtcDateTime:
+    ISODate:
       type: string
+    MultiDocumentResponse_PublicSleepTime_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicSleepTime'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicSleepTime]
     PublicSleepTime:
       properties:
         id:
@@ -262,15 +297,8 @@ components:
       x-cloud-only: true
       x-collection: publicsleeptime
       x-owner: app-platform
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    UtcDateTime:
+      type: string
     ValidationError:
       properties:
         loc:
@@ -292,31 +320,3 @@ components:
       - msg
       - type
       title: ValidationError
-    PublicSleepTimeStatus:
-      type: string
-      enum:
-      - not_enough_nights
-      - not_enough_recent_nights
-      - bad_sleep_quality
-      - only_recommended_found
-      - optimal_found
-      title: PublicSleepTimeStatus
-      description: Possible public SleepTime status.
-    ISODate:
-      type: string
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
