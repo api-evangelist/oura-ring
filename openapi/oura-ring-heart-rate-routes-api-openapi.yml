@@ -98,15 +98,6 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     PublicHeartRateSource:
       type: string
       enum:
@@ -118,6 +109,46 @@ components:
       - session
       title: PublicHeartRateSource
       description: Possible heart rate sources.
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UtcDateTime:
+      type: string
     TimeSeriesResponse_PublicHeartRateRow_:
       properties:
         data:
@@ -163,43 +194,12 @@ components:
       x-cloud-only: true
       x-collection: publicheartrate
       x-owner: health-squad
-    TimeSeriesResponseDict:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            additionalProperties: true
-            type: object
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
-    UtcDateTime:
-      type: string
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      title: HTTPValidationError

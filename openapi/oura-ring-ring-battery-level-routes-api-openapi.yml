@@ -98,15 +98,6 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     TimeSeriesResponseDict:
       properties:
         data:
@@ -124,22 +115,27 @@ components:
       required:
       - data
       title: TimeSeriesResponseDict
-    TimeSeriesResponse_PublicRingBatteryLevelRow_:
+    ValidationError:
       properties:
-        data:
+        loc:
           items:
-            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - data
-      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicRingBatteryLevelRow:
       properties:
         timestamp:
@@ -178,24 +174,28 @@ components:
       x-owner: app-platform
     UtcDateTime:
       type: string
-    ValidationError:
+    TimeSeriesResponse_PublicRingBatteryLevelRow_:
       properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - data
+      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

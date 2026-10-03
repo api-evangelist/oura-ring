@@ -150,35 +150,6 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    LocalDateTime:
-      type: string
     ValidationError:
       properties:
         loc:
@@ -200,23 +171,6 @@ components:
       - msg
       - type
       title: ValidationError
-    MultiDocumentResponse_EnhancedTagModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/EnhancedTagModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[EnhancedTagModel]
     EnhancedTagModel:
       properties:
         id:
@@ -271,3 +225,49 @@ components:
         An EnhancedTagModel will be populated by data from an ASSATag
 
         The fields in the EnhancedTagModel map to fields in an ASSATag'
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    LocalDateTime:
+      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MultiDocumentResponse_EnhancedTagModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EnhancedTagModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[EnhancedTagModel]

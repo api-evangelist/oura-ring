@@ -98,31 +98,6 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    TimeSeriesResponse_PublicInterbeatIntervalRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
     TimeSeriesResponseDict:
       properties:
         data:
@@ -140,6 +115,27 @@ components:
       required:
       - data
       title: TimeSeriesResponseDict
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicInterbeatIntervalRow:
       properties:
         timestamp:
@@ -181,24 +177,28 @@ components:
       x-owner: app-platform
     UtcDateTime:
       type: string
-    ValidationError:
+    TimeSeriesResponse_PublicInterbeatIntervalRow_:
       properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/PublicInterbeatIntervalRow'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - data
+      title: TimeSeriesResponse[PublicInterbeatIntervalRow]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

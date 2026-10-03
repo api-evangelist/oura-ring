@@ -150,25 +150,27 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    ValidationError:
       properties:
-        detail:
+        loc:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Detail
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
-      title: HTTPValidationError
-    LongTermResilienceLevel:
-      type: string
-      enum:
-      - limited
-      - adequate
-      - solid
-      - strong
-      - exceptional
-      title: LongTermResilienceLevel
-      description: Possible long term resilience level values.
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     MultiDocumentResponseDict:
       properties:
         data:
@@ -187,23 +189,26 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    MultiDocumentResponse_DailyResilienceModel_:
+    ResilienceContributors:
       properties:
-        data:
-          items:
-            $ref: '#/components/schemas/DailyResilienceModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+        sleep_recovery:
+          type: number
+          title: Sleep Recovery
+          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
+        daytime_recovery:
+          type: number
+          title: Daytime Recovery
+          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
+        stress:
+          type: number
+          title: Stress
+          description: 'Stress contributor to the resilience score. Range: [0, 100]'
       type: object
       required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[DailyResilienceModel]
+      - sleep_recovery
+      - daytime_recovery
+      - stress
+      title: ResilienceContributors
     DailyResilienceModel:
       properties:
         id:
@@ -227,44 +232,39 @@ components:
       - contributors
       - level
       title: DailyResilienceModel
-    ResilienceContributors:
+    MultiDocumentResponse_DailyResilienceModel_:
       properties:
-        sleep_recovery:
-          type: number
-          title: Sleep Recovery
-          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
-        daytime_recovery:
-          type: number
-          title: Daytime Recovery
-          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
-        stress:
-          type: number
-          title: Stress
-          description: 'Stress contributor to the resilience score. Range: [0, 100]'
-      type: object
-      required:
-      - sleep_recovery
-      - daytime_recovery
-      - stress
-      title: ResilienceContributors
-    ValidationError:
-      properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/DailyResilienceModel'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - data
+      - next_token
+      title: MultiDocumentResponse[DailyResilienceModel]
+    LongTermResilienceLevel:
+      type: string
+      enum:
+      - limited
+      - adequate
+      - solid
+      - strong
+      - exceptional
+      title: LongTermResilienceLevel
+      description: Possible long term resilience level values.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

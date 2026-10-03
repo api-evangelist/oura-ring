@@ -150,16 +150,49 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    ValidationError:
       properties:
-        detail:
+        loc:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Detail
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
-      title: HTTPValidationError
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     LocalizedDateTime:
+      type: string
+    MultiDocumentResponse_PublicDailySleep_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailySleep'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailySleep]
+    UtcDateTime:
+      type: string
+    ISODate:
       type: string
     MultiDocumentResponseDict:
       properties:
@@ -195,6 +228,47 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
+    PublicDailySleep:
+      properties:
+        id:
+          type: string
+          minLength: 1
+          title: ''
+          description: Unique identifier of the object.
+        meta:
+          $ref: '#/components/schemas/Metadata'
+          title: ''
+          description: Meta data of the object.
+        contributors:
+          $ref: '#/components/schemas/PublicSleepContributors'
+          title: ''
+          description: Contributors for the daily sleep score.
+        day:
+          $ref: '#/components/schemas/ISODate'
+          title: ''
+          description: Day that the daily sleep belongs to.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Daily sleep score.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp of the daily sleep.
+      type: object
+      required:
+      - id
+      - meta
+      - contributors
+      - day
+      - timestamp
+      title: PublicDailySleep
+      description: Public object defining daily sleep.
+      x-cloud-only: true
+      x-collection: publicdailysleep
+      x-owner: health-squad
     PublicSleepContributors:
       properties:
         deep_sleep:
@@ -242,86 +316,12 @@ components:
       type: object
       title: PublicSleepContributors
       description: Object defining sleep score contributors.
-    ValidationError:
+    HTTPValidationError:
       properties:
-        loc:
+        detail:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Detail
       type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    PublicDailySleep:
-      properties:
-        id:
-          type: string
-          minLength: 1
-          title: ''
-          description: Unique identifier of the object.
-        meta:
-          $ref: '#/components/schemas/Metadata'
-          title: ''
-          description: Meta data of the object.
-        contributors:
-          $ref: '#/components/schemas/PublicSleepContributors'
-          title: ''
-          description: Contributors for the daily sleep score.
-        day:
-          $ref: '#/components/schemas/ISODate'
-          title: ''
-          description: Day that the daily sleep belongs to.
-        score:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Daily sleep score.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp of the daily sleep.
-      type: object
-      required:
-      - id
-      - meta
-      - contributors
-      - day
-      - timestamp
-      title: PublicDailySleep
-      description: Public object defining daily sleep.
-      x-cloud-only: true
-      x-collection: publicdailysleep
-      x-owner: health-squad
-    ISODate:
-      type: string
-    UtcDateTime:
-      type: string
-    MultiDocumentResponse_PublicDailySleep_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailySleep'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailySleep]
+      title: HTTPValidationError

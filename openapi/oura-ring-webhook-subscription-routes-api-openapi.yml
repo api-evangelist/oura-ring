@@ -201,55 +201,6 @@ paths:
         source: 'curl --location --request PUT ''https://api.ouraring.com/v2/webhook/subscription/renew/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'' --header ''Content-Type: application/json'''
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    CreateWebhookSubscriptionRequest:
-      properties:
-        callback_url:
-          type: string
-          title: Callback Url
-        verification_token:
-          type: string
-          title: Verification Token
-        event_type:
-          $ref: '#/components/schemas/WebhookOperation'
-        data_type:
-          $ref: '#/components/schemas/ExtApiV2DataType'
-      type: object
-      required:
-      - callback_url
-      - verification_token
-      - event_type
-      - data_type
-      title: CreateWebhookSubscriptionRequest
     WebhookSubscriptionModel:
       properties:
         id:
@@ -275,6 +226,27 @@ components:
       - data_type
       - expiration_time
       title: WebhookSubscriptionModel
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     UpdateWebhookSubscriptionRequest:
       properties:
         verification_token:
@@ -297,6 +269,25 @@ components:
       required:
       - verification_token
       title: UpdateWebhookSubscriptionRequest
+    CreateWebhookSubscriptionRequest:
+      properties:
+        callback_url:
+          type: string
+          title: Callback Url
+        verification_token:
+          type: string
+          title: Verification Token
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+      type: object
+      required:
+      - callback_url
+      - verification_token
+      - event_type
+      - data_type
+      title: CreateWebhookSubscriptionRequest
     ExtApiV2DataType:
       type: string
       enum:
@@ -324,6 +315,15 @@ components:
       - ovulation_confirmed
       - blood_glucose
       title: ExtApiV2DataType
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     WebhookOperation:
       type: string
       enum:

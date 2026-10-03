@@ -150,81 +150,27 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    ValidationError:
       properties:
-        detail:
+        loc:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    PublicSpo2AggregatedValues:
-      properties:
-        average:
-          type: number
-          title: ''
-          description: Average of spo2.
-      type: object
-      required:
-      - average
-      title: PublicSpo2AggregatedValues
-      description: Object defining public spo2 aggregated values.
-    ISODate:
-      type: string
-    MultiDocumentResponse_PublicDailySpO2_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailySpO2'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailySpO2]
-    UtcDateTime:
-      type: string
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicDailySpO2:
       properties:
         id:
@@ -262,24 +208,78 @@ components:
       x-cloud-only: true
       x-collection: publicdailyspo2
       x-owner: health-squad
-    ValidationError:
+    UtcDateTime:
+      type: string
+    PublicSpo2AggregatedValues:
       properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+        average:
+          type: number
+          title: ''
+          description: Average of spo2.
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - average
+      title: PublicSpo2AggregatedValues
+      description: Object defining public spo2 aggregated values.
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    ISODate:
+      type: string
+    MultiDocumentResponse_PublicDailySpO2_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailySpO2'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailySpO2]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

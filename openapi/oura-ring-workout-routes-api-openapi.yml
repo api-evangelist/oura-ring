@@ -150,16 +150,32 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     LocalizedDateTime:
+      type: string
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UtcDateTime:
+      type: string
+    ISODate:
       type: string
     MultiDocumentResponseDict:
       properties:
@@ -195,44 +211,15 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponse_PublicWorkout_:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            $ref: '#/components/schemas/PublicWorkout'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicWorkout]
-    PublicWorkoutIntensity:
-      type: string
-      enum:
-      - easy
-      - moderate
-      - hard
-      title: PublicWorkoutIntensity
-      description: Possible workout intensities.
-    PublicWorkoutSource:
-      type: string
-      enum:
-      - manual
-      - autodetected
-      - confirmed
-      - workout_heart_rate
-      title: PublicWorkoutSource
-      description: Possible workout sources.
-    ISODate:
-      type: string
-    UtcDateTime:
-      type: string
+      title: HTTPValidationError
     PublicWorkout:
       properties:
         id:
@@ -301,24 +288,37 @@ components:
       x-cloud-only: true
       x-collection: publicworkout
       x-owner: movement-squad
-    ValidationError:
+    PublicWorkoutIntensity:
+      type: string
+      enum:
+      - easy
+      - moderate
+      - hard
+      title: PublicWorkoutIntensity
+      description: Possible workout intensities.
+    PublicWorkoutSource:
+      type: string
+      enum:
+      - manual
+      - autodetected
+      - confirmed
+      - workout_heart_rate
+      title: PublicWorkoutSource
+      description: Possible workout sources.
+    MultiDocumentResponse_PublicWorkout_:
       properties:
-        loc:
+        data:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/PublicWorkout'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicWorkout]
