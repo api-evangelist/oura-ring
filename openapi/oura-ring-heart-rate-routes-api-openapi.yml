@@ -98,34 +98,15 @@ paths:
         label: Java
 components:
   schemas:
-    PublicHeartRateSource:
-      type: string
-      enum:
-      - awake
-      - workout
-      - rest
-      - sleep
-      - live
-      - session
-      title: PublicHeartRateSource
-      description: Possible heart rate sources.
-    TimeSeriesResponseDict:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            additionalProperties: true
-            type: object
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -147,8 +128,23 @@ components:
       - msg
       - type
       title: ValidationError
-    UtcDateTime:
-      type: string
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
     TimeSeriesResponse_PublicHeartRateRow_:
       properties:
         data:
@@ -165,6 +161,8 @@ components:
       required:
       - data
       title: TimeSeriesResponse[PublicHeartRateRow]
+    UtcDateTime:
+      type: string
     PublicHeartRateRow:
       properties:
         timestamp:
@@ -194,12 +192,14 @@ components:
       x-cloud-only: true
       x-collection: publicheartrate
       x-owner: health-squad
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    PublicHeartRateSource:
+      type: string
+      enum:
+      - awake
+      - workout
+      - rest
+      - sleep
+      - live
+      - session
+      title: PublicHeartRateSource
+      description: Possible heart rate sources.

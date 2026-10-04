@@ -150,23 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    MultiDocumentResponse_PublicDailyCardiovascularAge_:
+    HTTPValidationError:
       properties:
-        data:
+        detail:
           items:
-            $ref: '#/components/schemas/PublicDailyCardiovascularAge'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
+          title: Detail
       type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyCardiovascularAge]
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -188,10 +180,6 @@ components:
       - msg
       - type
       title: ValidationError
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -226,6 +214,25 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
+    ISODate:
+      type: string
+    MultiDocumentResponse_PublicDailyCardiovascularAge_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyCardiovascularAge'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyCardiovascularAge]
     PublicDailyCardiovascularAge:
       properties:
         id:
@@ -257,12 +264,5 @@ components:
       x-cloud-only: true
       x-collection: publicdailycardiovascularage
       x-owner: health-squad
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    UtcDateTime:
+      type: string

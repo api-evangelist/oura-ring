@@ -150,27 +150,8 @@ paths:
         label: Java
 components:
   schemas:
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+    LocalDateTime:
+      type: string
     EnhancedTagModel:
       properties:
         id:
@@ -225,6 +206,27 @@ components:
         An EnhancedTagModel will be populated by data from an ASSATag
 
         The fields in the EnhancedTagModel map to fields in an ASSATag'
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     MultiDocumentResponseDict:
       properties:
         data:
@@ -243,17 +245,6 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    LocalDateTime:
-      type: string
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     MultiDocumentResponse_EnhancedTagModel_:
       properties:
         data:
@@ -271,3 +262,12 @@ components:
       - data
       - next_token
       title: MultiDocumentResponse[EnhancedTagModel]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

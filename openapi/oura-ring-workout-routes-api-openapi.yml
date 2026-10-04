@@ -150,8 +150,32 @@ paths:
         label: Java
 components:
   schemas:
-    LocalizedDateTime:
-      type: string
+    MultiDocumentResponse_PublicWorkout_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicWorkout'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicWorkout]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -173,10 +197,6 @@ components:
       - msg
       - type
       title: ValidationError
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -195,6 +215,8 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
+    ISODate:
+      type: string
     Metadata:
       properties:
         updated_at:
@@ -211,15 +233,18 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    UtcDateTime:
+      type: string
+    PublicWorkoutIntensity:
+      type: string
+      enum:
+      - easy
+      - moderate
+      - hard
+      title: PublicWorkoutIntensity
+      description: Possible workout intensities.
+    LocalizedDateTime:
+      type: string
     PublicWorkout:
       properties:
         id:
@@ -288,14 +313,6 @@ components:
       x-cloud-only: true
       x-collection: publicworkout
       x-owner: movement-squad
-    PublicWorkoutIntensity:
-      type: string
-      enum:
-      - easy
-      - moderate
-      - hard
-      title: PublicWorkoutIntensity
-      description: Possible workout intensities.
     PublicWorkoutSource:
       type: string
       enum:
@@ -305,20 +322,3 @@ components:
       - workout_heart_rate
       title: PublicWorkoutSource
       description: Possible workout sources.
-    MultiDocumentResponse_PublicWorkout_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicWorkout'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicWorkout]

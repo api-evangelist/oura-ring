@@ -171,6 +171,16 @@ components:
       - msg
       - type
       title: ValidationError
+    LongTermResilienceLevel:
+      type: string
+      enum:
+      - limited
+      - adequate
+      - solid
+      - strong
+      - exceptional
+      title: LongTermResilienceLevel
+      description: Possible long term resilience level values.
     MultiDocumentResponseDict:
       properties:
         data:
@@ -189,6 +199,32 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
+    MultiDocumentResponse_DailyResilienceModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DailyResilienceModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[DailyResilienceModel]
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ResilienceContributors:
       properties:
         sleep_recovery:
@@ -232,39 +268,3 @@ components:
       - contributors
       - level
       title: DailyResilienceModel
-    MultiDocumentResponse_DailyResilienceModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/DailyResilienceModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[DailyResilienceModel]
-    LongTermResilienceLevel:
-      type: string
-      enum:
-      - limited
-      - adequate
-      - solid
-      - strong
-      - exceptional
-      title: LongTermResilienceLevel
-      description: Possible long term resilience level values.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError

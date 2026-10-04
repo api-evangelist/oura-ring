@@ -150,6 +150,15 @@ paths:
         label: Java
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     PublicReadinessContributors:
       properties:
         activity_balance:
@@ -209,8 +218,23 @@ components:
       type: object
       title: PublicReadinessContributors
       description: Object defining readiness score contributors.
-    LocalizedDateTime:
-      type: string
+    MultiDocumentResponse_PublicDailyReadiness_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyReadiness'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyReadiness]
     ValidationError:
       properties:
         loc:
@@ -232,10 +256,6 @@ components:
       - msg
       - type
       title: ValidationError
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -270,23 +290,10 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponse_PublicDailyReadiness_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyReadiness'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyReadiness]
+    ISODate:
+      type: string
+    LocalizedDateTime:
+      type: string
     PublicDailyReadiness:
       properties:
         id:
@@ -340,12 +347,5 @@ components:
       x-cloud-only: true
       x-collection: publicdailyreadiness
       x-owner: health-squad
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    UtcDateTime:
+      type: string

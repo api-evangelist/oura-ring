@@ -150,8 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    LocalizedDateTime:
-      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -173,6 +180,53 @@ components:
       - msg
       - type
       title: ValidationError
+    PublicMomentMood:
+      type: string
+      enum:
+      - bad
+      - worse
+      - same
+      - good
+      - great
+      title: PublicMomentMood
+      description: Possible Moment moods.
+    ISODate:
+      type: string
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    UtcDateTime:
+      type: string
+    MultiDocumentResponse_PublicSession_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicSession'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicSession]
     Array_Union_float__NoneType__Bits64_:
       items:
         anyOf:
@@ -180,10 +234,6 @@ components:
         - type: 'null'
       type: array
       title: ArrayNullableFloatBits64
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -202,6 +252,40 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
+    LocalizedDateTime:
+      type: string
+    PublicMomentType:
+      type: string
+      enum:
+      - breathing
+      - meditation
+      - nap
+      - relaxation
+      - rest
+      - body_status
+      title: PublicMomentType
+      description: Possible Moment types.
+    PublicSample:
+      properties:
+        interval:
+          type: number
+          title: ''
+          description: Interval in seconds between the sampled items.
+        items:
+          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
+          title: ''
+          description: Recorded sample items.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp when the sample recording started.
+      type: object
+      required:
+      - interval
+      - items
+      - timestamp
+      title: PublicSample
+      description: Object defining a recorded sample.
     PublicSession:
       properties:
         id:
@@ -266,87 +350,3 @@ components:
       x-cloud-only: true
       x-collection: publicsession
       x-owner: health-squad
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    MultiDocumentResponse_PublicSession_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicSession'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicSession]
-    PublicMomentMood:
-      type: string
-      enum:
-      - bad
-      - worse
-      - same
-      - good
-      - great
-      title: PublicMomentMood
-      description: Possible Moment moods.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PublicSample:
-      properties:
-        interval:
-          type: number
-          title: ''
-          description: Interval in seconds between the sampled items.
-        items:
-          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
-          title: ''
-          description: Recorded sample items.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp when the sample recording started.
-      type: object
-      required:
-      - interval
-      - items
-      - timestamp
-      title: PublicSample
-      description: Object defining a recorded sample.
-    PublicMomentType:
-      type: string
-      enum:
-      - breathing
-      - meditation
-      - nap
-      - relaxation
-      - rest
-      - body_status
-      title: PublicMomentType
-      description: Possible Moment types.

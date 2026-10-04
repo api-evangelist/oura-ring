@@ -150,8 +150,27 @@ paths:
         label: Java
 components:
   schemas:
-    LocalizedDateTime:
-      type: string
+    PublicSample:
+      properties:
+        interval:
+          type: number
+          title: ''
+          description: Interval in seconds between the sampled items.
+        items:
+          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
+          title: ''
+          description: Recorded sample items.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp when the sample recording started.
+      type: object
+      required:
+      - interval
+      - items
+      - timestamp
+      title: PublicSample
+      description: Object defining a recorded sample.
     PublicActivityContributors:
       properties:
         meet_daily_targets:
@@ -193,6 +212,32 @@ components:
       type: object
       title: PublicActivityContributors
       description: Object defining activity score contributors.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    MultiDocumentResponse_PublicDailyActivity_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicDailyActivity'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyActivity]
     ValidationError:
       properties:
         loc:
@@ -214,17 +259,6 @@ components:
       - msg
       - type
       title: ValidationError
-    Array_Union_float__NoneType__Bits64_:
-      items:
-        anyOf:
-        - type: number
-        - type: 'null'
-      type: array
-      title: ArrayNullableFloatBits64
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -259,32 +293,19 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    MultiDocumentResponse_PublicDailyActivity_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyActivity'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyActivity]
+    UtcDateTime:
+      type: string
+    ISODate:
+      type: string
+    Array_Union_float__NoneType__Bits64_:
+      items:
+        anyOf:
+        - type: number
+        - type: 'null'
+      type: array
+      title: ArrayNullableFloatBits64
+    LocalizedDateTime:
+      type: string
     PublicDailyActivity:
       properties:
         id:
@@ -446,24 +467,3 @@ components:
       x-cloud-only: true
       x-collection: publicdailyactivity
       x-owner: movement-squad
-    PublicSample:
-      properties:
-        interval:
-          type: number
-          title: ''
-          description: Interval in seconds between the sampled items.
-        items:
-          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
-          title: ''
-          description: Recorded sample items.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp when the sample recording started.
-      type: object
-      required:
-      - interval
-      - items
-      - timestamp
-      title: PublicSample
-      description: Object defining a recorded sample.

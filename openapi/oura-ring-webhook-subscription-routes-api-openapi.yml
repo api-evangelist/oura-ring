@@ -201,74 +201,6 @@ paths:
         source: 'curl --location --request PUT ''https://api.ouraring.com/v2/webhook/subscription/renew/5d3fe17b-f880-4d93-b9b6-afbfb76c1e78'' --header ''x-client-id: client-id'' --header ''x-client-secret: client-secret'' --header ''Content-Type: application/json'''
 components:
   schemas:
-    WebhookSubscriptionModel:
-      properties:
-        id:
-          type: string
-          format: uuid4
-          title: Id
-        callback_url:
-          type: string
-          title: Callback Url
-        event_type:
-          $ref: '#/components/schemas/WebhookOperation'
-        data_type:
-          $ref: '#/components/schemas/ExtApiV2DataType'
-        expiration_time:
-          type: string
-          format: date-time
-          title: Expiration Time
-      type: object
-      required:
-      - id
-      - callback_url
-      - event_type
-      - data_type
-      - expiration_time
-      title: WebhookSubscriptionModel
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    UpdateWebhookSubscriptionRequest:
-      properties:
-        verification_token:
-          type: string
-          title: Verification Token
-        callback_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Callback Url
-        event_type:
-          anyOf:
-          - $ref: '#/components/schemas/WebhookOperation'
-          - type: 'null'
-        data_type:
-          anyOf:
-          - $ref: '#/components/schemas/ExtApiV2DataType'
-          - type: 'null'
-      type: object
-      required:
-      - verification_token
-      title: UpdateWebhookSubscriptionRequest
     CreateWebhookSubscriptionRequest:
       properties:
         callback_url:
@@ -315,6 +247,81 @@ components:
       - ovulation_confirmed
       - blood_glucose
       title: ExtApiV2DataType
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    UpdateWebhookSubscriptionRequest:
+      properties:
+        verification_token:
+          type: string
+          title: Verification Token
+        callback_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Callback Url
+        event_type:
+          anyOf:
+          - $ref: '#/components/schemas/WebhookOperation'
+          - type: 'null'
+        data_type:
+          anyOf:
+          - $ref: '#/components/schemas/ExtApiV2DataType'
+          - type: 'null'
+      type: object
+      required:
+      - verification_token
+      title: UpdateWebhookSubscriptionRequest
+    WebhookOperation:
+      type: string
+      enum:
+      - create
+      - update
+      - delete
+      title: WebhookOperation
+    WebhookSubscriptionModel:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        callback_url:
+          type: string
+          title: Callback Url
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+        expiration_time:
+          type: string
+          format: date-time
+          title: Expiration Time
+      type: object
+      required:
+      - id
+      - callback_url
+      - event_type
+      - data_type
+      - expiration_time
+      title: WebhookSubscriptionModel
     HTTPValidationError:
       properties:
         detail:
@@ -324,10 +331,3 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    WebhookOperation:
-      type: string
-      enum:
-      - create
-      - update
-      - delete
-      title: WebhookOperation

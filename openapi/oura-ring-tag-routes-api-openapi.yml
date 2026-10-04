@@ -150,6 +150,25 @@ paths:
         label: Java
 components:
   schemas:
+    LocalDateTime:
+      type: string
+    MultiDocumentResponse_TagModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TagModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[TagModel]
     ValidationError:
       properties:
         loc:
@@ -171,6 +190,24 @@ components:
       - msg
       - type
       title: ValidationError
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
     TagModel:
       properties:
         id:
@@ -209,43 +246,6 @@ components:
         A TagModel will be populated by data from an ASSANote
 
         The fields in the TagModel map to fields in an ASSANote'
-    MultiDocumentResponse_TagModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/TagModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[TagModel]
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    LocalDateTime:
-      type: string
     HTTPValidationError:
       properties:
         detail:

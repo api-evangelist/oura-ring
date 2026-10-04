@@ -150,247 +150,6 @@ paths:
         label: Java
 components:
   schemas:
-    PublicReadinessContributors:
-      properties:
-        activity_balance:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of cumulative activity balance in range [1, 100].
-        body_temperature:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of body temperature in range [1, 100].
-        hrv_balance:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of heart rate variability balance in range [1, 100].
-        previous_day_activity:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous day's activity in range [1, 100].
-        previous_night:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of previous night's sleep in range [1, 100].
-        recovery_index:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of recovery index in range [1, 100].
-        resting_heart_rate:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of resting heart rate in range [1, 100].
-        sleep_balance:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of sleep balance in range [1, 100].
-        sleep_regularity:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Contribution of sleep regularity in range [1, 100].
-      type: object
-      title: PublicReadinessContributors
-      description: Object defining readiness score contributors.
-    PublicReadiness:
-      properties:
-        contributors:
-          $ref: '#/components/schemas/PublicReadinessContributors'
-          title: ''
-          description: Contributors of the readiness score.
-        score:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: ''
-          description: Readiness score in range [1, 100].
-        temperature_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature deviation in degrees Celcius.
-        temperature_trend_deviation:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: ''
-          description: Temperature trend deviation in degrees Celcius.
-      type: object
-      required:
-      - contributors
-      title: PublicReadiness
-      description: Object defining readiness.
-    PublicSleepType:
-      type: string
-      enum:
-      - deleted
-      - sleep
-      - long_sleep
-      - late_nap
-      - rest
-      title: PublicSleepType
-      description: 'Possible sleep period types.
-
-        ''deleted'' = deleted sleep by user.
-
-        ''sleep'' = user confirmed sleep / nap, min 15 minutes, max 3 hours, contributes to daily scores
-
-        ''late_nap'' = user confirmed sleep / nap, min 15 minutes, ended after sleep day change (6 pm), contributes to next days daily scores
-
-        ''long_sleep'' = sleep that is long enough (>3h) to automatically contribute to daily scores
-
-        ''rest'' = Falsely detected sleep / nap, rejected in confirm prompt by user'
-    LocalizedDateTime:
-      type: string
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Array_Union_float__NoneType__Bits64_:
-      items:
-        anyOf:
-        - type: number
-        - type: 'null'
-      type: array
-      title: ArrayNullableFloatBits64
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    MultiDocumentResponse_PublicModifiedSleepModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicModifiedSleepModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicModifiedSleepModel]
-    PublicSleepAlgorithmVersion:
-      type: string
-      enum:
-      - v1
-      - v2
-      title: PublicSleepAlgorithmVersion
-      description: 'Oura Sleep Staging Algorithms.
-
-        v1 = original aka legacy aka OSSA 1.0,
-
-        v2 = latest sleep algorithm'
-    PublicSleepAnalysisReason:
-      type: string
-      enum:
-      - foreground_sleep_analysis
-      - bedtime_edit
-      title: PublicSleepAnalysisReason
-      description: Possible sleep analysis reasons.
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PublicSample:
-      properties:
-        interval:
-          type: number
-          title: ''
-          description: Interval in seconds between the sampled items.
-        items:
-          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
-          title: ''
-          description: Recorded sample items.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp when the sample recording started.
-      type: object
-      required:
-      - interval
-      - items
-      - timestamp
-      title: PublicSample
-      description: Object defining a recorded sample.
     PublicModifiedSleepModel:
       properties:
         id:
@@ -620,3 +379,244 @@ components:
       x-cloud-only: true
       x-collection: publicsleepmodel
       x-owner: health-squad
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    PublicReadinessContributors:
+      properties:
+        activity_balance:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of cumulative activity balance in range [1, 100].
+        body_temperature:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of body temperature in range [1, 100].
+        hrv_balance:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of heart rate variability balance in range [1, 100].
+        previous_day_activity:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous day's activity in range [1, 100].
+        previous_night:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of previous night's sleep in range [1, 100].
+        recovery_index:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of recovery index in range [1, 100].
+        resting_heart_rate:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of resting heart rate in range [1, 100].
+        sleep_balance:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep balance in range [1, 100].
+        sleep_regularity:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Contribution of sleep regularity in range [1, 100].
+      type: object
+      title: PublicReadinessContributors
+      description: Object defining readiness score contributors.
+    MultiDocumentResponse_PublicModifiedSleepModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicModifiedSleepModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicModifiedSleepModel]
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    PublicSleepAlgorithmVersion:
+      type: string
+      enum:
+      - v1
+      - v2
+      title: PublicSleepAlgorithmVersion
+      description: 'Oura Sleep Staging Algorithms.
+
+        v1 = original aka legacy aka OSSA 1.0,
+
+        v2 = latest sleep algorithm'
+    ISODate:
+      type: string
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    UtcDateTime:
+      type: string
+    Array_Union_float__NoneType__Bits64_:
+      items:
+        anyOf:
+        - type: number
+        - type: 'null'
+      type: array
+      title: ArrayNullableFloatBits64
+    PublicSleepAnalysisReason:
+      type: string
+      enum:
+      - foreground_sleep_analysis
+      - bedtime_edit
+      title: PublicSleepAnalysisReason
+      description: Possible sleep analysis reasons.
+    PublicSleepType:
+      type: string
+      enum:
+      - deleted
+      - sleep
+      - long_sleep
+      - late_nap
+      - rest
+      title: PublicSleepType
+      description: 'Possible sleep period types.
+
+        ''deleted'' = deleted sleep by user.
+
+        ''sleep'' = user confirmed sleep / nap, min 15 minutes, max 3 hours, contributes to daily scores
+
+        ''late_nap'' = user confirmed sleep / nap, min 15 minutes, ended after sleep day change (6 pm), contributes to next days daily scores
+
+        ''long_sleep'' = sleep that is long enough (>3h) to automatically contribute to daily scores
+
+        ''rest'' = Falsely detected sleep / nap, rejected in confirm prompt by user'
+    LocalizedDateTime:
+      type: string
+    PublicSample:
+      properties:
+        interval:
+          type: number
+          title: ''
+          description: Interval in seconds between the sampled items.
+        items:
+          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
+          title: ''
+          description: Recorded sample items.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp when the sample recording started.
+      type: object
+      required:
+      - interval
+      - items
+      - timestamp
+      title: PublicSample
+      description: Object defining a recorded sample.
+    PublicReadiness:
+      properties:
+        contributors:
+          $ref: '#/components/schemas/PublicReadinessContributors'
+          title: ''
+          description: Contributors of the readiness score.
+        score:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: ''
+          description: Readiness score in range [1, 100].
+        temperature_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature deviation in degrees Celcius.
+        temperature_trend_deviation:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: ''
+          description: Temperature trend deviation in degrees Celcius.
+      type: object
+      required:
+      - contributors
+      title: PublicReadiness
+      description: Object defining readiness.

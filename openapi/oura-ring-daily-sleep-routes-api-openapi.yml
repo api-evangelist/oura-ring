@@ -150,84 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    ValidationError:
+    HTTPValidationError:
       properties:
-        loc:
+        detail:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+          title: Detail
       type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    LocalizedDateTime:
-      type: string
-    MultiDocumentResponse_PublicDailySleep_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailySleep'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailySleep]
-    UtcDateTime:
-      type: string
-    ISODate:
-      type: string
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
+      title: HTTPValidationError
     PublicDailySleep:
       properties:
         id:
@@ -269,6 +200,63 @@ components:
       x-cloud-only: true
       x-collection: publicdailysleep
       x-owner: health-squad
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    ISODate:
+      type: string
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
     PublicSleepContributors:
       properties:
         deep_sleep:
@@ -316,12 +304,24 @@ components:
       type: object
       title: PublicSleepContributors
       description: Object defining sleep score contributors.
-    HTTPValidationError:
+    LocalizedDateTime:
+      type: string
+    MultiDocumentResponse_PublicDailySleep_:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/PublicDailySleep'
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailySleep]
+    UtcDateTime:
+      type: string

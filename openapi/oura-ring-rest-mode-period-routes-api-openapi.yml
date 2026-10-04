@@ -150,8 +150,15 @@ paths:
         label: Java
 components:
   schemas:
-    LocalizedDateTime:
-      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -173,27 +180,43 @@ components:
       - msg
       - type
       title: ValidationError
-    UtcDateTime:
-      type: string
-    PublicRestModeEpisode:
+    MultiDocumentResponseDict:
       properties:
-        tags:
+        data:
           items:
-            type: string
+            additionalProperties: true
+            type: object
           type: array
-          title: ''
-          description: Tags selected for the episode.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp indicating when the episode occurred.
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
       required:
-      - tags
-      - timestamp
-      title: PublicRestModeEpisode
-      description: Object defining a public Rest Mode episode.
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
     ISODate:
+      type: string
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    LocalizedDateTime:
       type: string
     PublicRestModePeriod:
       properties:
@@ -245,49 +268,8 @@ components:
       x-cloud-only: true
       x-collection: publicrestmodeperiod
       x-owner: health-squad
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+    UtcDateTime:
+      type: string
     MultiDocumentResponse_PublicRestModePeriod_:
       properties:
         data:
@@ -305,3 +287,21 @@ components:
       - data
       - next_token
       title: MultiDocumentResponse[PublicRestModePeriod]
+    PublicRestModeEpisode:
+      properties:
+        tags:
+          items:
+            type: string
+          type: array
+          title: ''
+          description: Tags selected for the episode.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp indicating when the episode occurred.
+      type: object
+      required:
+      - tags
+      - timestamp
+      title: PublicRestModeEpisode
+      description: Object defining a public Rest Mode episode.
