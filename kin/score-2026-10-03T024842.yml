@@ -1,24 +1,22 @@
-# Kin Score artifact — oura-ring — 2026-08-27T103455
+# Kin Score artifact — oura-ring — 2026-10-03T024842
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: oura-ring
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T103455
-  composite: 59.1
-  band: strong
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T024842
+  composite: 53.6
+  band: developing
   facets:
-    discoverability: 64.8
-    contract_quality: 55.9
-    governance: 13.6
-    operational_transparency: 44.7
-    developer_ergonomics: 54.8
-    commercial_clarity: 81.6
+    discoverability: 66.1
+    contract_quality: 49.1
     contract_governance: 13.6
-    access_clarity: 81.6
+    operational_transparency: 42.6
+    developer_ergonomics: 51.2
+    access_clarity: 78.4
   agent_readiness:
-    score: 29.9
+    score: 29.4
     band: agent-ready
     dimensions:
       spec_presence: true
@@ -30,7 +28,7 @@ kin_score:
       error_semantics: verified
       openapi_examples: false
       rate_limit_signal: documented
-      event_surface_described: true
+      event_surface_described: unknown
       agent_skills: false
       well_known_catalog: false
       consent_identity: false
@@ -44,7 +42,7 @@ kin_score:
     applies: true
     regime: Health
     regime_id: health
-    score: 45.0
+    score: 28.1
     matched_via: tags
   provenance:
     agentic_access: derived
