@@ -1,0 +1,12 @@
+{
+ "url": "https://cloud.ouraring.com/v2/static/json/openapi-1.41.json",
+ "requested_url": "https://cloud.ouraring.com/v2/static/json/openapi-1.41.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 454152,
+ "sha256": "a144a3436e9b73da568999fc713257e1d73e12cd3f7024eef45035c9d8f6b557",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.974), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
