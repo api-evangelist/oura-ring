@@ -128,15 +128,43 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    MultiDocumentResponse_PublicRingConfiguration_:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/PublicRingConfiguration'
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicRingConfiguration]
+    PublicRingColor:
+      type: string
+      enum:
+      - brushed_silver
+      - glossy_black
+      - glossy_gold
+      - glossy_white
+      - gucci
+      - matt_gold
+      - rose
+      - silver
+      - stealth_black
+      - titanium
+      - titanium_and_gold
+      - cloud
+      - petal
+      - midnight
+      - tide
+      title: PublicRingColor
+      description: Possible ring colors.
     PublicRingDesign:
       type: string
       enum:
@@ -147,6 +175,27 @@ components:
       - ceramic
       title: PublicRingDesign
       description: Possible ring designs.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicRingConfiguration:
       properties:
         id:
@@ -203,6 +252,32 @@ components:
       x-cloud-only: true
       x-collection: publicringconfiguration
       x-owner: app-platform
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    PublicRingHardwareType:
+      type: string
+      enum:
+      - gen1
+      - gen2
+      - gen2m
+      - gen3
+      - gen4
+      title: PublicRingHardwareType
+      description: Possible ring hardware types.
     MultiDocumentResponseDict:
       properties:
         data:
@@ -221,89 +296,14 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    MultiDocumentResponse_PublicRingConfiguration_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicRingConfiguration'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicRingConfiguration]
     UtcDateTime:
       type: string
-    PublicRingHardwareType:
-      type: string
-      enum:
-      - gen1
-      - gen2
-      - gen2m
-      - gen3
-      - gen4
-      title: PublicRingHardwareType
-      description: Possible ring hardware types.
-    PublicRingColor:
-      type: string
-      enum:
-      - brushed_silver
-      - glossy_black
-      - glossy_gold
-      - glossy_white
-      - gucci
-      - matt_gold
-      - rose
-      - silver
-      - stealth_black
-      - titanium
-      - titanium_and_gold
-      - cloud
-      - petal
-      - midnight
-      - tide
-      title: PublicRingColor
-      description: Possible ring colors.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

@@ -98,6 +98,60 @@ paths:
         label: Java
 components:
   schemas:
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
+    TimeSeriesResponse_PublicRingBatteryLevelRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicRingBatteryLevelRow]
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicRingBatteryLevelRow:
       properties:
         timestamp:
@@ -134,46 +188,8 @@ components:
       x-cloud-only: true
       x-collection: publicringbatterylevel
       x-owner: app-platform
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     UtcDateTime:
       type: string
-    TimeSeriesResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
     HTTPValidationError:
       properties:
         detail:
@@ -183,19 +199,3 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    TimeSeriesResponse_PublicRingBatteryLevelRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicRingBatteryLevelRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicRingBatteryLevelRow]

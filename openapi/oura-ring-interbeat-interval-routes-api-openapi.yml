@@ -98,15 +98,23 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    TimeSeriesResponseDict:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            additionalProperties: true
+            type: object
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      title: TimeSeriesResponseDict
     PublicInterbeatIntervalRow:
       properties:
         timestamp:
@@ -167,23 +175,6 @@ components:
       - msg
       - type
       title: ValidationError
-    TimeSeriesResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
     TimeSeriesResponse_PublicInterbeatIntervalRow_:
       properties:
         data:
@@ -202,3 +193,12 @@ components:
       title: TimeSeriesResponse[PublicInterbeatIntervalRow]
     UtcDateTime:
       type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

@@ -220,6 +220,52 @@ components:
       - event_type
       - data_type
       title: CreateWebhookSubscriptionRequest
+    WebhookSubscriptionModel:
+      properties:
+        id:
+          type: string
+          format: uuid4
+          title: Id
+        callback_url:
+          type: string
+          title: Callback Url
+        event_type:
+          $ref: '#/components/schemas/WebhookOperation'
+        data_type:
+          $ref: '#/components/schemas/ExtApiV2DataType'
+        expiration_time:
+          type: string
+          format: date-time
+          title: Expiration Time
+      type: object
+      required:
+      - id
+      - callback_url
+      - event_type
+      - data_type
+      - expiration_time
+      title: WebhookSubscriptionModel
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     ExtApiV2DataType:
       type: string
       enum:
@@ -247,27 +293,6 @@ components:
       - ovulation_confirmed
       - blood_glucose
       title: ExtApiV2DataType
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     UpdateWebhookSubscriptionRequest:
       properties:
         verification_token:
@@ -297,31 +322,6 @@ components:
       - update
       - delete
       title: WebhookOperation
-    WebhookSubscriptionModel:
-      properties:
-        id:
-          type: string
-          format: uuid4
-          title: Id
-        callback_url:
-          type: string
-          title: Callback Url
-        event_type:
-          $ref: '#/components/schemas/WebhookOperation'
-        data_type:
-          $ref: '#/components/schemas/ExtApiV2DataType'
-        expiration_time:
-          type: string
-          format: date-time
-          title: Expiration Time
-      type: object
-      required:
-      - id
-      - callback_url
-      - event_type
-      - data_type
-      - expiration_time
-      title: WebhookSubscriptionModel
     HTTPValidationError:
       properties:
         detail:

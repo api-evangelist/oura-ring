@@ -98,71 +98,6 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    TimeSeriesResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponseDict
-    TimeSeriesResponse_PublicHeartRateRow_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicHeartRateRow'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      title: TimeSeriesResponse[PublicHeartRateRow]
-    UtcDateTime:
-      type: string
     PublicHeartRateRow:
       properties:
         timestamp:
@@ -192,6 +127,44 @@ components:
       x-cloud-only: true
       x-collection: publicheartrate
       x-owner: health-squad
+    TimeSeriesResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponseDict
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     PublicHeartRateSource:
       type: string
       enum:
@@ -203,3 +176,30 @@ components:
       - session
       title: PublicHeartRateSource
       description: Possible heart rate sources.
+    TimeSeriesResponse_PublicHeartRateRow_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicHeartRateRow'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      title: TimeSeriesResponse[PublicHeartRateRow]
+    UtcDateTime:
+      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

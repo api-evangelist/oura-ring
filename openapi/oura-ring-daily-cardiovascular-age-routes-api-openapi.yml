@@ -150,15 +150,25 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    ISODate:
+      type: string
+    MultiDocumentResponse_PublicDailyCardiovascularAge_:
       properties:
-        detail:
+        data:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/PublicDailyCardiovascularAge'
           type: array
-          title: Detail
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
       type: object
-      title: HTTPValidationError
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicDailyCardiovascularAge]
     ValidationError:
       properties:
         loc:
@@ -180,24 +190,6 @@ components:
       - msg
       - type
       title: ValidationError
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
     Metadata:
       properties:
         updated_at:
@@ -214,25 +206,8 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    ISODate:
+    UtcDateTime:
       type: string
-    MultiDocumentResponse_PublicDailyCardiovascularAge_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicDailyCardiovascularAge'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicDailyCardiovascularAge]
     PublicDailyCardiovascularAge:
       properties:
         id:
@@ -264,5 +239,30 @@ components:
       x-cloud-only: true
       x-collection: publicdailycardiovascularage
       x-owner: health-squad
-    UtcDateTime:
-      type: string
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

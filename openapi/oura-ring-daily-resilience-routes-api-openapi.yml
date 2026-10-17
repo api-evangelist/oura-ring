@@ -150,6 +150,26 @@ paths:
         label: Java
 components:
   schemas:
+    ResilienceContributors:
+      properties:
+        sleep_recovery:
+          type: number
+          title: Sleep Recovery
+          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
+        daytime_recovery:
+          type: number
+          title: Daytime Recovery
+          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
+        stress:
+          type: number
+          title: Stress
+          description: 'Stress contributor to the resilience score. Range: [0, 100]'
+      type: object
+      required:
+      - sleep_recovery
+      - daytime_recovery
+      - stress
+      title: ResilienceContributors
     ValidationError:
       properties:
         loc:
@@ -181,6 +201,23 @@ components:
       - exceptional
       title: LongTermResilienceLevel
       description: Possible long term resilience level values.
+    MultiDocumentResponse_DailyResilienceModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/DailyResilienceModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[DailyResilienceModel]
     MultiDocumentResponseDict:
       properties:
         data:
@@ -199,52 +236,6 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    MultiDocumentResponse_DailyResilienceModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/DailyResilienceModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[DailyResilienceModel]
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ResilienceContributors:
-      properties:
-        sleep_recovery:
-          type: number
-          title: Sleep Recovery
-          description: 'Sleep recovery contributor to the resilience score. Range: [0, 100]'
-        daytime_recovery:
-          type: number
-          title: Daytime Recovery
-          description: 'Daytime recovery contributor to the resilience score. Range: [0, 100]'
-        stress:
-          type: number
-          title: Stress
-          description: 'Stress contributor to the resilience score. Range: [0, 100]'
-      type: object
-      required:
-      - sleep_recovery
-      - daytime_recovery
-      - stress
-      title: ResilienceContributors
     DailyResilienceModel:
       properties:
         id:
@@ -268,3 +259,12 @@ components:
       - contributors
       - level
       title: DailyResilienceModel
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

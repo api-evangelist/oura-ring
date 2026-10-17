@@ -150,15 +150,42 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    PublicSample:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
+        interval:
+          type: number
+          title: ''
+          description: Interval in seconds between the sampled items.
+        items:
+          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
+          title: ''
+          description: Recorded sample items.
+        timestamp:
+          $ref: '#/components/schemas/LocalizedDateTime'
+          title: ''
+          description: Timestamp when the sample recording started.
       type: object
-      title: HTTPValidationError
+      required:
+      - interval
+      - items
+      - timestamp
+      title: PublicSample
+      description: Object defining a recorded sample.
+    LocalizedDateTime:
+      type: string
+    ISODate:
+      type: string
+    PublicMomentType:
+      type: string
+      enum:
+      - breathing
+      - meditation
+      - nap
+      - relaxation
+      - rest
+      - body_status
+      title: PublicMomentType
+      description: Possible Moment types.
     ValidationError:
       properties:
         loc:
@@ -190,8 +217,13 @@ components:
       - great
       title: PublicMomentMood
       description: Possible Moment moods.
-    ISODate:
-      type: string
+    Array_Union_float__NoneType__Bits64_:
+      items:
+        anyOf:
+        - type: number
+        - type: 'null'
+      type: array
+      title: ArrayNullableFloatBits64
     Metadata:
       properties:
         updated_at:
@@ -208,8 +240,6 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    UtcDateTime:
-      type: string
     MultiDocumentResponse_PublicSession_:
       properties:
         data:
@@ -227,13 +257,6 @@ components:
       - data
       - next_token
       title: MultiDocumentResponse[PublicSession]
-    Array_Union_float__NoneType__Bits64_:
-      items:
-        anyOf:
-        - type: number
-        - type: 'null'
-      type: array
-      title: ArrayNullableFloatBits64
     MultiDocumentResponseDict:
       properties:
         data:
@@ -252,40 +275,6 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    LocalizedDateTime:
-      type: string
-    PublicMomentType:
-      type: string
-      enum:
-      - breathing
-      - meditation
-      - nap
-      - relaxation
-      - rest
-      - body_status
-      title: PublicMomentType
-      description: Possible Moment types.
-    PublicSample:
-      properties:
-        interval:
-          type: number
-          title: ''
-          description: Interval in seconds between the sampled items.
-        items:
-          $ref: '#/components/schemas/Array_Union_float__NoneType__Bits64_'
-          title: ''
-          description: Recorded sample items.
-        timestamp:
-          $ref: '#/components/schemas/LocalizedDateTime'
-          title: ''
-          description: Timestamp when the sample recording started.
-      type: object
-      required:
-      - interval
-      - items
-      - timestamp
-      title: PublicSample
-      description: Object defining a recorded sample.
     PublicSession:
       properties:
         id:
@@ -350,3 +339,14 @@ components:
       x-cloud-only: true
       x-collection: publicsession
       x-owner: health-squad
+    UtcDateTime:
+      type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

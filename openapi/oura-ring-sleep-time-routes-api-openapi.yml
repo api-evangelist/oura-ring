@@ -150,53 +150,32 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
+    PublicSleepTimeWindow:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    PublicSleepTimeRecommendation:
-      type: string
-      enum:
-      - improve_efficiency
-      - earlier_bedtime
-      - later_bedtime
-      - earlier_wake_up_time
-      - later_wake_up_time
-      - follow_optimal_bedtime
-      title: PublicSleepTimeRecommendation
-      description: Possible public SleepTime recommendation.
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
+        day_tz:
+          type: integer
+          title: ''
+          description: Timezone offset in second from GMT of the day
+        end_offset:
+          type: integer
+          title: ''
+          description: End offset from midnight in second
+        start_offset:
+          type: integer
+          title: ''
+          description: Start offset from midnight in second
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    MultiDocumentResponseDict:
+      - day_tz
+      - end_offset
+      - start_offset
+      title: PublicSleepTimeWindow
+      description: Object defining sleep time window
+    MultiDocumentResponse_PublicSleepTime_:
       properties:
         data:
           items:
-            additionalProperties: true
-            type: object
+            $ref: '#/components/schemas/PublicSleepTime'
           type: array
           title: Data
         next_token:
@@ -208,25 +187,7 @@ components:
       required:
       - data
       - next_token
-      title: MultiDocumentResponseDict
-    Metadata:
-      properties:
-        updated_at:
-          $ref: '#/components/schemas/UtcDateTime'
-          title: ''
-          description: Timestamp indicating when the object was last updated.
-        version:
-          type: integer
-          title: ''
-          description: Version number of the object.
-      type: object
-      required:
-      - updated_at
-      - version
-      title: Metadata
-      description: Object defining the metadata of a collection model instance.
-    ISODate:
-      type: string
+      title: MultiDocumentResponse[PublicSleepTime]
     PublicSleepTime:
       properties:
         id:
@@ -270,32 +231,72 @@ components:
       x-cloud-only: true
       x-collection: publicsleeptime
       x-owner: app-platform
-    PublicSleepTimeWindow:
+    ISODate:
+      type: string
+    PublicSleepTimeRecommendation:
+      type: string
+      enum:
+      - improve_efficiency
+      - earlier_bedtime
+      - later_bedtime
+      - earlier_wake_up_time
+      - later_wake_up_time
+      - follow_optimal_bedtime
+      title: PublicSleepTimeRecommendation
+      description: Possible public SleepTime recommendation.
+    ValidationError:
       properties:
-        day_tz:
-          type: integer
-          title: ''
-          description: Timezone offset in second from GMT of the day
-        end_offset:
-          type: integer
-          title: ''
-          description: End offset from midnight in second
-        start_offset:
-          type: integer
-          title: ''
-          description: Start offset from midnight in second
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
       type: object
       required:
-      - day_tz
-      - end_offset
-      - start_offset
-      title: PublicSleepTimeWindow
-      description: Object defining sleep time window
-    MultiDocumentResponse_PublicSleepTime_:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    PublicSleepTimeStatus:
+      type: string
+      enum:
+      - not_enough_nights
+      - not_enough_recent_nights
+      - bad_sleep_quality
+      - only_recommended_found
+      - optimal_found
+      title: PublicSleepTimeStatus
+      description: Possible public SleepTime status.
+    Metadata:
+      properties:
+        updated_at:
+          $ref: '#/components/schemas/UtcDateTime'
+          title: ''
+          description: Timestamp indicating when the object was last updated.
+        version:
+          type: integer
+          title: ''
+          description: Version number of the object.
+      type: object
+      required:
+      - updated_at
+      - version
+      title: Metadata
+      description: Object defining the metadata of a collection model instance.
+    MultiDocumentResponseDict:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/PublicSleepTime'
+            additionalProperties: true
+            type: object
           type: array
           title: Data
         next_token:
@@ -307,16 +308,15 @@ components:
       required:
       - data
       - next_token
-      title: MultiDocumentResponse[PublicSleepTime]
+      title: MultiDocumentResponseDict
     UtcDateTime:
       type: string
-    PublicSleepTimeStatus:
-      type: string
-      enum:
-      - not_enough_nights
-      - not_enough_recent_nights
-      - bad_sleep_quality
-      - only_recommended_found
-      - optimal_found
-      title: PublicSleepTimeStatus
-      description: Possible public SleepTime status.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

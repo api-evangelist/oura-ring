@@ -150,36 +150,6 @@ paths:
         label: Java
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     PublicVO2Max:
       properties:
         id:
@@ -215,6 +185,48 @@ components:
       x-cloud-only: true
       x-collection: publicvo2max
       x-owner: health-squad
+    LocalizedDateTime:
+      type: string
+    ISODate:
+      type: string
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    MultiDocumentResponse_PublicVO2Max_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/PublicVO2Max'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[PublicVO2Max]
     Metadata:
       properties:
         updated_at:
@@ -231,8 +243,6 @@ components:
       - version
       title: Metadata
       description: Object defining the metadata of a collection model instance.
-    ISODate:
-      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -251,24 +261,14 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    LocalizedDateTime:
-      type: string
-    MultiDocumentResponse_PublicVO2Max_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/PublicVO2Max'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[PublicVO2Max]
     UtcDateTime:
       type: string
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

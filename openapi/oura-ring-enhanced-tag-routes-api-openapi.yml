@@ -150,8 +150,23 @@ paths:
         label: Java
 components:
   schemas:
-    LocalDateTime:
-      type: string
+    MultiDocumentResponse_EnhancedTagModel_:
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EnhancedTagModel'
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponse[EnhancedTagModel]
     EnhancedTagModel:
       properties:
         id:
@@ -227,6 +242,8 @@ components:
       - msg
       - type
       title: ValidationError
+    LocalDateTime:
+      type: string
     MultiDocumentResponseDict:
       properties:
         data:
@@ -245,23 +262,6 @@ components:
       - data
       - next_token
       title: MultiDocumentResponseDict
-    MultiDocumentResponse_EnhancedTagModel_:
-      properties:
-        data:
-          items:
-            $ref: '#/components/schemas/EnhancedTagModel'
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponse[EnhancedTagModel]
     HTTPValidationError:
       properties:
         detail:

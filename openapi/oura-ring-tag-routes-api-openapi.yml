@@ -150,8 +150,6 @@ paths:
         label: Java
 components:
   schemas:
-    LocalDateTime:
-      type: string
     MultiDocumentResponse_TagModel_:
       properties:
         data:
@@ -190,24 +188,8 @@ components:
       - msg
       - type
       title: ValidationError
-    MultiDocumentResponseDict:
-      properties:
-        data:
-          items:
-            additionalProperties: true
-            type: object
-          type: array
-          title: Data
-        next_token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Next Token
-      type: object
-      required:
-      - data
-      - next_token
-      title: MultiDocumentResponseDict
+    LocalDateTime:
+      type: string
     TagModel:
       properties:
         id:
@@ -246,6 +228,24 @@ components:
         A TagModel will be populated by data from an ASSANote
 
         The fields in the TagModel map to fields in an ASSANote'
+    MultiDocumentResponseDict:
+      properties:
+        data:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+          title: Data
+        next_token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Token
+      type: object
+      required:
+      - data
+      - next_token
+      title: MultiDocumentResponseDict
     HTTPValidationError:
       properties:
         detail:
