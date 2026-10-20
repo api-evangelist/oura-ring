@@ -57,31 +57,6 @@
     - oauth
   status: not-a-workflow
   arazzo: null
-- slug: oura-ring-n8n
-  label: n8n
-  partner: n8n
-  partner_name: n8n
-  type: marketplace
-  marketplace: n8n-nodes-base
-  channel: open-source-node
-  evidence: https://github.com/n8n-io/n8n/tree/860f1273ebd73fabbd668cbec2c49ed9b48a286d/packages/nodes-base/nodes/Oura
-  source: edge
-  relationship: ipaas-bridge
-  contract_reference:
-    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
-    spec_file: null
-    role: ipaas-connector:n8n-nodes-base
-    registered_name: Oura
-    matched_domain: ouraring.com
-    matched_by: domain
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    node_path: Oura
-    trigger: false
-    builder: n8n (built-in node)
-  status: not-a-workflow
-  arazzo: null
 - slug: oura-ring-airbyte
   label: Airbyte
   partner: airbyte
@@ -139,5 +114,30 @@
     quality:
     - silver
     builder: 'community (Meltano Hub variant maintainers: airbyte)'
+  status: not-a-workflow
+  arazzo: null
+- slug: oura-ring-n8n
+  label: n8n
+  partner: n8n
+  partner_name: n8n
+  type: marketplace
+  marketplace: n8n-nodes-base
+  channel: open-source-node
+  evidence: https://github.com/n8n-io/n8n/tree/f73dc337f8dc61a4fd44aebe41c55faafe4f53a4/packages/nodes-base/nodes/Oura
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: n8n built-in nodes (n8n-io/n8n packages/nodes-base)
+    spec_file: null
+    role: ipaas-connector:n8n-nodes-base
+    registered_name: Oura
+    matched_domain: ouraring.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    node_path: Oura
+    trigger: false
+    builder: n8n (built-in node)
   status: not-a-workflow
   arazzo: null
