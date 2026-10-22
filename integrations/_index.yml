@@ -184,3 +184,37 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: oura-ring-obsidian
+  label: Obsidian
+  partner: obsidian
+  partner_name: Obsidian
+  category: Obsidian community plugin
+  type: marketplace
+  marketplace: obsidian-community-plugins
+  channel: community-plugin
+  evidence: https://github.com/kinabalu/obsidian-oura-plugin
+  source: edge
+  relationship: connector-listing
+  contract_reference:
+    register: Obsidian community-plugins.json (obsidianmd/obsidian-releases@793b5211) + plugin repo README / manifest
+      / source
+    spec_file: null
+    role: obsidian-community-plugin:community
+    registered_name: kinabalu
+    register_id: https://github.com/kinabalu/obsidian-oura-plugin
+    matched_domain: ouraring.com
+    matched_by: domain+name-in-listing
+    matched_where: README
+    matched_host: cloud.ouraring.com
+    builder: community
+    plugins:
+    - obsidian-oura-plugin
+    - oura-metrics
+    downloads_context: 6361
+    signal_note: 'ONE edge per provider: a community plugin names the provider in its name/description AND carries
+      the provider''s domain or API host in its README or source. Builder is a named community author (not the provider).
+      Plugin and download counts are context, never counted.'
+    detected_by: sweep-obsidian-community-plugins.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
