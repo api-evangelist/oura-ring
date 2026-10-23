@@ -286,3 +286,9 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+x-provenance:
+  method: harvested
+  publisher: Oura
+  source: https://cloud.ouraring.com/v2/static/json/openapi-1.41.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
